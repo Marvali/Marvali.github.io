@@ -8,7 +8,9 @@ const UI = {
     cta_projects: "Explore projects ↓", cta_cv: "Download CV (PDF)", scroll: "scroll ↓",
     projects_title: "Selected projects", cv_title: "Curriculum",
     contact_title: "Contact", contact_lead: "Open to internships and collaborations.",
-    code: "View code on GitHub ↗", wip: "In progress", nocode: "Course work — no public repository"
+    code: "View code on GitHub ↗", wip: "In progress", nocode: "Course work — no public repository",
+    nav_news: "News", news_title: "News & finds", news_curated: "Picked by me", news_auto: "Trending on GitHub this week",
+    news_updated: "Updated", news_empty: "Nothing new yet — the list refreshes every Monday.", news_open: "Open on GitHub ↗"
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
@@ -18,7 +20,9 @@ const UI = {
     cta_projects: "Explorar proyectos ↓", cta_cv: "Descargar CV (PDF)", scroll: "desliza ↓",
     projects_title: "Proyectos seleccionados", cv_title: "Currículum",
     contact_title: "Contacto", contact_lead: "Abierto a prácticas y colaboraciones.",
-    code: "Ver código en GitHub ↗", wip: "En curso", nocode: "Trabajo académico — sin repositorio público"
+    code: "Ver código en GitHub ↗", wip: "En curso", nocode: "Trabajo académico — sin repositorio público",
+    nav_news: "Noticias", news_title: "Noticias y hallazgos", news_curated: "Selección propia", news_auto: "Tendencias de GitHub esta semana",
+    news_updated: "Actualizado", news_empty: "Todavía nada nuevo: la lista se actualiza cada lunes.", news_open: "Abrir en GitHub ↗"
   }
 };
 
@@ -118,7 +122,7 @@ const PROJECTS = [
 /* CV */
 const CV = {
   en: [
-    { wide: true, h: "Profile", items: [{ t: "Software Development · Cybersecurity · Applied AI", s: "Software developer with an Information Systems Engineering background and hands-on cybersecurity experience. Builds applications end to end in Python, Java and SQL, from REST APIs (FastAPI) and databases to full-stack web apps and applied AI systems. On the security side, background in cyber threat intelligence: OSINT investigations, OPSEC-hardened research environments and systems administration." }] },
+    { wide: true, h: "Profile", items: [{ t: "Software Development · Cybersecurity · Applied AI", s: "I'm a software developer with an Information Systems Engineering background and hands-on cybersecurity experience. I build applications end to end in Python, Java and SQL, from REST APIs (FastAPI) and databases to full-stack web apps and applied AI systems. On the security side, I come from cyber threat intelligence: OSINT investigations, OPSEC-hardened research environments and systems administration. Right now I'm building a secure, on-premise LLM system for confidential document analysis." }] },
     { h: "Education", items: [{ t: "BSc Information Systems Engineering", s: "Universidad de Alcalá · 2022 – 2027 · coursework completed, thesis in progress" }, { t: "Higher Technician, Telecom & Computer Systems", s: "Salesianos de Atocha, Madrid · 2020 – 2022" }] },
     { h: "Experience", items: [{ t: "Cyber Threat Intelligence Intern (OSINT)", s: "Qintegra · 2022 · OSINT monitoring and strategic reports; sock-puppet personas under strict OPSEC (Tails, segregated networks); forensic acquisition fundamentals" }, { t: "IT Technician (Internship)", s: "OpenSpring S.L. / Datatronics · 2022 · VMs, servers, VoIP, technical support" }] },
     { h: "Skills", items: [{ t: "Languages", s: "Python, MATLAB, Java, C++, SQL, Bash, PowerShell, HTML, CSS" }, { t: "Software & systems", s: "OOP, UML, FastAPI, PostgreSQL, Power BI, Linux, Windows, Docker, Git, virtualization, Jira" }, { t: "Security", s: "OSINT & CTI, OPSEC, forensic acquisition fundamentals, network security, Tor, cryptography" }, { t: "AI", s: "Hybrid RAG, local LLM deployment, AI-assisted development (Claude Code, Codex, GitHub Copilot), evolutionary algorithms, k-NN, SVM, neural networks, object detection & tracking" }] },
@@ -126,7 +130,7 @@ const CV = {
     { h: "Languages", items: [{ t: "Spanish", s: "Native" }, { t: "English", s: "B2 spoken/written · C1 reading/listening" }] }
   ],
   es: [
-    { wide: true, h: "Perfil", items: [{ t: "Desarrollo de software · Ciberseguridad · IA aplicada", s: "Desarrollador de software con formación en Ingeniería de Sistemas de Información y experiencia práctica en ciberseguridad. Construye aplicaciones de principio a fin en Python, Java y SQL, desde APIs REST (FastAPI) y bases de datos hasta aplicaciones web full-stack y sistemas de IA aplicada. En seguridad, tiene experiencia en inteligencia de amenazas: investigaciones OSINT, entornos de investigación con OPSEC reforzado y administración de sistemas." }] },
+    { wide: true, h: "Perfil", items: [{ t: "Desarrollo de software · Ciberseguridad · IA aplicada", s: "Soy desarrollador de software, con formación en Ingeniería de Sistemas de Información y experiencia práctica en ciberseguridad. Construyo aplicaciones de principio a fin en Python, Java y SQL, desde APIs REST (FastAPI) y bases de datos hasta aplicaciones web full-stack y sistemas de IA aplicada. En seguridad vengo de la inteligencia de amenazas: investigaciones OSINT, entornos de investigación con OPSEC reforzado y administración de sistemas. Ahora mismo desarrollo un sistema LLM seguro y on-premise para analizar documentos confidenciales." }] },
     { h: "Formación", items: [{ t: "Grado en Ingeniería de Sistemas de Información", s: "Universidad de Alcalá · 2022 – 2027 · asignaturas completadas, TFG en curso" }, { t: "Técnico Superior en Telecomunicaciones e Informática", s: "Salesianos de Atocha, Madrid · 2020 – 2022" }] },
     { h: "Experiencia", items: [{ t: "Becario de Cyber Threat Intelligence (OSINT)", s: "Qintegra · 2022 · monitorización OSINT e informes estratégicos; perfiles sock-puppet con OPSEC estricto (Tails, redes segregadas); fundamentos de adquisición forense" }, { t: "Técnico informático (prácticas)", s: "OpenSpring S.L. / Datatronics · 2022 · VMs, servidores, VoIP, soporte técnico" }] },
     { h: "Habilidades", items: [{ t: "Lenguajes", s: "Python, MATLAB, Java, C++, SQL, Bash, PowerShell, HTML, CSS" }, { t: "Software y sistemas", s: "POO, UML, FastAPI, PostgreSQL, Power BI, Linux, Windows, Docker, Git, virtualización, Jira" }, { t: "Seguridad", s: "OSINT y CTI, OPSEC, fundamentos de adquisición forense, seguridad de redes, Tor, criptografía" }, { t: "IA", s: "RAG híbrido, despliegue de LLM locales, desarrollo asistido por IA (Claude Code, Codex, GitHub Copilot), algoritmos evolutivos, k-NN, SVM, redes neuronales, detección y seguimiento de objetos" }] },
@@ -165,7 +169,39 @@ function render() {
     <div class="cv-block${b.wide ? " wide" : ""}"><h3>${b.h}</h3>
       ${b.items.map(i => `<div class="cv-item"><b>${i.t}</b><span>${i.s}</span></div>`).join("")}
     </div>`).join("");
+  renderNews();
 }
+
+/* ---------- NEWS ---------- */
+let NEWS = null;
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
+
+function renderNews() {
+  const box = $("#newsBox");
+  if (!NEWS) { box.innerHTML = ""; return; }
+  const t = UI[lang];
+  const curated = (NEWS.curated || []).map(n => `
+    <a class="news-card" href="${safeUrl(n.url)}" target="_blank" rel="noopener">
+      <span class="mono">${esc(n.tag)} · ${esc(n.date)}</span>
+      <h3>${esc(n.title)}</h3>
+      <p>${esc((n.note || {})[lang] || (n.note || {}).en)}</p>
+      <span class="proj-link">${t.news_open}</span>
+    </a>`).join("");
+  const auto = (NEWS.auto || []).map(n => `
+    <li><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">
+      <span class="mono">${esc(n.topic)}</span>
+      <b>${esc(n.name)}</b>
+      <span class="news-desc">${esc(n.desc)}</span>
+      <span class="mono stars">★ ${Number(n.stars) || 0}${n.lang ? " · " + esc(n.lang) : ""}</span>
+    </a></li>`).join("");
+  box.innerHTML = `
+    ${curated ? `<h3 class="news-h mono">${t.news_curated}</h3><div class="news-grid">${curated}</div>` : ""}
+    <h3 class="news-h mono">${t.news_auto}${NEWS.updated ? ` · ${t.news_updated} ${esc(NEWS.updated)}` : ""}</h3>
+    ${auto ? `<ul class="news-list">${auto}</ul>` : `<p class="mono">${t.news_empty}</p>`}`;
+}
+
+fetch("news.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).then(j => { NEWS = j; renderNews(); }).catch(() => {});
 
 document.addEventListener("click", e => {
   const head = e.target.closest(".proj-head");

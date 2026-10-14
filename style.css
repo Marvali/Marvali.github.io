@@ -90,6 +90,19 @@ section{padding:70px 0}
 .cv-item span{color:var(--mute);font-size:.88rem}
 .cv-block.wide{grid-column:1/-1}
 .wip{font-family:var(--mono);font-style:normal;font-size:.65rem;border:1px solid var(--accent);color:var(--accent);padding:2px 8px;border-radius:999px;vertical-align:middle;letter-spacing:.04em}
+.news-h{font-weight:400;margin:26px 0 12px;text-transform:uppercase;letter-spacing:.08em}
+.news-grid{display:grid;gap:16px}
+.news-card{display:grid;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.3s}
+.news-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.news-card h3{font-weight:400;font-size:1.35rem;letter-spacing:-.02em}
+.news-card p{max-width:70ch;color:var(--mute)}
+.news-list{list-style:none;border-top:1px solid var(--line)}
+.news-list li{border-bottom:1px solid var(--line)}
+.news-list a{display:grid;grid-template-columns:130px 1fr auto;gap:4px 16px;align-items:baseline;padding:14px 6px;transition:.25s}
+.news-list a:hover{padding-left:16px;color:var(--accent)}
+.news-desc{grid-column:2;color:var(--mute);font-size:.88rem}
+.news-list .stars{grid-row:1;grid-column:3;white-space:nowrap}
+@media(max-width:640px){.news-list a{grid-template-columns:1fr auto}.news-desc{grid-column:1/-1}}
 .links{list-style:none;display:flex;gap:26px;flex-wrap:wrap;margin-top:18px}
 .links a:hover{color:var(--accent)}
 footer{padding-top:40px;padding-bottom:50px;border-top:1px solid var(--line);margin-top:40px}
