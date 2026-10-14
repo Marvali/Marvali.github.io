@@ -44,7 +44,7 @@ const UI = {
 
 const BASE = "https://github.com/Marvali/";
 const PROJECTS = [
-  { hue: 300, wip: true,
+  { hue: 275, wip: true,
     title: { en: "Thesis: Secure On-Premise LLM", es: "TFG: LLM seguro on-premise" },
     tag: { en: "Query confidential documents without data leaving", es: "Consulta documentos confidenciales sin que los datos salgan" },
     desc: {
@@ -54,7 +54,7 @@ const PROJECTS = [
     stats: [["BM25 + dense", { en: "hybrid retrieval", es: "recuperación híbrida" }], ["Access control", { en: "per document, at retrieval", es: "por documento, al recuperar" }], ["ENS · ISO 27001", { en: "aligned with", es: "alineado con" }]],
     stack: ["Local LLMs", "Hybrid RAG", "BM25", "Audit logging", "Prompt-injection testing", "Python"] },
 
-  { repo: "RAG-LLM-", hue: 265,
+  { repo: "RAG-LLM-", hue: 262,
     title: { en: "F1 Regulations RAG", es: "RAG del reglamento de F1" },
     tag: { en: "Ask questions to the 2026 FIA technical rules", es: "Pregunta al reglamento técnico FIA 2026" },
     desc: {
@@ -64,7 +64,7 @@ const PROJECTS = [
     stats: [["FAISS", { en: "vector index", es: "índice vectorial" }], ["MiniLM", { en: "embeddings", es: "embeddings" }], ["Qwen", { en: "local LLM via LM Studio", es: "LLM local con LM Studio" }]],
     stack: ["Python", "FAISS", "Sentence Transformers", "PyPDF", "NumPy", "Pandas", "LM Studio"] },
 
-  { repo: "Vision-Artificial-isaac-diego", hue: 190,
+  { repo: "Vision-Artificial-isaac-diego", hue: 248,
     title: { en: "Pedestrian Detection & Tracking", es: "Detección y seguimiento de peatones" },
     tag: { en: "Classical vision vs. deep learning", es: "Visión clásica frente a deep learning" },
     desc: {
@@ -74,7 +74,7 @@ const PROJECTS = [
     stats: [["ACF vs YOLOv4", { en: "detectors compared", es: "detectores comparados" }], ["Kalman", { en: "+ Hungarian tracking", es: "+ seguimiento húngaro" }], ["IoU · Dice", { en: "evaluation", es: "evaluación" }]],
     stack: ["MATLAB", "YOLOv4", "Kalman filter", "HOG + SVM", "GoogLeNet", "GPU"] },
 
-  { repo: "Trabajos-Softcomp-duoq", hue: 150,
+  { repo: "Trabajos-Softcomp-duoq", hue: 178,
     title: { en: "Evolutionary Algorithms for Wind Farms", es: "Algoritmos evolutivos para parques eólicos" },
     tag: { en: "Soft computing applied to energy", es: "Soft computing aplicado a la energía" },
     desc: {
@@ -84,7 +84,7 @@ const PROJECTS = [
     stats: [["~15×", { en: "Numba speed-up on hot routine", es: "aceleración con Numba" }], ["20×20 · 50×50", { en: "grids, 20 and 50 turbines", es: "mallas, 20 y 50 turbinas" }], ["8760 h", { en: "wind series", es: "serie de viento" }]],
     stack: ["Python", "NumPy", "SciPy", "Numba", "joblib", "Matplotlib", "MATLAB"] },
 
-  { repo: "PL1Paradigmas", hue: 20,
+  { repo: "PL1Paradigmas", hue: 30,
     title: { en: "Concurrent Cookie Factory", es: "Fábrica de galletas concurrente" },
     tag: { en: "Threads, shared resources and RMI", es: "Hilos, recursos compartidos y RMI" },
     desc: {
@@ -94,7 +94,7 @@ const PROJECTS = [
     stats: [["Threads", { en: "synchronized actors", es: "actores sincronizados" }], ["RMI", { en: "remote client", es: "cliente remoto" }], ["1 s", { en: "live refresh", es: "refresco en vivo" }]],
     stack: ["Java 23", "Maven", "Swing", "Java RMI", "Concurrency"] },
 
-  { repo: "Recetas-paginasweb-frontYBack", hue: 350,
+  { repo: "Recetas-paginasweb-frontYBack", hue: 42,
     title: { en: "Recipe Social Network", es: "Red social de recetas" },
     tag: { en: "Full-stack web architecture", es: "Arquitectura web full-stack" },
     desc: {
@@ -104,7 +104,7 @@ const PROJECTS = [
     stats: [["Front + Back", { en: "end to end", es: "de punta a punta" }], ["PostgreSQL", { en: "database", es: "base de datos" }], ["Tomcat", { en: "deployment", es: "despliegue" }]],
     stack: ["HTML5", "CSS3", "JavaScript", "FastAPI", "Java", "Apache Tomcat", "PostgreSQL"] },
 
-  { repo: "Base-de-datos", hue: 215,
+  { repo: "Base-de-datos", hue: 192,
     title: { en: "Cinema Relational Database", es: "Base de datos relacional de cine" },
     tag: { en: "Modeling, triggers and roles in PostgreSQL", es: "Modelado, triggers y roles en PostgreSQL" },
     desc: {
@@ -114,7 +114,7 @@ const PROJECTS = [
     stats: [["~8,000", { en: "rows cleaned", es: "filas depuradas" }], ["Triggers", { en: "audit + avg score", es: "auditoría + media" }], ["4", { en: "permission roles", es: "roles de permisos" }]],
     stack: ["SQL", "PL/pgSQL", "PostgreSQL 12+", "Python", "psycopg2"] },
 
-  { repo: null, hue: 120,
+  { repo: null, hue: 348,
     title: { en: "Post-Quantum Cryptography Demo", es: "Demo de criptografía post-cuántica" },
     tag: { en: "ML-KEM vs RSA-2048", es: "ML-KEM frente a RSA-2048" },
     desc: {
@@ -124,7 +124,7 @@ const PROJECTS = [
     stats: [["Kyber-512", { en: "ML-KEM", es: "ML-KEM" }], ["vs RSA-2048", { en: "compared", es: "comparado" }], ["Apr 2026", { en: "Cryptography, UAH", es: "Criptografía, UAH" }]],
     stack: ["Python", "Kyber", "ML-KEM", "RSA"] },
 
-  { repo: null, hue: 0,
+  { repo: null, hue: 4,
     title: { en: "Tor & OSINT Security Exercises", es: "Ejercicios de seguridad: Tor y OSINT" },
     tag: { en: "Anonymity limits and digital footprints", es: "Límites del anonimato y huella digital" },
     desc: {
@@ -164,11 +164,11 @@ const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
 const pad2 = k => String(k).padStart(2, "0");
 const prevH = box => (box.querySelector(".story") && box.querySelector(".story").style.getPropertyValue("--h")) || 6;
 
-let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null;
+let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "curated";
 // photos for the "Beyond the code" panel (hidden while empty):
 // { src: "assets/photos/mountain.jpg", alt: { en: "…", es: "…" } }
 const PHOTOS = [];
-const FEED_HUE = { curated: 300, cve: 5, ai: 265, cyber: 195, repos: 38, classics: 150 };
+const FEED_HUE = { curated: 38, cve: 4, cyber: 348, ai: 265, repos: 32, classics: 178 };
 const FEED_SRC = {
   cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
   ai: "https://huggingface.co/papers",
@@ -214,24 +214,26 @@ function renderMain() {
       onload="this.parentElement.hidden=false" onerror="this.parentElement.remove()"></figure>` });
 
   panels.push({ id: "projects", label: t.projects_title, hue: 38, cls: "hpanel", html: `
-    <div class="hhead"><h3 class="p-title sm">${t.projects_title}</h3><p class="mono">${t.proj_note}</p></div>
+    <div class="hhead"><h3 class="p-title sm">${t.projects_title}</h3><p class="mono">${t.proj_note} →</p></div>
     <div class="htrack">${PROJECTS.map((p, i) => `
       <button class="pcard" data-i="${i}" style="--hue:${p.hue}">
-        <span class="mono">${pad2(i + 1)}</span>
-        <span class="pc-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</span>
-        <span class="pc-tag">${p.tag[lang]}</span>
-        <span class="pc-go" aria-hidden="true">↗</span>
+        <span class="pc-in">
+          <span class="pc-n">${pad2(i + 1)}</span>
+          <span class="pc-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</span>
+          <span class="pc-tag">${p.tag[lang]}</span>
+          <span class="pc-go" aria-hidden="true">↗</span>
+        </span>
       </button>`).join("")}</div>` });
 
-  const groups = [[0], [1, 2], [3], [4, 5]], hues = [38, 215, 150, 300];
+  const groups = [[0, 1], [2], [3, 4, 5]], hues = [262, 178, 38];
+  const titles = [cv[0].h + join + cv[1].h, cv[2].h, cv[3].h + join + cv[4].h];
   groups.forEach((g, gi) => {
-    const blocks = g.map(k => cv[k]), title = blocks.map(b => b.h).join(join);
-    panels.push({ id: gi === 0 ? "cv" : "cv" + gi, label: title, hue: hues[gi], html: `
-      <div class="p-left"><h3 class="p-title">${title}</h3>
+    panels.push({ id: gi === 0 ? "cv" : "cv" + gi, label: titles[gi], hue: hues[gi], cls: "cvpanel", html: `
+      <div class="p-left"><h3 class="p-title">${titles[gi]}</h3>
         ${gi === groups.length - 1 ? `<a class="btn" href="assets/Isaac_Marval_CV.pdf" download>${t.cta_cv}</a>` : ""}</div>
-      <ul class="srows cvrows">${blocks.map(b =>
-        (blocks.length > 1 ? `<li class="grp mono">${b.h}</li>` : "") +
-        b.items.map(i => `<li><div class="srow plain"><b>${i.t}</b><span class="desc">${i.s}</span></div></li>`).join("")).join("")}</ul>` });
+      <div class="cvcols n${g.length}">${g.map(k => `
+        <div class="cvblk"><h4 class="mono">${cv[k].h}</h4>
+          ${cv[k].items.map(i => `<div class="cvit"><b>${i.t}</b><span>${i.s}</span></div>`).join("")}</div>`).join("")}</div>` });
   });
 
   if (PHOTOS.length) panels.push({ id: "photos", label: t.photos_title, hue: 330, html: `
@@ -279,20 +281,37 @@ function renderNews() {
   if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
   const t = UI[lang], feeds = newsFeeds();
   if (!feeds.length) { box.innerHTML = `<p class="mono">${t.feed_empty}</p>`; return; }
-  const n = feeds.length;
-  storyShell(box, feeds.map((fd, k) => ({
-    id: "news-" + fd.key, label: fd.title, hue: FEED_HUE[fd.key], html: `
-      <div class="p-left">
-        <p class="mono">${pad2(k + 1)} / ${pad2(n)}</p>
-        <h3 class="p-title">${esc(fd.title)}</h3>
-        <p class="mono p-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
-        ${FEED_SRC[fd.key] ? `<a class="p-all" href="${FEED_SRC[fd.key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}
-      </div>
-      <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 5).map(it => `
-        <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
-          <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
-          <b>${it.title}</b><span class="desc">${it.desc}</span>
-        </a></li>`).join("")}</ul>` })), t);
+  if (!feeds.some(f => f.key === newsSel)) newsSel = feeds[0].key;
+  box.innerHTML = `
+    <div class="nwrap">
+      <ul class="nmenu" role="tablist" aria-label="${esc(t.news_title)}">${feeds.map((fd, k) => `
+        <li><button class="nm" role="tab" data-feed="${fd.key}" style="--hue:${FEED_HUE[fd.key]}">
+          <span class="mono">${pad2(k + 1)}</span><span class="nt">${esc(fd.title)}</span><span class="mono nc">${fd.items.length}</span>
+        </button></li>`).join("")}</ul>
+      <div class="ncontent" id="ncontent" role="tabpanel"></div>
+    </div>`;
+  showFeed(newsSel);
+}
+
+function showFeed(key, animate) {
+  const fd = newsFeeds().find(f => f.key === key);
+  if (!fd) return;
+  newsSel = key;
+  const t = UI[lang], wrap = $(".nwrap"), c = $("#ncontent");
+  wrap.style.setProperty("--hue", FEED_HUE[key]);
+  document.querySelectorAll(".nm").forEach(b => {
+    const on = b.dataset.feed === key;
+    b.classList.toggle("on", on); b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1;
+  });
+  c.innerHTML = `
+    <div class="nhead"><p class="mono">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
+      ${FEED_SRC[key] ? `<a class="p-all" href="${FEED_SRC[key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}</div>
+    <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 6).map(it => `
+      <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
+        <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
+        <b>${it.title}</b><span class="desc">${it.desc}</span>
+      </a></li>`).join("")}</ul>`;
+  if (animate) { c.classList.remove("swap"); void c.offsetWidth; c.classList.add("swap"); }
 }
 
 const loadJson = u => fetch(u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
@@ -428,6 +447,9 @@ document.addEventListener("click", e => {
   const card = e.target.closest(".pcard");
   if (card) { openProject(+card.dataset.i, card); return; }
 
+  const nm = e.target.closest(".nm");
+  if (nm) { showFeed(nm.dataset.feed, true); return; }
+
   const dot = e.target.closest(".snav button");
   if (dot) {
     const st = dot.closest(".story");
@@ -447,11 +469,20 @@ document.addEventListener("click", e => {
   if (lb) { lang = lb.dataset.lang; try { localStorage.setItem("lang", lang); } catch (err) {} render(); }
 });
 
-/* theme toggle (light by default) */
+document.addEventListener("keydown", e => {
+  const nm = e.target.closest && e.target.closest(".nm");
+  if (!nm || !["ArrowDown", "ArrowUp"].includes(e.key)) return;
+  e.preventDefault();
+  const all = [...document.querySelectorAll(".nm")], i = all.indexOf(nm);
+  const next = all[(i + (e.key === "ArrowDown" ? 1 : -1) + all.length) % all.length];
+  showFeed(next.dataset.feed, true); next.focus();
+});
+
+/* theme toggle (dark by default) */
 $("#themeBtn").addEventListener("click", () => {
   const dark = document.documentElement.dataset.theme !== "dark";
   document.documentElement.dataset.theme = dark ? "dark" : "light";
-  try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+  try { localStorage.setItem("theme2", dark ? "dark" : "light"); } catch (e) {}
 });
 
 /* cursor glow follows the mouse */
