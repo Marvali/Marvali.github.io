@@ -3,9 +3,9 @@ const UI = {
   en: {
     nav_projects: "Projects", nav_cv: "CV", nav_contact: "Contact",
     hero_eyebrow: "// portfolio · 2026",
-    hero_h1a: "I build things", hero_h1b: "to understand how they work.",
-    hero_lead: "Software developer with a cybersecurity and applied AI background. Information Systems Engineering at Universidad de Alcalá — open any project below.",
-    cta_projects: "Explore projects ↓", cta_cv: "Download CV (PDF)", scroll: "scroll ↓",
+    hero_h1a: "I build AI systems", hero_h1b: "and think like an attacker.",
+    hero_lead: "Software developer with a cybersecurity and applied AI background. Information Systems Engineering at Universidad de Alcalá.",
+    cta_projects: "Explore projects", cta_cv: "Download CV (PDF)", scroll: "scroll ↓",
     projects_title: "Selected projects", cv_title: "Curriculum",
     contact_title: "Contact", contact_lead: "Open to internships and collaborations.",
     code: "View code on GitHub ↗", wip: "In progress", nocode: "Course work — no public repository",
@@ -18,14 +18,14 @@ const UI = {
     note_cyber: "New arXiv cs.CR papers this week, ranked by relevance to my interests (LLM security, malware, reverse engineering…).",
     note_classics: "One landmark paper per domain, rotating every week.",
     feed_empty: "Nothing here yet — feeds refresh every Monday.",
-    close: "Close", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
+    close: "Close", swipe: "scroll to explore", proj_note: "Click one to open it full screen", photos_title: "Beyond the code", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
     hero_eyebrow: "// portfolio · 2026",
-    hero_h1a: "Construyo cosas", hero_h1b: "para entender cómo funcionan.",
-    hero_lead: "Desarrollador de software con experiencia en ciberseguridad e IA aplicada. Ingeniería de Sistemas de Información en la Universidad de Alcalá: abre cualquier proyecto.",
-    cta_projects: "Explorar proyectos ↓", cta_cv: "Descargar CV (PDF)", scroll: "desliza ↓",
+    hero_h1a: "Construyo sistemas de IA", hero_h1b: "y pienso como un atacante.",
+    hero_lead: "Desarrollador de software con experiencia en ciberseguridad e IA aplicada. Ingeniería de Sistemas de Información en la Universidad de Alcalá.",
+    cta_projects: "Explorar proyectos", cta_cv: "Descargar CV (PDF)", scroll: "desliza ↓",
     projects_title: "Proyectos seleccionados", cv_title: "Currículum",
     contact_title: "Contacto", contact_lead: "Abierto a prácticas y colaboraciones.",
     code: "Ver código en GitHub ↗", wip: "En curso", nocode: "Trabajo académico — sin repositorio público",
@@ -38,7 +38,7 @@ const UI = {
     note_cyber: "Papers nuevos de arXiv cs.CR esta semana, ordenados por relevancia para mis intereses (seguridad de LLM, malware, ingeniería inversa…).",
     note_classics: "Un paper de referencia por ámbito, que cambia cada semana.",
     feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes.",
-    close: "Cerrar", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
+    close: "Cerrar", swipe: "desliza para explorar", proj_note: "Pulsa uno para abrirlo a pantalla completa", photos_title: "Fuera del código", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
   }
 };
 
@@ -159,37 +159,90 @@ const CV = {
 let lang = "en";
 try { lang = localStorage.getItem("lang") || (navigator.language.startsWith("es") ? "es" : "en"); } catch (e) {}
 const $ = (s, r = document) => r.querySelector(s);
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
+const pad2 = k => String(k).padStart(2, "0");
+const prevH = box => (box.querySelector(".story") && box.querySelector(".story").style.getPropertyValue("--h")) || 6;
+
+let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null;
+// photos for the "Beyond the code" panel (hidden while empty):
+// { src: "assets/photos/mountain.jpg", alt: { en: "…", es: "…" } }
+const PHOTOS = [];
+const FEED_HUE = { curated: 300, cve: 5, ai: 265, cyber: 195, repos: 38, classics: 150 };
+const FEED_SRC = {
+  cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+  ai: "https://huggingface.co/papers",
+  cyber: "https://arxiv.org/list/cs.CR/recent",
+  repos: "https://github.com/trending",
+};
 
 function render() {
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = UI[lang][el.dataset.i18n]);
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
-
-  $("#projectList").innerHTML = PROJECTS.map((p, i) => `
-    <li class="proj" style="--hue:${p.hue}">
-      <button class="proj-head" data-i="${i}">
-        <span class="proj-n">${String(i + 1).padStart(2, "0")}</span>
-        <span class="proj-t">${p.title[lang]}${p.wip ? ` <em class="wip">${UI[lang].wip}</em>` : ""}<small>${p.tag[lang]}</small></span>
-        <span class="proj-go" aria-hidden="true">↗</span>
-      </button>
-    </li>`).join("");
-
-  $("#cvGrid").innerHTML = CV[lang].map(b => `
-    <div class="cv-block${b.wide ? " wide" : ""}"><h3>${b.h}</h3>
-      ${b.items.map(i => `<div class="cv-item"><b>${i.t}</b><span>${i.s}</span></div>`).join("")}
-    </div>`).join("");
+  renderMain();
   renderNews();
   if (curProj !== null) fillProject();
 }
 
-/* ---------- NEWS ---------- */
-let NEWS = null;
-const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
+/* ---------- MAIN STORY: about -> projects (horizontal) -> CV ---------- */
+function storyShell(box, panels, t) {
+  box.innerHTML = `
+    <div class="story" style="--h:${prevH(box)}"><div class="stage" data-idx="0">
+      ${panels.map((p, k) => `
+        <article class="panel ${p.cls || ""}${k === 0 ? " on" : ""}" id="${p.id}" style="--hue:${p.hue}" aria-label="${esc(p.label)}">${p.html}</article>`).join("")}
+      <nav class="snav" aria-label="Sections">${panels.map((p, k) =>
+        `<button class="${k === 0 ? "on" : ""}" data-k="${k}" aria-label="${esc(p.label)}" title="${esc(p.label)}"></button>`).join("")}</nav>
+      <p class="mono shint">${t.swipe}</p><div class="sbar"></div>
+    </div></div>`;
+  layoutStories();
+}
 
-let FEEDS = null;
-const FEED_HUE = { curated: 300, cve: 5, ai: 265, cyber: 195, repos: 38, classics: 150 };
+function renderMain() {
+  const t = UI[lang], cv = CV[lang], join = lang === "es" ? " y " : " & ";
+  const panels = [];
 
+  panels.push({ id: "hero", label: "Isaac Marval", hue: 38, cls: "heropanel", html: `
+    <div class="p-left">
+      <p class="mono">${t.hero_eyebrow}</p>
+      <h1>${t.hero_h1a}<br><em>${t.hero_h1b}</em></h1>
+      <p class="lead">${t.hero_lead}</p>
+      <div class="cta"><a class="btn" href="#projects">${t.cta_projects}</a>
+        <a class="btn ghost" href="assets/Isaac_Marval_CV.pdf" download>${t.cta_cv}</a></div>
+    </div>
+    <figure class="portrait" hidden><img src="assets/me.jpg" alt="Isaac Marval"
+      onload="this.parentElement.hidden=false" onerror="this.parentElement.remove()"></figure>` });
+
+  panels.push({ id: "projects", label: t.projects_title, hue: 38, cls: "hpanel", html: `
+    <div class="hhead"><h3 class="p-title sm">${t.projects_title}</h3><p class="mono">${t.proj_note}</p></div>
+    <div class="htrack">${PROJECTS.map((p, i) => `
+      <button class="pcard" data-i="${i}" style="--hue:${p.hue}">
+        <span class="mono">${pad2(i + 1)}</span>
+        <span class="pc-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</span>
+        <span class="pc-tag">${p.tag[lang]}</span>
+        <span class="pc-go" aria-hidden="true">↗</span>
+      </button>`).join("")}</div>` });
+
+  const groups = [[0], [1, 2], [3], [4, 5]], hues = [38, 215, 150, 300];
+  groups.forEach((g, gi) => {
+    const blocks = g.map(k => cv[k]), title = blocks.map(b => b.h).join(join);
+    panels.push({ id: gi === 0 ? "cv" : "cv" + gi, label: title, hue: hues[gi], html: `
+      <div class="p-left"><h3 class="p-title">${title}</h3>
+        ${gi === groups.length - 1 ? `<a class="btn" href="assets/Isaac_Marval_CV.pdf" download>${t.cta_cv}</a>` : ""}</div>
+      <ul class="srows cvrows">${blocks.map(b =>
+        (blocks.length > 1 ? `<li class="grp mono">${b.h}</li>` : "") +
+        b.items.map(i => `<li><div class="srow plain"><b>${i.t}</b><span class="desc">${i.s}</span></div></li>`).join("")).join("")}</ul>` });
+  });
+
+  if (PHOTOS.length) panels.push({ id: "photos", label: t.photos_title, hue: 330, html: `
+    <div class="p-left"><h3 class="p-title">${t.photos_title}</h3></div>
+    <div class="pgrid">${PHOTOS.slice(0, 5).map(p =>
+      `<img src="${esc(p.src)}" alt="${esc((p.alt || {})[lang] || "")}" loading="lazy">`).join("")}</div>` });
+
+  storyShell($("#mainStory"), panels, t);
+}
+
+/* ---------- NEWS STORY ---------- */
 function newsFeeds() {
   const t = UI[lang], n = NEWS || {}, f = FEEDS || {};
   const arx = id => (/^\d{4}\.\d{4,5}$/.test(id) ? `https://arxiv.org/abs/${id}` : "#");
@@ -221,71 +274,86 @@ function newsFeeds() {
   ].filter(x => x.items.length);
 }
 
-const FEED_SRC = {
-  cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-  ai: "https://huggingface.co/papers",
-  cyber: "https://arxiv.org/list/cs.CR/recent",
-  repos: "https://github.com/trending",
-};
-
 function renderNews() {
   const box = $("#newsBox");
   if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
   const t = UI[lang], feeds = newsFeeds();
   if (!feeds.length) { box.innerHTML = `<p class="mono">${t.feed_empty}</p>`; return; }
-  const n = feeds.length, pad = k => String(k).padStart(2, "0");
-  box.innerHTML = `
-    <div class="story" style="--n:${n}"><div class="stage" data-idx="0">
-      ${feeds.map((fd, k) => `
-        <article class="panel${k === 0 ? " on" : ""}" style="--hue:${FEED_HUE[fd.key]}" aria-label="${esc(fd.title)}">
-          <div class="p-left">
-            <p class="mono">${pad(k + 1)} / ${pad(n)}</p>
-            <h3 class="p-title">${esc(fd.title)}</h3>
-            <p class="mono p-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
-            ${FEED_SRC[fd.key] ? `<a class="p-all" href="${FEED_SRC[fd.key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}
-          </div>
-          <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 5).map(it => `
-            <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
-              <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
-              <b>${it.title}</b><span class="desc">${it.desc}</span>
-            </a></li>`).join("")}</ul>
-        </article>`).join("")}
-      <nav class="snav" aria-label="News">${feeds.map((fd, k) =>
-        `<button class="${k === 0 ? "on" : ""}" data-k="${k}" aria-label="${esc(fd.title)}" title="${esc(fd.title)}"></button>`).join("")}</nav>
-      <p class="mono shint">${t.story_hint}</p><div class="sbar"></div>
-    </div></div>`;
-  updateStory();
+  const n = feeds.length;
+  storyShell(box, feeds.map((fd, k) => ({
+    id: "news-" + fd.key, label: fd.title, hue: FEED_HUE[fd.key], html: `
+      <div class="p-left">
+        <p class="mono">${pad2(k + 1)} / ${pad2(n)}</p>
+        <h3 class="p-title">${esc(fd.title)}</h3>
+        <p class="mono p-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
+        ${FEED_SRC[fd.key] ? `<a class="p-all" href="${FEED_SRC[fd.key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}
+      </div>
+      <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 5).map(it => `
+        <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
+          <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
+          <b>${it.title}</b><span class="desc">${it.desc}</span>
+        </a></li>`).join("")}</ul>` })), t);
 }
-
-/* the stage stays pinned while you scroll; scroll position picks the active panel */
-function updateStory() {
-  const st = $(".story");
-  if (!st) return;
-  const stage = $(".stage", st), panels = [...st.querySelectorAll(".panel")], dots = [...st.querySelectorAll(".snav button")];
-  const n = panels.length, travel = Math.max(1, st.offsetHeight - innerHeight);
-  const p = Math.min(1, Math.max(0, -st.getBoundingClientRect().top / travel));
-  const idx = n > 1 ? Math.round(p * (n - 1)) : 0;
-  stage.style.setProperty("--p", p);
-  stage.dataset.idx = idx;
-  panels.forEach((el, k) => { el.classList.toggle("on", k === idx); el.classList.toggle("past", k < idx); });
-  dots.forEach((d, k) => d.classList.toggle("on", k === idx));
-}
-addEventListener("scroll", () => requestAnimationFrame(updateStory), { passive: true });
-addEventListener("resize", updateStory);
-document.addEventListener("click", e => {
-  const dot = e.target.closest(".snav button");
-  if (!dot) return;
-  const st = $(".story"), n = st.querySelectorAll(".panel").length;
-  const top = st.getBoundingClientRect().top + scrollY, travel = st.offsetHeight - innerHeight;
-  scrollTo({ top: top + (+dot.dataset.k / Math.max(1, n - 1)) * travel, behavior: "smooth" });
-});
 
 const loadJson = u => fetch(u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 loadJson("news.json").then(j => { NEWS = j; renderNews(); });
 loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
 
-/* ---------- PROJECT OVERLAY (full screen) ---------- */
-let curProj = null, lastFocus = null;
+/* ---------- STORY ENGINE ----------
+   Each .story is a tall block with a sticky 100vh stage. Scroll position picks the active
+   panel; panels with a .htrack also slide it sideways 1:1 with the scroll. */
+function layoutStories() {
+  document.querySelectorAll(".story").forEach(st => {
+    let total = 0;
+    st.querySelectorAll(".panel").forEach(p => {
+      let w = 1;
+      const tr = p.querySelector(".htrack");
+      if (tr) {
+        p._ov = Math.max(0, tr.offsetWidth - p.clientWidth);
+        w = Math.max(1.2, p._ov / innerHeight + 0.5);
+      }
+      p._w = w; total += w;
+    });
+    st.style.setProperty("--h", total + 1);
+  });
+  updateStory();
+}
+
+function updateStory() {
+  const vh = innerHeight;
+  document.querySelectorAll(".story").forEach(st => {
+    const stage = $(".stage", st), panels = [...st.querySelectorAll(".panel")], dots = [...st.querySelectorAll(".snav button")];
+    const travel = Math.max(1, st.offsetHeight - vh);
+    const y = Math.min(Math.max(-st.getBoundingClientRect().top, 0), travel);
+    let start = 0, idx = 0;
+    panels.forEach((p, k) => {
+      p._start = start; p._len = (p._w || 1) * vh;
+      if (y >= start) idx = k;
+      start += p._len;
+    });
+    panels.forEach((p, k) => {
+      p.classList.toggle("on", k === idx);
+      p.classList.toggle("past", k < idx);
+      const tr = p.querySelector(".htrack");
+      if (tr) tr.style.transform = `translate3d(${-Math.min(p._ov || 0, Math.max(0, y - p._start - 0.25 * vh))}px,0,0)`;
+    });
+    stage.style.setProperty("--p", y / travel);
+    stage.dataset.idx = idx;
+    dots.forEach((d, k) => d.classList.toggle("on", k === idx));
+  });
+}
+
+function scrollToPanel(el) {
+  const st = el.closest(".story");
+  scrollTo({ top: st.getBoundingClientRect().top + scrollY + (el._start || 0) + 2, behavior: "smooth" });
+}
+
+addEventListener("scroll", () => requestAnimationFrame(updateStory), { passive: true });
+addEventListener("resize", layoutStories);
+addEventListener("load", layoutStories);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutStories);
+
+/* ---------- PROJECT OVERLAY (full screen, grows out of the card) ---------- */
 const pov = document.createElement("div");
 pov.id = "pov"; pov.className = "pov";
 pov.setAttribute("role", "dialog"); pov.setAttribute("aria-modal", "true"); pov.setAttribute("aria-hidden", "true");
@@ -297,7 +365,7 @@ function fillProject() {
   const prev = PROJECTS[(curProj + n - 1) % n], next = PROJECTS[(curProj + 1) % n];
   $("#povClose").innerHTML = `<span aria-hidden="true">✕</span> ${t.close}`;
   $("#povBody").innerHTML = `
-    <p class="mono">${String(curProj + 1).padStart(2, "0")} / ${String(n).padStart(2, "0")}</p>
+    <p class="mono">${pad2(curProj + 1)} / ${pad2(n)}</p>
     <h2 class="pov-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</h2>
     <p class="pov-tag">${p.tag[lang]}</p>
     <p class="pov-desc">${p.desc[lang]}</p>
@@ -308,19 +376,24 @@ function fillProject() {
       : `<span class="mono">${t.nocode}</span>`}</div>
     <div class="pov-nav"><button data-go="-1">← ${prev.title[lang]}</button><button data-go="1">${next.title[lang]} →</button></div>`;
 }
-function openProject(i, e) {
-  lastFocus = document.activeElement; curProj = i;
-  const hasPos = e && (e.clientX || e.clientY);
-  pov.style.setProperty("--cx", (hasPos ? e.clientX : innerWidth / 2) + "px");
-  pov.style.setProperty("--cy", (hasPos ? e.clientY : innerHeight / 2) + "px");
-  fillProject(); pov.scrollTop = 0;
+function setRect(el) {
+  const r = el && el.getBoundingClientRect();
+  const ok = r && r.width && r.bottom > 0 && r.top < innerHeight && r.right > 0 && r.left < innerWidth;
+  const v = ok ? [r.top, innerWidth - r.right, innerHeight - r.bottom, r.left] : [innerHeight / 2, innerWidth / 2, innerHeight / 2, innerWidth / 2];
+  ["--ct", "--cr", "--cb", "--cl"].forEach((k, i) => pov.style.setProperty(k, v[i] + "px"));
+}
+function openProject(i, el) {
+  lastFocus = document.activeElement; opener = el; curProj = i;
+  setRect(el); fillProject(); pov.scrollTop = 0;
   document.documentElement.style.setProperty("--hue", PROJECTS[i].hue);
   document.body.style.overflow = "hidden";
+  pov.getBoundingClientRect();  // commit the start rect before the transition begins
   pov.setAttribute("aria-hidden", "false"); pov.classList.add("open");
   $("#povClose").focus({ preventScroll: true });
 }
 function closeProject() {
   if (curProj === null) return;
+  setRect($(`.pcard[data-i="${curProj}"]`));
   pov.classList.remove("open"); pov.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   document.documentElement.style.setProperty("--hue", 38);
@@ -350,11 +423,28 @@ document.addEventListener("keydown", e => {
   }
 });
 
+/* ---------- GLOBAL CLICKS ---------- */
 document.addEventListener("click", e => {
-  const head = e.target.closest(".proj-head");
-  if (head) openProject(+head.dataset.i, e);
+  const card = e.target.closest(".pcard");
+  if (card) { openProject(+card.dataset.i, card); return; }
+
+  const dot = e.target.closest(".snav button");
+  if (dot) {
+    const st = dot.closest(".story");
+    scrollToPanel(st.querySelectorAll(".panel")[+dot.dataset.k]);
+    return;
+  }
+
+  const a = e.target.closest('a[href^="#"]');
+  if (a) {
+    const id = a.getAttribute("href").slice(1);
+    if (id === "top") { e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); return; }
+    const el = id && document.getElementById(id);
+    if (el && el.classList.contains("panel")) { e.preventDefault(); scrollToPanel(el); return; }
+  }
+
   const lb = e.target.closest(".lang button");
-  if (lb) { lang = lb.dataset.lang; try { localStorage.setItem("lang", lang); } catch (e) {} render(); }
+  if (lb) { lang = lb.dataset.lang; try { localStorage.setItem("lang", lang); } catch (err) {} render(); }
 });
 
 /* theme toggle (light by default) */
