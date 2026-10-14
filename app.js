@@ -18,7 +18,7 @@ const UI = {
     note_cyber: "New arXiv cs.CR papers this week, ranked by relevance to my interests (LLM security, malware, reverse engineering…).",
     note_classics: "One landmark paper per domain, rotating every week.",
     feed_empty: "Nothing here yet — feeds refresh every Monday.",
-    close: "Close", swipe: "scroll to explore", proj_note: "Click one to open it full screen", photos_title: "Beyond the code", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
+    close: "Close", news_q: "Want more?", news_cta: "Get informed!", swipe: "scroll to explore", proj_note: "Click one to open it full screen", photos_title: "Beyond the code", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
@@ -38,7 +38,7 @@ const UI = {
     note_cyber: "Papers nuevos de arXiv cs.CR esta semana, ordenados por relevancia para mis intereses (seguridad de LLM, malware, ingeniería inversa…).",
     note_classics: "Un paper de referencia por ámbito, que cambia cada semana.",
     feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes.",
-    close: "Cerrar", swipe: "desliza para explorar", proj_note: "Pulsa uno para abrirlo a pantalla completa", photos_title: "Fuera del código", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
+    close: "Cerrar", news_q: "¿Quieres más?", news_cta: "¡Infórmate!", swipe: "desliza para explorar", proj_note: "Pulsa uno para abrirlo a pantalla completa", photos_title: "Fuera del código", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
   }
 };
 
@@ -164,11 +164,12 @@ const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
 const pad2 = k => String(k).padStart(2, "0");
 const prevH = box => (box.querySelector(".story") && box.querySelector(".story").style.getPropertyValue("--h")) || 6;
 
-let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "curated";
+let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "cve";
 // photos for the "Beyond the code" panel (hidden while empty):
 // { src: "assets/photos/mountain.jpg", alt: { en: "…", es: "…" } }
 const PHOTOS = [];
 const FEED_HUE = { curated: 38, cve: 4, cyber: 348, ai: 265, repos: 32, classics: 178 };
+const NEWS_ORDER = ["cve", "ai", "cyber", "repos", "classics", "curated"];
 const FEED_SRC = {
   cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
   ai: "https://huggingface.co/papers",
@@ -225,8 +226,8 @@ function renderMain() {
         </span>
       </button>`).join("")}</div>` });
 
-  const groups = [[0, 1], [2], [3, 4, 5]], hues = [262, 178, 38];
-  const titles = [cv[0].h + join + cv[1].h, cv[2].h, cv[3].h + join + cv[4].h];
+  const groups = [[0, 1, 2], [3, 4, 5]], hues = [262, 38];
+  const titles = [cv[0].h + join + cv[2].h, cv[3].h + join + cv[4].h];
   groups.forEach((g, gi) => {
     panels.push({ id: gi === 0 ? "cv" : "cv" + gi, label: titles[gi], hue: hues[gi], cls: "cvpanel", html: `
       <div class="p-left"><h3 class="p-title">${titles[gi]}</h3>
@@ -273,7 +274,7 @@ function newsFeeds() {
     feed("classics", f.updated, (f.classics || []).map(p => ({
       tag: esc(p.domain === "ai" ? "AI" : "Security"), title: `${esc(p.title)} (${esc(p.year)})`,
       desc: `${esc((p.why || {})[lang] || "")} · ${esc(p.authors)}`, meta: "arXiv " + esc(p.id), href: arx(p.id) }))),
-  ].filter(x => x.items.length);
+  ].filter(x => x.items.length).sort((a, b) => NEWS_ORDER.indexOf(a.key) - NEWS_ORDER.indexOf(b.key));
 }
 
 function renderNews() {
@@ -281,22 +282,24 @@ function renderNews() {
   if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
   const t = UI[lang], feeds = newsFeeds();
   if (!feeds.length) { box.innerHTML = `<p class="mono">${t.feed_empty}</p>`; return; }
-  if (!feeds.some(f => f.key === newsSel)) newsSel = feeds[0].key;
+  const sel = feeds.some(f => f.key === newsSel) ? newsSel : feeds[0].key;
   box.innerHTML = `
     <div class="nwrap">
+      <div class="nleft">
+      <h2 class="ntitle">${t.news_q}<br><em>${t.news_cta}</em></h2>
       <ul class="nmenu" role="tablist" aria-label="${esc(t.news_title)}">${feeds.map((fd, k) => `
         <li><button class="nm" role="tab" data-feed="${fd.key}" style="--hue:${FEED_HUE[fd.key]}">
           <span class="mono">${pad2(k + 1)}</span><span class="nt">${esc(fd.title)}</span><span class="mono nc">${fd.items.length}</span>
         </button></li>`).join("")}</ul>
+      </div>
       <div class="ncontent" id="ncontent" role="tabpanel"></div>
     </div>`;
-  showFeed(newsSel);
+  showFeed(sel);
 }
 
 function showFeed(key, animate) {
   const fd = newsFeeds().find(f => f.key === key);
   if (!fd) return;
-  newsSel = key;
   const t = UI[lang], wrap = $(".nwrap"), c = $("#ncontent");
   wrap.style.setProperty("--hue", FEED_HUE[key]);
   document.querySelectorAll(".nm").forEach(b => {
@@ -448,7 +451,7 @@ document.addEventListener("click", e => {
   if (card) { openProject(+card.dataset.i, card); return; }
 
   const nm = e.target.closest(".nm");
-  if (nm) { showFeed(nm.dataset.feed, true); return; }
+  if (nm) { newsSel = nm.dataset.feed; showFeed(newsSel, true); return; }
 
   const dot = e.target.closest(".snav button");
   if (dot) {
@@ -475,7 +478,7 @@ document.addEventListener("keydown", e => {
   e.preventDefault();
   const all = [...document.querySelectorAll(".nm")], i = all.indexOf(nm);
   const next = all[(i + (e.key === "ArrowDown" ? 1 : -1) + all.length) % all.length];
-  showFeed(next.dataset.feed, true); next.focus();
+  newsSel = next.dataset.feed; showFeed(newsSel, true); next.focus();
 });
 
 /* theme toggle (dark by default) */
