@@ -3,7 +3,7 @@ const UI = {
   en: {
     nav_projects: "Projects", nav_cv: "CV", nav_contact: "Contact",
     hero_eyebrow: "// portfolio · 2026",
-    hero_h1a: "I build AI systems", hero_h1b: "and think like an attacker.",
+    hero_h1a: "Isaac Marval", hero_h1b: "Security · AI · Software",
     hero_lead: "Software developer with a cybersecurity and applied AI background. Information Systems Engineering at Universidad de Alcalá.",
     cta_projects: "Explore projects", cta_cv: "Download CV (PDF)", scroll: "scroll ↓",
     projects_title: "Selected projects", cv_title: "Curriculum",
@@ -23,7 +23,7 @@ const UI = {
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
     hero_eyebrow: "// portfolio · 2026",
-    hero_h1a: "Construyo sistemas de IA", hero_h1b: "y pienso como un atacante.",
+    hero_h1a: "Isaac Marval", hero_h1b: "Seguridad · IA · Software",
     hero_lead: "Desarrollador de software con experiencia en ciberseguridad e IA aplicada. Ingeniería de Sistemas de Información en la Universidad de Alcalá.",
     cta_projects: "Explorar proyectos", cta_cv: "Descargar CV (PDF)", scroll: "desliza ↓",
     projects_title: "Proyectos seleccionados", cv_title: "Currículum",
