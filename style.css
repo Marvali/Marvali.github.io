@@ -189,8 +189,8 @@ a.srow:hover{padding-left:16px;color:hsl(var(--hue) 80% 40%)}
 .links a:hover{color:var(--accent)}
 footer{padding-top:40px;padding-bottom:50px;border-top:1px solid var(--line);margin-top:40px}
 
-@media(max-width:800px){
-  /* phones: the stories become a normal vertical page (no pinning, no scroll-jacking) */
+@media (max-width: 800px), (pointer: coarse) and (max-width: 1100px){
+  /* phones (and touch screens held sideways): the stories become a normal vertical page (no pinning, no scroll-jacking) */
   .story{height:auto!important;width:auto;margin-left:0}
   .stage{position:static;height:auto;overflow:visible}
   .panel{position:static;opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:none;
@@ -213,15 +213,19 @@ footer{padding-top:40px;padding-bottom:50px;border-top:1px solid var(--line);mar
   .cvit b{font-size:1.05rem}
   .cvit span{font-size:.9rem}
 
-  /* projects: native swipe carousel instead of the scroll-driven track */
+  /* projects: a pile of cards — each one sticks under the header and the next slides over it */
   .hpanel{padding:56px 0 36px;gap:16px}
   .hhead{padding:0 20px}
-  .htrack{align-self:stretch;width:auto;overflow-x:auto;transform:none!important;scroll-snap-type:x mandatory;
-    padding:14px 20px 26px 34px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
-  .htrack::-webkit-scrollbar{display:none}
-  .pcard{flex:0 0 74vw;height:420px;max-height:62vh;scroll-snap-align:center}
-  .pcard:hover,.pcard:focus-visible{transform:skewX(-10deg)}
-  .pc-in{padding:22px 36px 22px 50px}
+  .htrack{align-self:stretch;width:auto;display:block;overflow:visible;transform:none!important;padding:6px 20px 0}
+  .pcard{display:block;width:100%;height:300px;height:min(44svh,320px);position:sticky;top:calc(78px + var(--i) * 12px);margin-bottom:22px;transform:none}
+  .pcard:last-child{margin-bottom:0}
+  .pcard::before{border-radius:22px;
+    background:linear-gradient(160deg,hsl(var(--hue) 70% 55% / .3),hsl(var(--hue) 70% 40% / .08) 70%),var(--card);
+    box-shadow:0 -14px 36px rgba(0,0,0,.45),0 14px 40px hsl(var(--hue) 80% 50% / .14)}
+  :root[data-theme="light"] .pcard::before{box-shadow:0 -10px 28px rgba(0,0,0,.12)}
+  .pcard:hover,.pcard:focus-visible{transform:none}
+  .pc-in{transform:none;padding:22px 22px 20px}
+  .pc-n{font-size:3.2rem}
 
   /* news */
   .nwrap{width:auto;margin-left:0;min-height:0;grid-template-columns:minmax(0,1fr);align-content:start;gap:18px;padding:56px 20px 40px}

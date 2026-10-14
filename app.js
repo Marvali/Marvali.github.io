@@ -217,7 +217,7 @@ function renderMain() {
   panels.push({ id: "projects", label: t.projects_title, hue: 38, cls: "hpanel", html: `
     <div class="hhead"><h3 class="p-title sm">${t.projects_title}</h3><p class="mono">${t.proj_note} →</p></div>
     <div class="htrack">${PROJECTS.map((p, i) => `
-      <button class="pcard" data-i="${i}" style="--hue:${p.hue}">
+      <button class="pcard" data-i="${i}" style="--hue:${p.hue};--i:${i}">
         <span class="pc-in">
           <span class="pc-n">${pad2(i + 1)}</span>
           <span class="pc-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</span>
@@ -325,7 +325,8 @@ loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
    Each .story is a tall block with a sticky 100vh stage. Scroll position picks the active
    panel; panels with a .htrack also slide it sideways 1:1 with the scroll. */
 // phones get a plain vertical page: no pinned stage, no scroll-driven sideways track
-const isMobile = () => matchMedia("(max-width: 800px)").matches;
+const MOBILE_MQ = "(max-width: 800px), (pointer: coarse) and (max-width: 1100px)";
+const isMobile = () => matchMedia(MOBILE_MQ).matches;
 
 function layoutStories() {
   if (isMobile()) {
