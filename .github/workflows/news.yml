@@ -18,11 +18,15 @@ jobs:
           python-version: "3.12"
       - name: Fetch trending repos
         run: python scripts/update_news.py
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch CVEs and papers
+        run: python scripts/update_feeds.py
+        continue-on-error: true
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add news.json
-          git diff --cached --quiet || (git commit -m "Update weekly news" && git push)
+          git add news.json feeds.json
+          git diff --cached --quiet || (git commit -m "Update weekly news and feeds" && git push)

@@ -10,7 +10,14 @@ const UI = {
     contact_title: "Contact", contact_lead: "Open to internships and collaborations.",
     code: "View code on GitHub ↗", wip: "In progress", nocode: "Course work — no public repository",
     nav_news: "News", news_title: "News & finds", news_curated: "Picked by me", news_auto: "Trending on GitHub this week",
-    news_updated: "Updated", news_empty: "Nothing new yet — the list refreshes every Monday.", news_open: "Open on GitHub ↗"
+    news_updated: "Updated", news_empty: "Nothing new yet — the list refreshes every Monday.", news_open: "Open on GitHub ↗",
+    tab_repos: "Repos", tab_cve: "CVE of the week", tab_ai: "AI papers", tab_cyber: "Security papers", tab_classics: "Classics",
+    note_repos: "New GitHub repositories gaining stars this week, on topics I follow.",
+    note_cve: "Vulnerabilities added this week to CISA's Known Exploited Vulnerabilities catalog — exploited in the wild.",
+    note_ai: "Most upvoted papers of the week on Hugging Face Daily Papers.",
+    note_cyber: "New arXiv cs.CR papers this week, ranked by relevance to my interests (LLM security, malware, reverse engineering…).",
+    note_classics: "One landmark paper per domain, rotating every week.",
+    feed_empty: "Nothing here yet — feeds refresh every Monday."
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
@@ -22,7 +29,14 @@ const UI = {
     contact_title: "Contacto", contact_lead: "Abierto a prácticas y colaboraciones.",
     code: "Ver código en GitHub ↗", wip: "En curso", nocode: "Trabajo académico — sin repositorio público",
     nav_news: "Noticias", news_title: "Noticias y hallazgos", news_curated: "Selección propia", news_auto: "Tendencias de GitHub esta semana",
-    news_updated: "Actualizado", news_empty: "Todavía nada nuevo: la lista se actualiza cada lunes.", news_open: "Abrir en GitHub ↗"
+    news_updated: "Actualizado", news_empty: "Todavía nada nuevo: la lista se actualiza cada lunes.", news_open: "Abrir en GitHub ↗",
+    tab_repos: "Repos", tab_cve: "CVE de la semana", tab_ai: "Papers de IA", tab_cyber: "Papers de seguridad", tab_classics: "Clásicos",
+    note_repos: "Repositorios nuevos de GitHub que ganan estrellas esta semana, sobre temas que sigo.",
+    note_cve: "Vulnerabilidades añadidas esta semana al catálogo KEV de la CISA: se están explotando en el mundo real.",
+    note_ai: "Papers más votados de la semana en Hugging Face Daily Papers.",
+    note_cyber: "Papers nuevos de arXiv cs.CR esta semana, ordenados por relevancia para mis intereses (seguridad de LLM, malware, ingeniería inversa…).",
+    note_classics: "Un paper de referencia por ámbito, que cambia cada semana.",
+    feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes."
   }
 };
 
@@ -177,31 +191,64 @@ let NEWS = null;
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
 
+let FEEDS = null, newsTab = "repos";
+const NEWS_TABS = ["repos", "cve", "ai", "cyber", "classics"];
+
 function renderNews() {
   const box = $("#newsBox");
-  if (!NEWS) { box.innerHTML = ""; return; }
-  const t = UI[lang];
-  const curated = (NEWS.curated || []).map(n => `
-    <a class="news-card" href="${safeUrl(n.url)}" target="_blank" rel="noopener">
-      <span class="mono">${esc(n.tag)} · ${esc(n.date)}</span>
-      <h3>${esc(n.title)}</h3>
-      <p>${esc((n.note || {})[lang] || (n.note || {}).en)}</p>
+  if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
+  const t = UI[lang], n = NEWS || {}, f = FEEDS || {};
+  const arx = id => (/^\d{4}\.\d{4,5}$/.test(id) ? `https://arxiv.org/abs/${id}` : "#");
+  const row = (href, tag, title, desc, side) => `
+    <li><a href="${href}" target="_blank" rel="noopener">
+      <span class="mono">${tag}</span><b>${title}</b>
+      <span class="news-desc">${desc}</span><span class="mono stars">${side}</span>
+    </a></li>`;
+  const curated = (n.curated || []).map(c => `
+    <a class="news-card" href="${safeUrl(c.url)}" target="_blank" rel="noopener">
+      <span class="mono">${esc(c.tag)} · ${esc(c.date)}</span>
+      <h3>${esc(c.title)}</h3>
+      <p>${esc((c.note || {})[lang] || (c.note || {}).en)}</p>
       <span class="proj-link">${t.news_open}</span>
     </a>`).join("");
-  const auto = (NEWS.auto || []).map(n => `
-    <li><a href="${safeUrl(n.url)}" target="_blank" rel="noopener">
-      <span class="mono">${esc(n.topic)}</span>
-      <b>${esc(n.name)}</b>
-      <span class="news-desc">${esc(n.desc)}</span>
-      <span class="mono stars">★ ${Number(n.stars) || 0}${n.lang ? " · " + esc(n.lang) : ""}</span>
-    </a></li>`).join("");
+
+  let rows = "", updated = f.updated;
+  if (newsTab === "repos") {
+    updated = n.updated;
+    rows = (n.auto || []).map(x => row(safeUrl(x.url), esc(x.topic), esc(x.name), esc(x.desc),
+      `★ ${Number(x.stars) || 0}${x.lang ? " · " + esc(x.lang) : ""}`)).join("");
+  } else if (newsTab === "cve") {
+    rows = (f.cves || []).map(c => row(
+      /^CVE-\d{4}-\d{4,}$/.test(c.id) ? `https://nvd.nist.gov/vuln/detail/${esc(c.id)}` : "#",
+      esc(c.id), `${esc(c.vendor)} ${esc(c.product)}${c.ransom ? ' <em class="wip">ransomware</em>' : ""}`,
+      esc(c.desc), esc(c.added))).join("");
+  } else if (newsTab === "ai") {
+    rows = (f.ai || []).map(p => row(arx(p.id), "arXiv " + esc(p.id), esc(p.title), esc(p.summary),
+      `▲ ${Number(p.upvotes) || 0}`)).join("");
+  } else if (newsTab === "cyber") {
+    rows = (f.cyber || []).map(p => row(arx(p.id), esc(p.published), esc(p.title),
+      `${esc(p.authors)} — ${esc(p.summary)}`, "arXiv " + esc(p.id))).join("");
+  } else {
+    rows = (f.classics || []).map(p => row(arx(p.id), esc(p.domain === "ai" ? "AI" : "Security"),
+      `${esc(p.title)} (${esc(p.year)})`, `${esc((p.why || {})[lang] || "")} · ${esc(p.authors)}`, "arXiv " + esc(p.id))).join("");
+  }
+
   box.innerHTML = `
     ${curated ? `<h3 class="news-h mono">${t.news_curated}</h3><div class="news-grid">${curated}</div>` : ""}
-    <h3 class="news-h mono">${t.news_auto}${NEWS.updated ? ` · ${t.news_updated} ${esc(NEWS.updated)}` : ""}</h3>
-    ${auto ? `<ul class="news-list">${auto}</ul>` : `<p class="mono">${t.news_empty}</p>`}`;
+    <h3 class="news-h mono">${t["tab_" + newsTab]}${updated ? ` · ${t.news_updated} ${esc(updated)}` : ""}</h3>
+    <div class="tabs" role="tablist">${NEWS_TABS.map(k =>
+      `<button class="tab${k === newsTab ? " on" : ""}" role="tab" aria-selected="${k === newsTab}" data-tab="${k}">${t["tab_" + k]}</button>`).join("")}</div>
+    <p class="mono tab-note">${t["note_" + newsTab]}</p>
+    ${rows ? `<ul class="news-list">${rows}</ul>` : `<p class="mono">${t.feed_empty}</p>`}`;
 }
 
-fetch("news.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).then(j => { NEWS = j; renderNews(); }).catch(() => {});
+const loadJson = u => fetch(u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+loadJson("news.json").then(j => { NEWS = j; renderNews(); });
+loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
+document.addEventListener("click", e => {
+  const tab = e.target.closest(".tab");
+  if (tab) { newsTab = tab.dataset.tab; renderNews(); }
+});
 
 document.addEventListener("click", e => {
   const head = e.target.closest(".proj-head");

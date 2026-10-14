@@ -1,0 +1,184 @@
+{
+  "cves": [
+    {
+      "id": "CVE-2026-104935",
+      "vendor": "Ivanti",
+      "product": "Connect Secure",
+      "name": "Ivanti Connect Secure Authentication Bypass by Spoofing Vulnerability",
+      "desc": "Ivanti Connect Secure contains an authentication bypass by spoofing vulnerability that allows a remote unauthenticated attacker to execute arbitrary commands.",
+      "added": "2026-10-13",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-96951",
+      "vendor": "Microsoft",
+      "product": "Windows",
+      "name": "Microsoft Windows Command Injection Vulnerability",
+      "desc": "Microsoft Windows Shell contains a command injection vulnerability that allows an unauthorized attacker to bypass a security feature over a network.",
+      "added": "2026-10-13",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2015-5477",
+      "vendor": "ISC",
+      "product": "BIND",
+      "name": " ISC BIND Data Processing Errors Vulnerability",
+      "desc": "ISC BIND contains a data processing errors vulnerability that could allow remote attackers to cause a denial of service via TKEY queries.",
+      "added": "2026-10-08",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2016-3081",
+      "vendor": "Apache",
+      "product": "Struts",
+      "name": "Apache Struts Command Injection Vulnerability",
+      "desc": "Apache Struts contains a command injection vulnerability that could allow remote attackers to execute arbitrary code via method:prefix when Dynamic Method Invocation is enabled.",
+      "added": "2026-10-08",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2023-22894",
+      "vendor": "Strapi",
+      "product": "Strapi",
+      "name": "Strapi Cleartext Storage of Sensitive Information Vulnerability",
+      "desc": "Strapi contains a cleartext storage of sensitive information vulnerability that could allow attackers with access to the admin panel to discover sensitive user details via the query filter. The impacted product(s)…",
+      "added": "2026-10-08",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2021-3199",
+      "vendor": "ONLYOFFICE",
+      "product": "Docs",
+      "name": "ONLYOFFICE Docs Server Path Traversal Vulnerability",
+      "desc": "ONLYOFFICE Docs contains a path traversal vulnerability that can occur when JWT is used, via a /.. sequence in an image upload parameter and could allow for remote code execution.",
+      "added": "2026-10-08",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2015-3306",
+      "vendor": "ProFTPD",
+      "product": "ProFTPD",
+      "name": "ProFTPD Improper Access Control Vulnerability",
+      "desc": "ProFTPD contains an improper access control vulnerability that could allow remote attackers to read and write to arbitrary files via the site cpfr and site cpto commands.",
+      "added": "2026-10-08",
+      "ransom": false
+    }
+  ],
+  "ai": [
+    {
+      "id": "2610.12572",
+      "title": "DiffusionART: Efficient, Stable and Scalable Reinforcement of Diffusion Models",
+      "upvotes": 299,
+      "summary": "Online reinforcement learning (RL) fine-tunes diffusion models with black-box rewards, but reverse-process methods such as Flow-GRPO are limited in efficiency by poor credit assignment, while forward-process methods such as…",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "2610.13527",
+      "title": "S-Space: Exploring Spatial Workspace in Multimodal Language Models",
+      "upvotes": 285,
+      "summary": "Multimodal language models (MLLMs) exhibit promising spatial reasoning capabilities, yet the internal mechanisms supporting them remain poorly understood. We uncover S-Space, a linear representation subspace in which…",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "2610.12374",
+      "title": "AgentGarten: Code Worlds for Evolving Agents",
+      "upvotes": 285,
+      "summary": "Interactive virtual worlds allow agents to learn through exploration and interaction. What agents can learn is bounded by the environments they practice in, which must be faithful, with consistent state, rules, and dynamics, and…",
+      "date": "2026-10-09"
+    },
+    {
+      "id": "2609.39601",
+      "title": "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives",
+      "upvotes": 266,
+      "summary": "Precise grounding matters. It specifies which object is the target and where that object is, even in clutter and for tiny objects, and it has to be fast enough for closed-loop control. Yet vision-language-action (VLA) and…",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "2610.11765",
+      "title": "Thinking Inertia: LLMs Keep Thinking When Told Not To",
+      "upvotes": 222,
+      "summary": "Large Language Models (LLMs) increasingly ship with explicit \"thinking modes\", yet their counterpart, \"no-thinking\", has received far less attention. We study LLMs' no-thinking behavior along two axes. a. How to measure…",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "2610.08448",
+      "title": "Rethinking Cross-Tokenizer On-Policy Distillation: From Alignment Coverage to Supervision Reliability",
+      "upvotes": 213,
+      "summary": "On-Policy Distillation (OPD) trains a student on its own generations using teacher feedback. With different tokenizers, comparing teacher and student predictions requires alignment at both sequence and vocabulary levels. In this…",
+      "date": "2026-10-07"
+    }
+  ],
+  "cyber": [
+    {
+      "id": "2610.15207",
+      "title": "Exploring Jailbreak Vulnerability Across Depth-Based Dynamic Inference in Large Language Models",
+      "authors": "Lass Najmuldeen, Seyedhamidreza Mousavi",
+      "published": "2026-10-10",
+      "summary": "Large Language Models (LLMs) have been shown to be computationally expensive and vulnerable to jailbreak attacks, in which adversarial prompts bypass safety alignment and induce harmful responses. To address this inefficiency, a…"
+    },
+    {
+      "id": "2610.18430",
+      "title": "FedGraph: Defending Federated Large Language Model Fine-Tuning Against Backdoor Attacks via Graph-Based Aggregation",
+      "authors": "Xi Chen, Chunyi Zhou, Rui Zeng et al.",
+      "published": "2026-10-13",
+      "summary": "Federated fine-tuning of large language models (LLMs) allows multiple clients to collaboratively adapt models without sharing raw data, offering strong privacy benefits. However, this setting is highly vulnerable to backdoor…"
+    },
+    {
+      "id": "2610.18007",
+      "title": "Cost-Efficient Privacy Enforcement for Email-Generating LLM Agents under Strategic Information Requests",
+      "authors": "Qikun Cai, Tao Huang, Chen Hou",
+      "published": "2026-10-13",
+      "summary": "LLM agents now act as delegated communication intermediaries: they read private context, draft messages, and send externally visible emails on behalf of a user. Existing checker-repair defenses can reduce inappropriate…"
+    },
+    {
+      "id": "2610.17837",
+      "title": "ProtoArena: Can AI Agents Discover and Exploit Real-World Cross-Component Protocol Vulnerabilities?",
+      "authors": "Fasheng Miao, Zhaoyu Hu, Xiang Li et al.",
+      "published": "2026-10-13",
+      "summary": "Large language model (LLM) agents are increasingly used for vulnerability analysis, yet existing benchmarks provide limited coverage of exploitation that depends on interactions among network protocol components. Such…"
+    },
+    {
+      "id": "2610.16305",
+      "title": "ATTCK-R: Knowledge-Aware Long-Horizon Jailbreaking for Protected LLMs",
+      "authors": "Md Mushfiqur Rahman, Tobias Rohde, Rahul Tripathi et al.",
+      "published": "2026-10-12",
+      "summary": "As large language models are deployed behind increasingly sophisticated safety mechanisms, evaluating their robustness under realistic adversarial conditions becomes increasingly difficult and critical. Existing jailbreaking…"
+    },
+    {
+      "id": "2610.14215",
+      "title": "Physical Side-Channel Attacks on Edge LLMs: Extracting Output Tokens and User Prompts",
+      "authors": "Najeh Alhalawani, Gunes Acar, Zhuoran Liu et al.",
+      "published": "2026-10-09",
+      "summary": "The deployment of large language models (LLMs) on edge devices is largely motivated by privacy concerns over sharing sensitive user data with cloud servers. In this paper, we demonstrate that keeping inference local does not…"
+    }
+  ],
+  "classics": [
+    {
+      "id": "2012.07805",
+      "title": "Extracting Training Data from Large Language Models",
+      "authors": "Nicholas Carlini, Florian Tramer, Eric Wallace et al.",
+      "published": "2020-12-14",
+      "summary": "It has become common to publish large (billion parameter) language models that have been trained on private datasets. This paper demonstrates that in such settings, an adversary can perform a training data extraction attack to…",
+      "domain": "cyber",
+      "year": "2020",
+      "why": {
+        "en": "Showing that large language models can leak verbatim training data.",
+        "es": "Demuestra que los grandes modelos de lenguaje pueden filtrar datos de entrenamiento literales."
+      }
+    },
+    {
+      "id": "2004.04906",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "authors": "Vladimir Karpukhin, Barlas Oğuz, Sewon Min et al.",
+      "published": "2020-04-10",
+      "summary": "Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. In this work, we show that…",
+      "domain": "ai",
+      "year": "2020",
+      "why": {
+        "en": "Dense Passage Retrieval: dense vectors beat keyword search for open-domain QA.",
+        "es": "Dense Passage Retrieval: los vectores densos superan a la búsqueda por palabras en preguntas abiertas."
+      }
+    }
+  ],
+  "updated": "2026-10-14"
+}
