@@ -191,63 +191,117 @@ let NEWS = null;
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
 
-let FEEDS = null, newsTab = "repos";
-const NEWS_TABS = ["repos", "cve", "ai", "cyber", "classics"];
+let FEEDS = null, heroTimer = null;
+const FEED_HUE = { curated: 300, cve: 5, ai: 265, cyber: 195, repos: 38, classics: 150 };
+
+function newsFeeds() {
+  const t = UI[lang], n = NEWS || {}, f = FEEDS || {};
+  const arx = id => (/^\d{4}\.\d{4,5}$/.test(id) ? `https://arxiv.org/abs/${id}` : "#");
+  const feed = (key, updated, items) => ({
+    key, items, updated,
+    title: key === "curated" ? t.news_curated : t["tab_" + key],
+    note: key === "curated" ? "" : t["note_" + key],
+  });
+  return [
+    feed("curated", "", (n.curated || []).map(c => ({
+      tag: `${esc(c.tag)} · ${esc(c.date)}`, title: esc(c.title),
+      desc: esc((c.note || {})[lang] || (c.note || {}).en), meta: t.news_open, href: safeUrl(c.url) }))),
+    feed("cve", f.updated, (f.cves || []).map(c => ({
+      tag: esc(c.id), title: `${esc(c.vendor)} ${esc(c.product)}${c.ransom ? ' <em class="wip">ransomware</em>' : ""}`,
+      desc: esc(c.desc), meta: esc(c.added),
+      href: /^CVE-\d{4}-\d{4,}$/.test(c.id) ? `https://nvd.nist.gov/vuln/detail/${esc(c.id)}` : "#" }))),
+    feed("ai", f.updated, (f.ai || []).map(p => ({
+      tag: "arXiv " + esc(p.id), title: esc(p.title), desc: esc(p.summary),
+      meta: `▲ ${Number(p.upvotes) || 0}`, href: arx(p.id) }))),
+    feed("cyber", f.updated, (f.cyber || []).map(p => ({
+      tag: esc(p.published), title: esc(p.title), desc: `${esc(p.authors)} — ${esc(p.summary)}`,
+      meta: "arXiv " + esc(p.id), href: arx(p.id) }))),
+    feed("repos", n.updated, (n.auto || []).map(x => ({
+      tag: esc(x.topic), title: esc(x.name), desc: esc(x.desc),
+      meta: `★ ${Number(x.stars) || 0}${x.lang ? " · " + esc(x.lang) : ""}`, href: safeUrl(x.url) }))),
+    feed("classics", f.updated, (f.classics || []).map(p => ({
+      tag: esc(p.domain === "ai" ? "AI" : "Security"), title: `${esc(p.title)} (${esc(p.year)})`,
+      desc: `${esc((p.why || {})[lang] || "")} · ${esc(p.authors)}`, meta: "arXiv " + esc(p.id), href: arx(p.id) }))),
+  ].filter(x => x.items.length);
+}
 
 function renderNews() {
   const box = $("#newsBox");
+  clearInterval(heroTimer);
   if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
-  const t = UI[lang], n = NEWS || {}, f = FEEDS || {};
-  const arx = id => (/^\d{4}\.\d{4,5}$/.test(id) ? `https://arxiv.org/abs/${id}` : "#");
-  const row = (href, tag, title, desc, side) => `
-    <li><a href="${href}" target="_blank" rel="noopener">
-      <span class="mono">${tag}</span><b>${title}</b>
-      <span class="news-desc">${desc}</span><span class="mono stars">${side}</span>
-    </a></li>`;
-  const curated = (n.curated || []).map(c => `
-    <a class="news-card" href="${safeUrl(c.url)}" target="_blank" rel="noopener">
-      <span class="mono">${esc(c.tag)} · ${esc(c.date)}</span>
-      <h3>${esc(c.title)}</h3>
-      <p>${esc((c.note || {})[lang] || (c.note || {}).en)}</p>
-      <span class="proj-link">${t.news_open}</span>
-    </a>`).join("");
+  const t = UI[lang], feeds = newsFeeds();
+  if (!feeds.length) { box.innerHTML = `<p class="mono">${t.feed_empty}</p>`; return; }
 
-  let rows = "", updated = f.updated;
-  if (newsTab === "repos") {
-    updated = n.updated;
-    rows = (n.auto || []).map(x => row(safeUrl(x.url), esc(x.topic), esc(x.name), esc(x.desc),
-      `★ ${Number(x.stars) || 0}${x.lang ? " · " + esc(x.lang) : ""}`)).join("");
-  } else if (newsTab === "cve") {
-    rows = (f.cves || []).map(c => row(
-      /^CVE-\d{4}-\d{4,}$/.test(c.id) ? `https://nvd.nist.gov/vuln/detail/${esc(c.id)}` : "#",
-      esc(c.id), `${esc(c.vendor)} ${esc(c.product)}${c.ransom ? ' <em class="wip">ransomware</em>' : ""}`,
-      esc(c.desc), esc(c.added))).join("");
-  } else if (newsTab === "ai") {
-    rows = (f.ai || []).map(p => row(arx(p.id), "arXiv " + esc(p.id), esc(p.title), esc(p.summary),
-      `▲ ${Number(p.upvotes) || 0}`)).join("");
-  } else if (newsTab === "cyber") {
-    rows = (f.cyber || []).map(p => row(arx(p.id), esc(p.published), esc(p.title),
-      `${esc(p.authors)} — ${esc(p.summary)}`, "arXiv " + esc(p.id))).join("");
-  } else {
-    rows = (f.classics || []).map(p => row(arx(p.id), esc(p.domain === "ai" ? "AI" : "Security"),
-      `${esc(p.title)} (${esc(p.year)})`, `${esc((p.why || {})[lang] || "")} · ${esc(p.authors)}`, "arXiv " + esc(p.id))).join("");
-  }
+  // featured carousel: every curated item + the top item of each automatic feed
+  const slides = feeds.flatMap(fd => (fd.key === "curated" ? fd.items : fd.items.slice(0, 1)).map(it => ({ fd, it })));
+  const hero = `
+    <div class="hs" aria-roledescription="carousel">
+      <div class="hs-track">${slides.map(({ fd, it }) => `
+        <a class="slide" style="--hue:${FEED_HUE[fd.key]}" href="${it.href}" target="_blank" rel="noopener">
+          <span class="mono">${esc(fd.title)} · ${it.tag}</span>
+          <h3>${it.title}</h3><p>${it.desc}</p>
+          <span class="mono">${it.meta} ↗</span>
+        </a>`).join("")}</div>
+      <div class="hs-dots">${slides.map((_, k) => `<button class="hs-dot${k ? "" : " on"}" aria-label="${k + 1}"></button>`).join("")}</div>
+    </div>`;
 
-  box.innerHTML = `
-    ${curated ? `<h3 class="news-h mono">${t.news_curated}</h3><div class="news-grid">${curated}</div>` : ""}
-    <h3 class="news-h mono">${t["tab_" + newsTab]}${updated ? ` · ${t.news_updated} ${esc(updated)}` : ""}</h3>
-    <div class="tabs" role="tablist">${NEWS_TABS.map(k =>
-      `<button class="tab${k === newsTab ? " on" : ""}" role="tab" aria-selected="${k === newsTab}" data-tab="${k}">${t["tab_" + k]}</button>`).join("")}</div>
-    <p class="mono tab-note">${t["note_" + newsTab]}</p>
-    ${rows ? `<ul class="news-list">${rows}</ul>` : `<p class="mono">${t.feed_empty}</p>`}`;
+  const rails = feeds.filter(fd => fd.key !== "curated").map(fd => `
+    <div class="rail-wrap">
+      <div class="rail-top">
+        <h3 class="mono">${esc(fd.title)}</h3>
+        <span class="mono rail-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</span>
+        <span class="rail-arrows"><button data-dir="-1" aria-label="Previous">←</button><button data-dir="1" aria-label="Next">→</button></span>
+      </div>
+      <div class="rail">${fd.items.map(it => `
+        <a class="ncard" style="--hue:${FEED_HUE[fd.key]}" href="${it.href}" target="_blank" rel="noopener" draggable="false">
+          <span class="mono">${it.tag}</span><b>${it.title}</b><span class="ndesc">${it.desc}</span><span class="mono nmeta">${it.meta}</span>
+        </a>`).join("")}</div>
+    </div>`).join("");
+
+  box.innerHTML = hero + rails;
+  initHero();
+}
+
+function initHero() {
+  const track = $(".hs-track");
+  if (!track) return;
+  const n = track.children.length, dots = [...document.querySelectorAll(".hs-dot")], wrap = $(".hs");
+  let cur = 0, paused = false;
+  const mark = () => dots.forEach((d, k) => d.classList.toggle("on", k === cur));
+  const go = k => { cur = (k + n) % n; track.scrollTo({ left: cur * track.clientWidth, behavior: "smooth" }); mark(); };
+  track.addEventListener("scroll", () => {
+    const k = Math.round(track.scrollLeft / track.clientWidth);
+    if (k !== cur) { cur = k; mark(); }
+  }, { passive: true });
+  dots.forEach((d, k) => { d.onclick = () => go(k); });
+  wrap.onmouseenter = wrap.onfocusin = () => { paused = true; };
+  wrap.onmouseleave = wrap.onfocusout = () => { paused = false; };
+  if (n > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches)
+    heroTimer = setInterval(() => { if (!paused && !document.hidden) go(cur + 1); }, 7000);
 }
 
 const loadJson = u => fetch(u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 loadJson("news.json").then(j => { NEWS = j; renderNews(); });
 loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
+
+/* rails: drag with the mouse, arrows for everything else (touch/trackpad scroll natively) */
+let dragRail = null, dragX = 0, dragL = 0, dragMoved = false;
+document.addEventListener("pointerdown", e => {
+  const r = e.pointerType === "mouse" && e.target.closest(".rail");
+  if (r) { dragRail = r; dragX = e.clientX; dragL = r.scrollLeft; dragMoved = false; }
+});
+addEventListener("pointermove", e => {
+  if (!dragRail) return;
+  const dx = e.clientX - dragX;
+  if (Math.abs(dx) > 5) { dragMoved = true; dragRail.classList.add("drag"); }
+  if (dragMoved) dragRail.scrollLeft = dragL - dx;
+});
+addEventListener("pointerup", () => { if (dragRail) dragRail.classList.remove("drag"); dragRail = null; });
+document.addEventListener("click", e => { if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; } }, true);
+document.addEventListener("dragstart", e => { if (e.target.closest && e.target.closest(".rail")) e.preventDefault(); });
 document.addEventListener("click", e => {
-  const tab = e.target.closest(".tab");
-  if (tab) { newsTab = tab.dataset.tab; renderNews(); }
+  const b = e.target.closest(".rail-arrows button");
+  if (b) b.closest(".rail-wrap").querySelector(".rail").scrollBy({ left: b.dataset.dir * 330, behavior: "smooth" });
 });
 
 document.addEventListener("click", e => {
