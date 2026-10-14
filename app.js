@@ -324,7 +324,15 @@ loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
 /* ---------- STORY ENGINE ----------
    Each .story is a tall block with a sticky 100vh stage. Scroll position picks the active
    panel; panels with a .htrack also slide it sideways 1:1 with the scroll. */
+// phones get a plain vertical page: no pinned stage, no scroll-driven sideways track
+const isMobile = () => matchMedia("(max-width: 800px)").matches;
+
 function layoutStories() {
+  if (isMobile()) {
+    document.querySelectorAll(".story").forEach(st => st.style.removeProperty("--h"));
+    document.querySelectorAll(".htrack").forEach(tr => { tr.style.transform = ""; });
+    return;
+  }
   document.querySelectorAll(".story").forEach(st => {
     let total = 0;
     st.querySelectorAll(".panel").forEach(p => {
@@ -342,6 +350,7 @@ function layoutStories() {
 }
 
 function updateStory() {
+  if (isMobile()) return;
   const vh = innerHeight;
   document.querySelectorAll(".story").forEach(st => {
     const stage = $(".stage", st), panels = [...st.querySelectorAll(".panel")], dots = [...st.querySelectorAll(".snav button")];
@@ -366,6 +375,7 @@ function updateStory() {
 }
 
 function scrollToPanel(el) {
+  if (isMobile()) { el.scrollIntoView({ behavior: "smooth" }); return; }
   const st = el.closest(".story");
   scrollTo({ top: st.getBoundingClientRect().top + scrollY + (el._start || 0) + 2, behavior: "smooth" });
 }
