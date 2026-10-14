@@ -17,7 +17,8 @@ const UI = {
     note_ai: "Most upvoted papers of the week on Hugging Face Daily Papers.",
     note_cyber: "New arXiv cs.CR papers this week, ranked by relevance to my interests (LLM security, malware, reverse engineering…).",
     note_classics: "One landmark paper per domain, rotating every week.",
-    feed_empty: "Nothing here yet — feeds refresh every Monday."
+    feed_empty: "Nothing here yet — feeds refresh every Monday.",
+    close: "Close", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
@@ -36,7 +37,8 @@ const UI = {
     note_ai: "Papers más votados de la semana en Hugging Face Daily Papers.",
     note_cyber: "Papers nuevos de arXiv cs.CR esta semana, ordenados por relevancia para mis intereses (seguridad de LLM, malware, ingeniería inversa…).",
     note_classics: "Un paper de referencia por ámbito, que cambia cada semana.",
-    feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes."
+    feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes.",
+    close: "Cerrar", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
   }
 };
 
@@ -163,20 +165,13 @@ function render() {
   document.querySelectorAll("[data-i18n]").forEach(el => el.textContent = UI[lang][el.dataset.i18n]);
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
 
-  const open = new Set([...document.querySelectorAll(".proj.open")].map(p => p.dataset.repo));
   $("#projectList").innerHTML = PROJECTS.map((p, i) => `
-    <li class="proj ${open.has(String(p.repo || i)) ? "open" : ""}" data-repo="${p.repo || i}" style="--hue:${p.hue}">
-      <button class="proj-head" aria-expanded="${open.has(String(p.repo || i))}">
+    <li class="proj" style="--hue:${p.hue}">
+      <button class="proj-head" data-i="${i}">
         <span class="proj-n">${String(i + 1).padStart(2, "0")}</span>
         <span class="proj-t">${p.title[lang]}${p.wip ? ` <em class="wip">${UI[lang].wip}</em>` : ""}<small>${p.tag[lang]}</small></span>
-        <span class="plus" aria-hidden="true"></span>
+        <span class="proj-go" aria-hidden="true">↗</span>
       </button>
-      <div class="proj-body"><div class="proj-inner"><div class="proj-content">
-        <p>${p.desc[lang]}</p>
-        <div class="stats">${p.stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1][lang]}</span></div>`).join("")}</div>
-        <div class="chips">${p.stack.map(t => `<span>${t}</span>`).join("")}</div>
-        ${p.repo ? `<a class="proj-link" href="${BASE}${p.repo}" target="_blank" rel="noopener">${UI[lang].code}</a>` : `<span class="mono">${UI[lang].nocode}</span>`}
-      </div></div></div>
     </li>`).join("");
 
   $("#cvGrid").innerHTML = CV[lang].map(b => `
@@ -184,6 +179,7 @@ function render() {
       ${b.items.map(i => `<div class="cv-item"><b>${i.t}</b><span>${i.s}</span></div>`).join("")}
     </div>`).join("");
   renderNews();
+  if (curProj !== null) fillProject();
 }
 
 /* ---------- NEWS ---------- */
@@ -191,7 +187,7 @@ let NEWS = null;
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
 
-let FEEDS = null, heroTimer = null;
+let FEEDS = null;
 const FEED_HUE = { curated: 300, cve: 5, ai: 265, cyber: 195, repos: 38, classics: 150 };
 
 function newsFeeds() {
@@ -225,95 +221,138 @@ function newsFeeds() {
   ].filter(x => x.items.length);
 }
 
+const FEED_SRC = {
+  cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+  ai: "https://huggingface.co/papers",
+  cyber: "https://arxiv.org/list/cs.CR/recent",
+  repos: "https://github.com/trending",
+};
+
 function renderNews() {
   const box = $("#newsBox");
-  clearInterval(heroTimer);
   if (!NEWS && !FEEDS) { box.innerHTML = ""; return; }
   const t = UI[lang], feeds = newsFeeds();
   if (!feeds.length) { box.innerHTML = `<p class="mono">${t.feed_empty}</p>`; return; }
-
-  // featured carousel: every curated item + the top item of each automatic feed
-  const slides = feeds.flatMap(fd => (fd.key === "curated" ? fd.items : fd.items.slice(0, 1)).map(it => ({ fd, it })));
-  const hero = `
-    <div class="hs" aria-roledescription="carousel">
-      <div class="hs-track">${slides.map(({ fd, it }) => `
-        <a class="slide" style="--hue:${FEED_HUE[fd.key]}" href="${it.href}" target="_blank" rel="noopener">
-          <span class="mono">${esc(fd.title)} · ${it.tag}</span>
-          <h3>${it.title}</h3><p>${it.desc}</p>
-          <span class="mono">${it.meta} ↗</span>
-        </a>`).join("")}</div>
-      <div class="hs-dots">${slides.map((_, k) => `<button class="hs-dot${k ? "" : " on"}" aria-label="${k + 1}"></button>`).join("")}</div>
-    </div>`;
-
-  const rails = feeds.filter(fd => fd.key !== "curated").map(fd => `
-    <div class="rail-wrap">
-      <div class="rail-top">
-        <h3 class="mono">${esc(fd.title)}</h3>
-        <span class="mono rail-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</span>
-        <span class="rail-arrows"><button data-dir="-1" aria-label="Previous">←</button><button data-dir="1" aria-label="Next">→</button></span>
-      </div>
-      <div class="rail">${fd.items.map(it => `
-        <a class="ncard" style="--hue:${FEED_HUE[fd.key]}" href="${it.href}" target="_blank" rel="noopener" draggable="false">
-          <span class="mono">${it.tag}</span><b>${it.title}</b><span class="ndesc">${it.desc}</span><span class="mono nmeta">${it.meta}</span>
-        </a>`).join("")}</div>
-    </div>`).join("");
-
-  box.innerHTML = hero + rails;
-  initHero();
+  const n = feeds.length, pad = k => String(k).padStart(2, "0");
+  box.innerHTML = `
+    <div class="story" style="--n:${n}"><div class="stage" data-idx="0">
+      ${feeds.map((fd, k) => `
+        <article class="panel${k === 0 ? " on" : ""}" style="--hue:${FEED_HUE[fd.key]}" aria-label="${esc(fd.title)}">
+          <div class="p-left">
+            <p class="mono">${pad(k + 1)} / ${pad(n)}</p>
+            <h3 class="p-title">${esc(fd.title)}</h3>
+            <p class="mono p-note">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
+            ${FEED_SRC[fd.key] ? `<a class="p-all" href="${FEED_SRC[fd.key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}
+          </div>
+          <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 5).map(it => `
+            <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
+              <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
+              <b>${it.title}</b><span class="desc">${it.desc}</span>
+            </a></li>`).join("")}</ul>
+        </article>`).join("")}
+      <nav class="snav" aria-label="News">${feeds.map((fd, k) =>
+        `<button class="${k === 0 ? "on" : ""}" data-k="${k}" aria-label="${esc(fd.title)}" title="${esc(fd.title)}"></button>`).join("")}</nav>
+      <p class="mono shint">${t.story_hint}</p><div class="sbar"></div>
+    </div></div>`;
+  updateStory();
 }
 
-function initHero() {
-  const track = $(".hs-track");
-  if (!track) return;
-  const n = track.children.length, dots = [...document.querySelectorAll(".hs-dot")], wrap = $(".hs");
-  let cur = 0, paused = false;
-  const mark = () => dots.forEach((d, k) => d.classList.toggle("on", k === cur));
-  const go = k => { cur = (k + n) % n; track.scrollTo({ left: cur * track.clientWidth, behavior: "smooth" }); mark(); };
-  track.addEventListener("scroll", () => {
-    const k = Math.round(track.scrollLeft / track.clientWidth);
-    if (k !== cur) { cur = k; mark(); }
-  }, { passive: true });
-  dots.forEach((d, k) => { d.onclick = () => go(k); });
-  wrap.onmouseenter = wrap.onfocusin = () => { paused = true; };
-  wrap.onmouseleave = wrap.onfocusout = () => { paused = false; };
-  if (n > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches)
-    heroTimer = setInterval(() => { if (!paused && !document.hidden) go(cur + 1); }, 7000);
+/* the stage stays pinned while you scroll; scroll position picks the active panel */
+function updateStory() {
+  const st = $(".story");
+  if (!st) return;
+  const stage = $(".stage", st), panels = [...st.querySelectorAll(".panel")], dots = [...st.querySelectorAll(".snav button")];
+  const n = panels.length, travel = Math.max(1, st.offsetHeight - innerHeight);
+  const p = Math.min(1, Math.max(0, -st.getBoundingClientRect().top / travel));
+  const idx = n > 1 ? Math.round(p * (n - 1)) : 0;
+  stage.style.setProperty("--p", p);
+  stage.dataset.idx = idx;
+  panels.forEach((el, k) => { el.classList.toggle("on", k === idx); el.classList.toggle("past", k < idx); });
+  dots.forEach((d, k) => d.classList.toggle("on", k === idx));
 }
+addEventListener("scroll", () => requestAnimationFrame(updateStory), { passive: true });
+addEventListener("resize", updateStory);
+document.addEventListener("click", e => {
+  const dot = e.target.closest(".snav button");
+  if (!dot) return;
+  const st = $(".story"), n = st.querySelectorAll(".panel").length;
+  const top = st.getBoundingClientRect().top + scrollY, travel = st.offsetHeight - innerHeight;
+  scrollTo({ top: top + (+dot.dataset.k / Math.max(1, n - 1)) * travel, behavior: "smooth" });
+});
 
 const loadJson = u => fetch(u, { cache: "no-cache" }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 loadJson("news.json").then(j => { NEWS = j; renderNews(); });
 loadJson("feeds.json").then(j => { FEEDS = j; renderNews(); });
 
-/* rails: drag with the mouse, arrows for everything else (touch/trackpad scroll natively) */
-let dragRail = null, dragX = 0, dragL = 0, dragMoved = false;
-document.addEventListener("pointerdown", e => {
-  const r = e.pointerType === "mouse" && e.target.closest(".rail");
-  if (r) { dragRail = r; dragX = e.clientX; dragL = r.scrollLeft; dragMoved = false; }
+/* ---------- PROJECT OVERLAY (full screen) ---------- */
+let curProj = null, lastFocus = null;
+const pov = document.createElement("div");
+pov.id = "pov"; pov.className = "pov";
+pov.setAttribute("role", "dialog"); pov.setAttribute("aria-modal", "true"); pov.setAttribute("aria-hidden", "true");
+pov.innerHTML = '<button class="pov-close" id="povClose"></button><div class="pov-body" id="povBody"></div>';
+document.body.appendChild(pov);
+
+function fillProject() {
+  const p = PROJECTS[curProj], t = UI[lang], n = PROJECTS.length;
+  const prev = PROJECTS[(curProj + n - 1) % n], next = PROJECTS[(curProj + 1) % n];
+  $("#povClose").innerHTML = `<span aria-hidden="true">✕</span> ${t.close}`;
+  $("#povBody").innerHTML = `
+    <p class="mono">${String(curProj + 1).padStart(2, "0")} / ${String(n).padStart(2, "0")}</p>
+    <h2 class="pov-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</h2>
+    <p class="pov-tag">${p.tag[lang]}</p>
+    <p class="pov-desc">${p.desc[lang]}</p>
+    <div class="stats big">${p.stats.map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1][lang]}</span></div>`).join("")}</div>
+    <div class="chips">${p.stack.map(x => `<span>${x}</span>`).join("")}</div>
+    <div class="pov-actions">${p.repo
+      ? `<a class="btn solid" href="${BASE}${p.repo}" target="_blank" rel="noopener">${t.code}</a>`
+      : `<span class="mono">${t.nocode}</span>`}</div>
+    <div class="pov-nav"><button data-go="-1">← ${prev.title[lang]}</button><button data-go="1">${next.title[lang]} →</button></div>`;
+}
+function openProject(i, e) {
+  lastFocus = document.activeElement; curProj = i;
+  const hasPos = e && (e.clientX || e.clientY);
+  pov.style.setProperty("--cx", (hasPos ? e.clientX : innerWidth / 2) + "px");
+  pov.style.setProperty("--cy", (hasPos ? e.clientY : innerHeight / 2) + "px");
+  fillProject(); pov.scrollTop = 0;
+  document.documentElement.style.setProperty("--hue", PROJECTS[i].hue);
+  document.body.style.overflow = "hidden";
+  pov.setAttribute("aria-hidden", "false"); pov.classList.add("open");
+  $("#povClose").focus({ preventScroll: true });
+}
+function closeProject() {
+  if (curProj === null) return;
+  pov.classList.remove("open"); pov.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  document.documentElement.style.setProperty("--hue", 38);
+  curProj = null;
+  if (lastFocus) lastFocus.focus({ preventScroll: true });
+}
+function goProject(dir) {
+  curProj = (curProj + dir + PROJECTS.length) % PROJECTS.length;
+  document.documentElement.style.setProperty("--hue", PROJECTS[curProj].hue);
+  fillProject(); pov.scrollTop = 0;
+}
+pov.addEventListener("click", e => {
+  if (e.target.closest("#povClose")) closeProject();
+  const g = e.target.closest("[data-go]");
+  if (g) goProject(+g.dataset.go);
 });
-addEventListener("pointermove", e => {
-  if (!dragRail) return;
-  const dx = e.clientX - dragX;
-  if (Math.abs(dx) > 5) { dragMoved = true; dragRail.classList.add("drag"); }
-  if (dragMoved) dragRail.scrollLeft = dragL - dx;
-});
-addEventListener("pointerup", () => { if (dragRail) dragRail.classList.remove("drag"); dragRail = null; });
-document.addEventListener("click", e => { if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; } }, true);
-document.addEventListener("dragstart", e => { if (e.target.closest && e.target.closest(".rail")) e.preventDefault(); });
-document.addEventListener("click", e => {
-  const b = e.target.closest(".rail-arrows button");
-  if (b) b.closest(".rail-wrap").querySelector(".rail").scrollBy({ left: b.dataset.dir * 330, behavior: "smooth" });
+document.addEventListener("keydown", e => {
+  if (curProj === null) return;
+  if (e.key === "Escape") closeProject();
+  else if (e.key === "ArrowRight") goProject(1);
+  else if (e.key === "ArrowLeft") goProject(-1);
+  else if (e.key === "Tab") {  // keep focus inside the overlay
+    const f = [...pov.querySelectorAll("button,a[href]")];
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
 });
 
 document.addEventListener("click", e => {
   const head = e.target.closest(".proj-head");
-  if (head) {
-    const li = head.parentElement;
-    const willOpen = !li.classList.contains("open");
-    document.querySelectorAll(".proj.open").forEach(o => { o.classList.remove("open"); o.querySelector(".proj-head").setAttribute("aria-expanded", "false"); });
-    li.classList.toggle("open", willOpen);
-    head.setAttribute("aria-expanded", willOpen);
-    document.documentElement.style.setProperty("--hue", willOpen ? li.style.getPropertyValue("--hue") : 38);
-  }
+  if (head) openProject(+head.dataset.i, e);
   const lb = e.target.closest(".lang button");
   if (lb) { lang = lb.dataset.lang; try { localStorage.setItem("lang", lang); } catch (e) {} render(); }
 });
