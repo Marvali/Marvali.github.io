@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19",
+  "updated": "2026-10-26",
   "curated": [
     {
       "title": "REA — Reverse Engineer Anything",
@@ -14,85 +14,85 @@
   ],
   "auto": [
     {
-      "name": "MyLuxy/overdrive",
-      "url": "https://github.com/MyLuxy/overdrive",
-      "desc": "Overdrive, a PS5 homebrew game store with 1,800+ games.",
-      "stars": 845,
-      "lang": "C++",
-      "topic": "Reverse engineering",
-      "created": "2026-10-14"
-    },
-    {
-      "name": "Zfinix/eleven",
-      "url": "https://github.com/Zfinix/eleven",
-      "desc": "Agent-first reverse engineering for macOS, Windows and Linux: any ACP agent reads, renames and patches binaries, Android apps and GPU kernels next to you.",
-      "stars": 776,
-      "lang": "TypeScript",
-      "topic": "Reverse engineering",
-      "created": "2026-10-13"
-    },
-    {
-      "name": "songshikang0111/awesome-REA-cases",
-      "url": "https://github.com/songshikang0111/awesome-REA-cases",
-      "desc": "A curated collection of REA and AI-assisted reverse engineering cases, projects, and ideas. Updated every four hours.",
-      "stars": 281,
+      "name": "JMS1717/ming-voice",
+      "url": "https://github.com/JMS1717/ming-voice",
+      "desc": "Low-latency local speech-to-speech voice assistant with Ming-3.0-audio-tiny on AMD and Nvidia GPUs. Easy setup on Windows and Linux",
+      "stars": 305,
       "lang": "Python",
-      "topic": "Reverse engineering",
-      "created": "2026-10-12"
+      "topic": "Local LLM",
+      "created": "2026-10-21"
     },
     {
-      "name": "cdcailf/cjkfold",
-      "url": "https://github.com/cdcailf/cjkfold",
-      "desc": "Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements) so text extracted from PDFs matches again.",
-      "stars": 203,
+      "name": "hevnsnt/CVEngine",
+      "url": "https://github.com/hevnsnt/CVEngine",
+      "desc": "AI-first external attack surface assessment with continuous discovery, evidence-based vulnerability validation, and developer-agent MCP integration.",
+      "stars": 293,
       "lang": "Python",
-      "topic": "RAG",
-      "created": "2026-10-13"
-    },
-    {
-      "name": "cschalle/hw-harness",
-      "url": "https://github.com/cschalle/hw-harness",
-      "desc": "Small set of tools for helping with reverse engineering Linux drivers",
-      "stars": 167,
-      "lang": "Shell",
-      "topic": "Reverse engineering",
-      "created": "2026-10-14"
-    },
-    {
-      "name": "Fazmin/cve-intel",
-      "url": "https://github.com/Fazmin/cve-intel",
-      "desc": "Local security intelligence for CVE triage - 34 tools, 25 sources, risk scores and an MCP server for AI agents, all in native Rust. Private by default.",
-      "stars": 55,
-      "lang": "Rust",
       "topic": "Cybersecurity",
-      "created": "2026-10-18"
+      "created": "2026-10-24"
     },
     {
-      "name": "1nikitas/NIKA_desktop",
-      "url": "https://github.com/1nikitas/NIKA_desktop",
-      "desc": "Native AI assistant for macOS, built with SwiftUI and llama.cpp. Run local LLMs offline, work with PDFs, and create custom AI assistants. Optional NIKA cloud integration.",
-      "stars": 33,
-      "lang": "Swift",
-      "topic": "Local LLM",
-      "created": "2026-10-13"
+      "name": "h9-tec/ai-roadmap-2026",
+      "url": "https://github.com/h9-tec/ai-roadmap-2026",
+      "desc": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
+      "stars": 167,
+      "lang": "",
+      "topic": "RAG",
+      "created": "2026-10-21"
     },
     {
-      "name": "michael-chow-arch/StreamLingo",
-      "url": "https://github.com/michael-chow-arch/StreamLingo",
-      "desc": "YouTube 直播实时 AI 翻译字幕，支持本地 Ollama，英中双向。首次配置，日常双击启动。AI captions for YouTube livestreams with local Ollama. English ↔ Chinese. Windows/NVIDIA preview; setup once, double-click to start.",
-      "stars": 30,
+      "name": "yuatemycat/SuperGhidra",
+      "url": "https://github.com/yuatemycat/SuperGhidra",
+      "desc": "SuperGhidra: Autonomous Agent Reverse Engineering, Lock-Free Ghidra Daemon & C++ Recovery Suite",
+      "stars": 141,
       "lang": "Python",
-      "topic": "Local LLM",
-      "created": "2026-10-12"
+      "topic": "Reverse engineering",
+      "created": "2026-10-20"
     },
     {
-      "name": "JoasASantos/Malvex",
-      "url": "https://github.com/JoasASantos/Malvex",
-      "desc": "AI-driven malware analysis framework with 30+ integrated tools, web REPL, and MCP server",
-      "stars": 28,
+      "name": "voidfnc/mw4-texture-streaming-research",
+      "url": "https://github.com/voidfnc/mw4-texture-streaming-research",
+      "desc": "Research tooling for MW4 on-demand texture streaming: loopback proxy, hosts manager, resumable mirror, control GUI. Code and notes only - no game files.",
+      "stars": 124,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-10-20"
+    },
+    {
+      "name": "Jakeschincariol/console-skill",
+      "url": "https://github.com/Jakeschincariol/console-skill",
+      "desc": "11 Claude skills that port PlayStation 2 games you own to PC: reverse engineer the code, rebuild the graphics and backend, any controller, play it anywhere, then mod it however you want.",
+      "stars": 119,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-10-22"
+    },
+    {
+      "name": "syhunt/php2shell-protection",
+      "url": "https://github.com/syhunt/php2shell-protection",
+      "desc": "Defensive mitigation and testing toolkit for PHP security vulnerabilities (CVE-2026-109618, CVE-2026-109619, CVE-2026-115560), including Apache protections and PHP hardening guidance",
+      "stars": 115,
+      "lang": "PHP",
+      "topic": "Cybersecurity",
+      "created": "2026-10-21"
+    },
+    {
+      "name": "YOLOW92/pagesift",
+      "url": "https://github.com/YOLOW92/pagesift",
+      "desc": "High-performance, memory-efficient Rust web crawler & content extraction engine for AI agents and RAG. Adaptive crawling, clean Markdown, structured data, PDF/RSS parsing, browser rendering, Firecrawl",
+      "stars": 95,
       "lang": "Rust",
-      "topic": "Malware analysis",
-      "created": "2026-10-14"
+      "topic": "RAG",
+      "created": "2026-10-20"
+    },
+    {
+      "name": "thomasunise/argus",
+      "url": "https://github.com/thomasunise/argus",
+      "desc": "Open-source agentic security operations platform:",
+      "stars": 93,
+      "lang": "Python",
+      "topic": "Cybersecurity",
+      "created": "2026-10-24"
     }
   ]
 }
