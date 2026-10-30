@@ -18,7 +18,7 @@ const UI = {
     note_cyber: "New arXiv cs.CR papers this week, ranked by relevance to my interests (LLM security, malware, reverse engineering…).",
     note_classics: "One landmark paper per domain, rotating every week.",
     feed_empty: "Nothing here yet — feeds refresh every Monday.",
-    close: "Close", news_q: "Want more?", news_cta: "Get informed!", swipe: "scroll to explore", proj_note: "Click one to open it full screen", photos_title: "Beyond the code", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
+    close: "Close", read_article: "Read article →", sources: "Sources", news_q: "Want more?", news_cta: "Get informed!", swipe: "scroll to explore", proj_note: "Click one to open it full screen", photos_title: "Beyond the code", news_all: "See the full list", story_hint: "keep scrolling ↓", prev: "Previous", next: "Next"
   },
   es: {
     nav_projects: "Proyectos", nav_cv: "CV", nav_contact: "Contacto",
@@ -38,7 +38,7 @@ const UI = {
     note_cyber: "Papers nuevos de arXiv cs.CR esta semana, ordenados por relevancia para mis intereses (seguridad de LLM, malware, ingeniería inversa…).",
     note_classics: "Un paper de referencia por ámbito, que cambia cada semana.",
     feed_empty: "Todavía no hay nada: los feeds se actualizan cada lunes.",
-    close: "Cerrar", news_q: "¿Quieres más?", news_cta: "¡Infórmate!", swipe: "desliza para explorar", proj_note: "Pulsa uno para abrirlo a pantalla completa", photos_title: "Fuera del código", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
+    close: "Cerrar", read_article: "Leer artículo →", sources: "Fuentes", news_q: "¿Quieres más?", news_cta: "¡Infórmate!", swipe: "desliza para explorar", proj_note: "Pulsa uno para abrirlo a pantalla completa", photos_title: "Fuera del código", news_all: "Ver la lista completa", story_hint: "sigue bajando ↓", prev: "Anterior", next: "Siguiente"
   }
 };
 
@@ -141,17 +141,31 @@ const CV = {
     { wide: true, h: "Profile", items: [{ t: "Software Development · Cybersecurity · Applied AI", s: "I'm a software developer with an Information Systems Engineering background and hands-on cybersecurity experience. I build applications end to end in Python, Java and SQL, from REST APIs (FastAPI) and databases to full-stack web apps and applied AI systems. On the security side, I come from cyber threat intelligence: OSINT investigations, OPSEC-hardened research environments and systems administration. Right now I'm building a secure, on-premise LLM system for confidential document analysis." }] },
     { h: "Education", items: [{ t: "BSc Information Systems Engineering", s: "Universidad de Alcalá · 2022 – 2027 · coursework completed, thesis in progress" }, { t: "Higher Technician, Telecom & Computer Systems", s: "Salesianos de Atocha, Madrid · 2020 – 2022" }] },
     { h: "Experience", items: [{ t: "Cyber Threat Intelligence Intern (OSINT)", s: "Qintegra · 2022 · OSINT monitoring and strategic reports; sock-puppet personas under strict OPSEC (Tails, segregated networks); forensic acquisition fundamentals" }, { t: "IT Technician (Internship)", s: "OpenSpring S.L. / Datatronics · 2022 · VMs, servers, VoIP, technical support" }] },
-    { h: "Skills", items: [{ t: "Languages", s: "Python, MATLAB, Java, C++, SQL, Bash, PowerShell, HTML, CSS" }, { t: "Software & systems", s: "OOP, UML, FastAPI, PostgreSQL, Power BI, Linux, Windows, Docker, Git, virtualization, Jira" }, { t: "Security", s: "OSINT & CTI, OPSEC, forensic acquisition fundamentals, network security, Tor, cryptography" }, { t: "AI", s: "Hybrid RAG, local LLM deployment, AI-assisted development (Claude Code, Codex, GitHub Copilot), evolutionary algorithms, k-NN, SVM, neural networks, object detection & tracking" }] },
+    { h: "Skills", items: [
+      { t: "Languages", s: "Python, Java, C++, SQL, JavaScript, MATLAB, Bash, PowerShell, HTML, CSS" },
+      { t: "Software engineering", s: "OOP, UML, REST APIs (FastAPI), full-stack web, concurrent & distributed programming (Java threads, RMI), unit & black-box testing, Git, GitHub, Jira" },
+      { t: "Data", s: "PostgreSQL, relational data modeling, Power BI (data cleaning, dashboards), NumPy" },
+      { t: "AI & LLMs", s: "LLMs, generative AI, RAG, on-premise LLM deployment, prompt engineering, machine learning (k-NN, SVM, neural networks, k-means), evolutionary algorithms, computer vision" },
+      { t: "AI-assisted development", s: "Claude Code (subagents, hooks, MCP, skills), GitHub Copilot, Codex" },
+      { t: "Security", s: "OSINT, cyber threat intelligence, OPSEC (sock puppets, Tails, compartmentalized identities), forensic acquisition (disk imaging, hash verification), network security, Tor, Wireshark, Nmap (basic)" },
+      { t: "Systems & networking", s: "Linux, Windows, Docker, virtualization, server administration, TCP/IP, routing & switching" }] },
     { h: "Certifications", items: [{ t: "Cisco CCNA (Switching, Routing & Wireless), CCNAv7, IT Essentials", s: "Power BI basic course" }] },
-    { h: "Languages", items: [{ t: "Spanish", s: "Native" }, { t: "English", s: "B2 spoken/written · C1 reading/listening" }] }
+    { h: "Languages", items: [{ t: "Spanish", s: "Native" }, { t: "English", s: "C1" }] }
   ],
   es: [
     { wide: true, h: "Perfil", items: [{ t: "Desarrollo de software · Ciberseguridad · IA aplicada", s: "Soy desarrollador de software, con formación en Ingeniería de Sistemas de Información y experiencia práctica en ciberseguridad. Construyo aplicaciones de principio a fin en Python, Java y SQL, desde APIs REST (FastAPI) y bases de datos hasta aplicaciones web full-stack y sistemas de IA aplicada. En seguridad vengo de la inteligencia de amenazas: investigaciones OSINT, entornos de investigación con OPSEC reforzado y administración de sistemas. Ahora mismo desarrollo un sistema LLM seguro y on-premise para analizar documentos confidenciales." }] },
     { h: "Formación", items: [{ t: "Grado en Ingeniería de Sistemas de Información", s: "Universidad de Alcalá · 2022 – 2027 · asignaturas completadas, TFG en curso" }, { t: "Técnico Superior en Telecomunicaciones e Informática", s: "Salesianos de Atocha, Madrid · 2020 – 2022" }] },
     { h: "Experiencia", items: [{ t: "Becario de Cyber Threat Intelligence (OSINT)", s: "Qintegra · 2022 · monitorización OSINT e informes estratégicos; perfiles sock-puppet con OPSEC estricto (Tails, redes segregadas); fundamentos de adquisición forense" }, { t: "Técnico informático (prácticas)", s: "OpenSpring S.L. / Datatronics · 2022 · VMs, servidores, VoIP, soporte técnico" }] },
-    { h: "Habilidades", items: [{ t: "Lenguajes", s: "Python, MATLAB, Java, C++, SQL, Bash, PowerShell, HTML, CSS" }, { t: "Software y sistemas", s: "POO, UML, FastAPI, PostgreSQL, Power BI, Linux, Windows, Docker, Git, virtualización, Jira" }, { t: "Seguridad", s: "OSINT y CTI, OPSEC, fundamentos de adquisición forense, seguridad de redes, Tor, criptografía" }, { t: "IA", s: "RAG híbrido, despliegue de LLM locales, desarrollo asistido por IA (Claude Code, Codex, GitHub Copilot), algoritmos evolutivos, k-NN, SVM, redes neuronales, detección y seguimiento de objetos" }] },
+    { h: "Habilidades", items: [
+      { t: "Lenguajes", s: "Python, Java, C++, SQL, JavaScript, MATLAB, Bash, PowerShell, HTML, CSS" },
+      { t: "Ingeniería del software", s: "POO, UML, APIs REST (FastAPI), desarrollo web full-stack, programación concurrente y distribuida (hilos Java, RMI), pruebas unitarias y de caja negra, Git, GitHub, Jira" },
+      { t: "Datos", s: "PostgreSQL, modelado relacional, Power BI (limpieza de datos, dashboards), NumPy" },
+      { t: "IA y LLM", s: "LLM, IA generativa, RAG, despliegue de LLM on-premise, prompt engineering, machine learning (k-NN, SVM, redes neuronales, k-means), algoritmos evolutivos, visión artificial" },
+      { t: "Desarrollo asistido por IA", s: "Claude Code (subagentes, hooks, MCP, skills), GitHub Copilot, Codex" },
+      { t: "Seguridad", s: "OSINT, inteligencia de amenazas, OPSEC (sock puppets, Tails, identidades compartimentadas), adquisición forense (clonado de discos, verificación por hash), seguridad de redes, Tor, Wireshark, Nmap (básico)" },
+      { t: "Sistemas y redes", s: "Linux, Windows, Docker, virtualización, administración de servidores, TCP/IP, routing y switching" }] },
     { h: "Certificaciones", items: [{ t: "Cisco CCNA (Switching, Routing & Wireless), CCNAv7, IT Essentials", s: "Curso básico de Power BI" }] },
-    { h: "Idiomas", items: [{ t: "Español", s: "Nativo" }, { t: "Inglés", s: "B2 hablado/escrito · C1 lectura/comprensión" }] }
+    { h: "Idiomas", items: [{ t: "Español", s: "Nativo" }, { t: "Inglés", s: "C1" }] }
   ]
 };
 
@@ -161,9 +175,13 @@ try { lang = localStorage.getItem("lang") || (navigator.language.startsWith("es"
 const $ = (s, r = document) => r.querySelector(s);
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => (/^https:\/\/github\.com\//.test(u) ? esc(u) : "#");
+const httpsUrl = u => (/^https:\/\/[^\s"<>]+$/.test(u || "") ? esc(u) : "#");
+const tx = v => (v && typeof v === "object" ? (v[lang] || v.en) : v);  // plain string or { en, es }
+const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
 const pad2 = k => String(k).padStart(2, "0");
 const prevH = box => (box.querySelector(".story") && box.querySelector(".story").style.getPropertyValue("--h")) || 6;
 
+let curArt = null;
 let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "cve";
 // photos for the "Beyond the code" panel (hidden while empty):
 // { src: "assets/photos/mountain.jpg", alt: { en: "…", es: "…" } }
@@ -183,7 +201,8 @@ function render() {
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
   renderMain();
   renderNews();
-  if (curProj !== null) fillProject();
+  if (curArt) fillArticle();
+  else if (curProj !== null) fillProject();
 }
 
 /* ---------- MAIN STORY: about -> projects (horizontal) -> CV ---------- */
@@ -232,7 +251,7 @@ function renderMain() {
     panels.push({ id: gi === 0 ? "cv" : "cv" + gi, label: titles[gi], hue: hues[gi], cls: "cvpanel", html: `
       <div class="p-left"><h3 class="p-title">${titles[gi]}</h3>
         ${gi === groups.length - 1 ? `<a class="btn" href="assets/Isaac_Marval_CV.pdf" download>${t.cta_cv}</a>` : ""}</div>
-      <div class="cvcols n${g.length}">${g.map(k => `
+      <div class="cvcols n${g.length}${gi === 1 ? " wide1" : ""}">${g.map(k => `
         <div class="cvblk"><h4 class="mono">${cv[k].h}</h4>
           ${cv[k].items.map(i => `<div class="cvit"><b>${i.t}</b><span>${i.s}</span></div>`).join("")}</div>`).join("")}</div>` });
   });
@@ -256,8 +275,10 @@ function newsFeeds() {
   });
   return [
     feed("curated", "", (n.curated || []).map(c => ({
-      tag: `${esc(c.tag)} · ${esc(c.date)}`, title: esc(c.title),
-      desc: esc((c.note || {})[lang] || (c.note || {}).en), meta: t.news_open, href: safeUrl(c.url) }))),
+      tag: `${esc(tx(c.tag))} · ${esc(c.date)}`, title: esc(tx(c.title)),
+      desc: esc((c.note || {})[lang] || (c.note || {}).en),
+      meta: c.article ? t.read_article : esc(hostOf(c.url)) + " ↗",
+      href: c.article ? "#" : httpsUrl(c.url), article: c.article ? esc(c.id) : "" }))),
     feed("cve", f.updated, (f.cves || []).map(c => ({
       tag: esc(c.id), title: `${esc(c.vendor)} ${esc(c.product)}${c.ransom ? ' <em class="wip">ransomware</em>' : ""}`,
       desc: esc(c.desc), meta: esc(c.added),
@@ -310,7 +331,7 @@ function showFeed(key, animate) {
     <div class="nhead"><p class="mono">${esc(fd.note)}${fd.updated ? ` · ${t.news_updated} ${esc(fd.updated)}` : ""}</p>
       ${FEED_SRC[key] ? `<a class="p-all" href="${FEED_SRC[key]}" target="_blank" rel="noopener">${t.news_all} ↗</a>` : ""}</div>
     <ul class="srows${fd.items.length === 1 ? " solo" : ""}">${fd.items.slice(0, 6).map(it => `
-      <li><a class="srow" href="${it.href}" target="_blank" rel="noopener">
+      <li><a class="srow" href="${it.href}"${it.article ? ` data-article="${it.article}"` : ' target="_blank" rel="noopener"'}>
         <span class="mono tag">${it.tag}</span><span class="mono meta">${it.meta}</span>
         <b>${it.title}</b><span class="desc">${it.desc}</span>
       </a></li>`).join("")}</ul>`;
@@ -397,6 +418,7 @@ function fillProject() {
   const p = PROJECTS[curProj], t = UI[lang], n = PROJECTS.length;
   const prev = PROJECTS[(curProj + n - 1) % n], next = PROJECTS[(curProj + 1) % n];
   $("#povClose").innerHTML = `<span aria-hidden="true">✕</span> ${t.close}`;
+  $("#povBody").classList.remove("long");
   $("#povBody").innerHTML = `
     <p class="mono">${pad2(curProj + 1)} / ${pad2(n)}</p>
     <h2 class="pov-t">${p.title[lang]}${p.wip ? ` <em class="wip">${t.wip}</em>` : ""}</h2>
@@ -415,7 +437,34 @@ function setRect(el) {
   const v = ok ? [r.top, innerWidth - r.right, innerHeight - r.bottom, r.left] : [innerHeight / 2, innerWidth / 2, innerHeight / 2, innerWidth / 2];
   ["--ct", "--cr", "--cb", "--cl"].forEach((k, i) => pov.style.setProperty(k, v[i] + "px"));
 }
+function fillArticle() {
+  const a = curArt, t = UI[lang], L = a.article[lang] || a.article.en;
+  $("#povClose").innerHTML = `<span aria-hidden="true">✕</span> ${t.close}`;
+  $("#povBody").classList.add("long");
+  $("#povBody").innerHTML = `
+    <article class="art">
+      <p class="mono">${esc(tx(a.tag))} · ${esc(a.date)}</p>
+      <h2 class="pov-t art-t">${esc(L.title)}</h2>
+      <p class="pov-tag">${esc(L.dek)}</p>
+      ${L.sections.map(sec => `<h3>${esc(sec.h)}</h3>${sec.p.map(x => `<p>${esc(x)}</p>`).join("")}`).join("")}
+      <h3>${t.sources}</h3>
+      <ol class="art-src">${(a.sources || []).map(x =>
+        `<li><a href="${httpsUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a></li>`).join("")}</ol>
+    </article>`;
+}
+function openArticle(id, el) {
+  const a = ((NEWS || {}).curated || []).find(c => c.id === id && c.article);
+  if (!a) return;
+  lastFocus = document.activeElement; curArt = a; curProj = null;
+  setRect(el); fillArticle(); pov.scrollTop = 0;
+  document.documentElement.style.setProperty("--hue", 4);
+  document.body.style.overflow = "hidden";
+  pov.getBoundingClientRect();
+  pov.setAttribute("aria-hidden", "false"); pov.classList.add("open");
+  $("#povClose").focus({ preventScroll: true });
+}
 function openProject(i, el) {
+  curArt = null;
   lastFocus = document.activeElement; opener = el; curProj = i;
   setRect(el); fillProject(); pov.scrollTop = 0;
   document.documentElement.style.setProperty("--hue", PROJECTS[i].hue);
@@ -425,12 +474,12 @@ function openProject(i, el) {
   $("#povClose").focus({ preventScroll: true });
 }
 function closeProject() {
-  if (curProj === null) return;
-  setRect($(`.pcard[data-i="${curProj}"]`));
+  if (curProj === null && !curArt) return;
+  setRect(curArt ? $(`[data-article="${curArt.id}"]`) : $(`.pcard[data-i="${curProj}"]`));
   pov.classList.remove("open"); pov.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   document.documentElement.style.setProperty("--hue", 38);
-  curProj = null;
+  curProj = null; curArt = null;
   if (lastFocus) lastFocus.focus({ preventScroll: true });
 }
 function goProject(dir) {
@@ -444,10 +493,10 @@ pov.addEventListener("click", e => {
   if (g) goProject(+g.dataset.go);
 });
 document.addEventListener("keydown", e => {
-  if (curProj === null) return;
+  if (curProj === null && !curArt) return;
   if (e.key === "Escape") closeProject();
-  else if (e.key === "ArrowRight") goProject(1);
-  else if (e.key === "ArrowLeft") goProject(-1);
+  else if (curProj !== null && e.key === "ArrowRight") goProject(1);
+  else if (curProj !== null && e.key === "ArrowLeft") goProject(-1);
   else if (e.key === "Tab") {  // keep focus inside the overlay
     const f = [...pov.querySelectorAll("button,a[href]")];
     const first = f[0], last = f[f.length - 1];
@@ -460,6 +509,9 @@ document.addEventListener("keydown", e => {
 document.addEventListener("click", e => {
   const card = e.target.closest(".pcard");
   if (card) { openProject(+card.dataset.i, card); return; }
+
+  const art = e.target.closest("[data-article]");
+  if (art) { e.preventDefault(); openArticle(art.dataset.article, art); return; }
 
   const nm = e.target.closest(".nm");
   if (nm) { newsSel = nm.dataset.feed; showFeed(newsSel, true); return; }

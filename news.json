@@ -2,6 +2,172 @@
   "updated": "2026-10-26",
   "curated": [
     {
+      "id": "vulnerable-week-2026",
+      "title": {
+        "en": "The most vulnerable week in internet history",
+        "es": "La semana más vulnerable de la historia de internet"
+      },
+      "tag": {
+        "en": "Article",
+        "es": "Artículo"
+      },
+      "date": "2026-10-30",
+      "note": {
+        "en": "Ten days in October 2026 brought two critical PHP flaws, a backdoored LiteLLM release, a 12-year-old GitLab bug, guessable CA keys and unvetted AI agents inside bank accounts. What happened and what I take from it.",
+        "es": "Diez días de octubre de 2026 trajeron dos fallos críticos en PHP, una versión de LiteLLM con puerta trasera, un bug de GitLab de 12 años, claves de una autoridad de certificación adivinables y agentes de IA sin control dentro de cuentas bancarias. Qué pasó y qué me llevo."
+      },
+      "article": {
+        "es": {
+          "title": "La semana más vulnerable de la historia de internet",
+          "dek": "Entre el 17 y el 26 de octubre de 2026 coincidieron cinco incidentes que, por separado, ya habrían sido noticia. Juntos dibujan bastante bien hacia dónde va la seguridad: la cadena de suministro, el código antiguo, la criptografía mal generada y los agentes de IA.",
+          "sections": [
+            {
+              "h": "1. PHP2Shell: ejecución remota en el propio PHP",
+              "p": [
+                "Dos fallos en el intérprete de PHP, CVE-2026-109618 y CVE-2026-109619, permitían ejecutar código en el servidor sin autenticarse. Ambos tienen una puntuación CVSS v4.0 de 9,2. Uno viene de cómo PHP gestiona la falta de memoria y el otro de un estado global que queda «sucio» entre peticiones.",
+                "PHP publicó las versiones corregidas el 21 de octubre (8.5.12, 8.4.27, 8.3.36 y 8.2.35), pero los detalles se filtraron antes: el honeypot de Amazon registró un intento de explotación el 17 de octubre, cuatro días antes del anuncio. El 26 de octubre la CISA añadió CVE-2026-109618 a su catálogo de vulnerabilidades explotadas activamente. Como PHP sigue moviendo una parte enorme de la web, el alcance potencial es difícil de exagerar."
+              ]
+            },
+            {
+              "h": "2. LiteLLM 1.107.0: una puerta trasera en la librería de IA de moda",
+              "p": [
+                "LiteLLM es la librería que mucha gente usa para hablar con distintos LLM desde Python. El 21 de octubre se publicó en PyPI y en Docker una versión 1.107.0 manipulada, subida con credenciales robadas del propio proyecto, no rompiendo PyPI.",
+                "Traía dos piezas: un ladrón de credenciales y una puerta trasera que cada hora consultaba un repositorio en GitHub para descargar y ejecutar código nuevo. Lo peor es dónde se escondía: en los hooks de arranque de Python, de modo que se ejecutaba al iniciar cualquier proceso Python del equipo, aunque nunca importara LiteLLM. Estuvo unas dos horas en PyPI y algo más en Docker. Quien la instalara debe dar por comprometidas sus claves de API y tokens."
+              ]
+            },
+            {
+              "h": "3. GitLab: un fallo crítico que llevaba ahí desde 2014",
+              "p": [
+                "CVE-2026-110264 recibió la puntuación máxima, CVSS 10.0. Es un desbordamiento de entero al compilar expresiones regulares (en el motor Onigmo que GitLab incluye) que permite a un atacante sin cuenta ejecutar código en instancias autogestionadas.",
+                "Afecta a versiones desde GitLab 7.0, de 2014. GitLab lo corrigió el 21 de octubre en 19.5.1, 19.4.3 y 19.3.6, con parches también para ramas más antiguas, y no ofrece ninguna medida alternativa: hay que actualizar. A 22 de octubre no se había confirmado explotación real, pero doce años de versiones afectadas son muchos servidores olvidados."
+              ]
+            },
+            {
+              "h": "4. eMudhra: claves de certificado tan débiles que una valía 4",
+              "p": [
+                "Una autoridad de certificación tiene una sola tarea crítica: que nadie pueda fabricar certificados en su nombre. Ocho claves privadas de CA intermedias de eMudhra, una autoridad india, se generaron con tan poca aleatoriedad que su valor era menor que 256. En la práctica, cualquiera podía recuperarlas a partir de los certificados públicos; un investigador lo hizo con las ocho en menos de un segundo en su portátil.",
+                "Con esas claves se podrían haber emitido certificados HTTPS falsos que los navegadores aceptarían. Google y Mozilla retiraron la confianza en horas, seguidos de Apple y Microsoft, y no hay constancia pública de que se usaran en ataques. Es el recordatorio perfecto de que la criptografía casi nunca falla por el algoritmo, sino por cómo se generan y se custodian las claves."
+              ]
+            },
+            {
+              "h": "5. Agentes de IA dentro de cuentas bancarias",
+              "p": [
+                "Según publicó Axios el 22 de octubre, citando fuentes anónimas, varios grandes bancos de EE. UU. están detectando agentes de IA de terceros operando dentro de cuentas de clientes, algunos haciendo cosas que no parecen ordenadas por el usuario. Varias entidades han empezado a restringirlos o bloquearlos; Morgan Stanley, por su parte, dijo no haber visto casos de agentes «rebeldes».",
+                "No hay pérdidas confirmadas y la información es todavía poco sólida, pero el problema de fondo sí es real: hoy un banco no sabe distinguir si una acción la ha decidido la persona o el agente al que le dio sus credenciales."
+              ]
+            },
+            {
+              "h": "Qué me llevo",
+              "p": [
+                "Ninguno de estos incidentes necesitó una técnica nueva. Fueron un fallo de memoria, unas credenciales filtradas, código de hace doce años, aleatoriedad mal usada y agentes sin identidad propia. Lo que sí ha cambiado es la velocidad: PHP2Shell se explotaba antes de publicarse y la versión maliciosa de LiteLLM solo necesitó dos horas.",
+                "Para mí hay tres lecciones prácticas: fijar versiones y verificar hashes de las dependencias (sobre todo las de IA, que suelen tener acceso a claves de API), parchear servicios expuestos en días y no en semanas, y tratar a los agentes de IA como usuarios con permisos propios, auditoría y límites. Es justo lo que intento aplicar en mi TFG: un LLM local con control de acceso por documento, registro de auditoría y pruebas contra prompt injection y fuga de datos."
+              ]
+            }
+          ]
+        },
+        "en": {
+          "title": "The most vulnerable week in internet history",
+          "dek": "Between 17 and 26 October 2026, five incidents landed that would each have made headlines on their own. Together they show where security is heading: the supply chain, old code, badly generated cryptography and AI agents.",
+          "sections": [
+            {
+              "h": "1. PHP2Shell: remote code execution in PHP itself",
+              "p": [
+                "Two flaws in the PHP runtime, CVE-2026-109618 and CVE-2026-109619, allowed unauthenticated code execution on the server. Both score 9.2 on CVSS v4.0. One comes from how PHP handles running out of memory, the other from global state left \"dirty\" between requests.",
+                "PHP shipped fixed versions on 21 October (8.5.12, 8.4.27, 8.3.36 and 8.2.35), but details leaked earlier: Amazon's honeypot recorded an exploitation attempt on 17 October, four days before disclosure. On 26 October CISA added CVE-2026-109618 to its catalog of actively exploited vulnerabilities. Given how much of the web still runs on PHP, the potential reach is hard to overstate."
+              ]
+            },
+            {
+              "h": "2. LiteLLM 1.107.0: a backdoor in the AI library everyone uses",
+              "p": [
+                "LiteLLM is the library many people use to talk to different LLMs from Python. On 21 October a tampered 1.107.0 release was pushed to PyPI and Docker using credentials stolen from the project itself, not by breaking into PyPI.",
+                "It carried two pieces: a credential stealer and a backdoor that checked a GitHub repository every hour to fetch and run new code. The worst part is where it hid: in Python's startup hooks, so it ran whenever any Python process started on the machine, even one that never imported LiteLLM. It was live on PyPI for about two hours and a bit longer on Docker. Anyone who installed it should treat their API keys and tokens as compromised."
+              ]
+            },
+            {
+              "h": "3. GitLab: a critical bug that had been there since 2014",
+              "p": [
+                "CVE-2026-110264 received the maximum score, CVSS 10.0. It is an integer overflow when compiling regular expressions (in the Onigmo engine GitLab ships) that lets an attacker without an account run code on self-managed instances.",
+                "It affects versions back to GitLab 7.0, from 2014. GitLab fixed it on 21 October in 19.5.1, 19.4.3 and 19.3.6, with patches for older branches too, and offers no workaround: you have to upgrade. As of 22 October no real-world exploitation had been confirmed, but twelve years of affected releases means a lot of forgotten servers."
+              ]
+            },
+            {
+              "h": "4. eMudhra: certificate keys so weak one of them was 4",
+              "p": [
+                "A certificate authority has one critical job: nobody else must be able to issue certificates in its name. Eight intermediate CA private keys from eMudhra, an Indian authority, were generated with so little randomness that their values were below 256. In practice anyone could recover them from the public certificates; one researcher did all eight in under a second on a laptop.",
+                "Those keys could have been used to issue fake HTTPS certificates that browsers would accept. Google and Mozilla pulled trust within hours, followed by Apple and Microsoft, and there is no public evidence they were used in attacks. It is the perfect reminder that cryptography rarely fails because of the algorithm; it fails in how keys are generated and kept."
+              ]
+            },
+            {
+              "h": "5. AI agents inside bank accounts",
+              "p": [
+                "According to Axios on 22 October, citing anonymous sources, several large US banks are finding third-party AI agents operating inside customer accounts, some doing things that do not seem to come from the user. Several institutions have started restricting or blocking them; Morgan Stanley said it had not seen \"rogue\" agents on its platforms.",
+                "There are no confirmed losses and the reporting is still thin, but the underlying problem is real: today a bank cannot tell whether an action was decided by the person or by the agent they handed their credentials to."
+              ]
+            },
+            {
+              "h": "What I take from it",
+              "p": [
+                "None of these incidents needed a new technique. They were a memory bug, leaked credentials, twelve-year-old code, misused randomness and agents without an identity of their own. What has changed is speed: PHP2Shell was exploited before disclosure and the malicious LiteLLM release only needed two hours.",
+                "For me there are three practical lessons: pin versions and verify hashes for dependencies (especially AI ones, which usually hold API keys), patch exposed services in days rather than weeks, and treat AI agents as users with their own permissions, auditing and limits. That is exactly what I am applying in my thesis: a local LLM with per-document access control, audit logging and testing against prompt injection and data leakage."
+              ]
+            }
+          ]
+        }
+      },
+      "sources": [
+        {
+          "name": "Fireship — The most vulnerable week in internet history (video)",
+          "url": "https://www.youtube.com/watch?v=SMGg7iisHmc"
+        },
+        {
+          "name": "Help Net Security — PHP2Shell: critical PHP vulnerabilities patched",
+          "url": "https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/"
+        },
+        {
+          "name": "AWS Security Blog — PHP2Shell exploitation prior to public disclosure",
+          "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/"
+        },
+        {
+          "name": "Microsoft Security Blog — Inside the LiteLLM 1.107.0 supply chain compromise",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
+        },
+        {
+          "name": "StepSecurity — litellm 1.107.0 compromised on PyPI and Docker",
+          "url": "https://www.stepsecurity.io/blog/litellm-1-107-0-compromised-pypi-backdoored-wheels-credential-stealer"
+        },
+        {
+          "name": "The Register — Max-severity GitLab bug across 12 years of releases",
+          "url": "https://www.theregister.com/security/2026/10/22/max-severity-gitlab-bug-allows-remote-code-execution-over-12-years-of-releases/5304854"
+        },
+        {
+          "name": "The Next Web — Eight eMudhra certificate keys were so weak that one was the number 4",
+          "url": "https://thenextweb.com/news/emudhra-certificates-weak-keys-browsers-block"
+        },
+        {
+          "name": "AdGuard — eMudhra certificate incident",
+          "url": "https://adguard.com/en/blog/emudhra-certificate-incident.html"
+        },
+        {
+          "name": "Axios — Unvetted AI agents are accessing U.S. bank accounts",
+          "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+        }
+      ]
+    },
+    {
+      "id": "kimi-k3-1",
+      "title": "Kimi K3.1 Pro — Moonshot AI",
+      "url": "https://www.marktechpost.com/2026/10/23/moonshot-ai-kimi-k3-1-pro-open-weight-model/",
+      "tag": {
+        "en": "AI models",
+        "es": "Modelos de IA"
+      },
+      "date": "2026-10-23",
+      "note": {
+        "en": "Moonshot AI's new flagship is a retrained Kimi K3: a mixture-of-experts model reported at about 2.8T total and 104B active parameters, with a 1M-token context. At launch it ranked among the top models on the Artificial Analysis Intelligence Index, and Moonshot says the open weights will be published by 4 November 2026.",
+        "es": "El nuevo modelo insignia de Moonshot AI es un Kimi K3 reentrenado: un mixture-of-experts de unos 2,8 billones de parámetros totales y 104.000 millones activos, con contexto de 1 millón de tokens. En su lanzamiento se colocó entre los mejores del Artificial Analysis Intelligence Index, y Moonshot dice que publicará los pesos abiertos antes del 4 de noviembre de 2026."
+      }
+    },
+    {
       "title": "REA — Reverse Engineer Anything",
       "url": "https://github.com/morluto/rea",
       "tag": "Reverse engineering",
@@ -9,7 +175,8 @@
       "note": {
         "en": "Open-source tool that lets AI agents reverse engineer software through MCP tools: native binaries, Electron/JavaScript apps, .NET assemblies, APKs, firmware and websites. Analysis runs locally and can reuse an existing Ghidra, Hopper or IDA install. It registers itself with Claude Code, Codex and Cursor.",
         "es": "Herramienta de código abierto que permite a agentes de IA hacer ingeniería inversa de software mediante herramientas MCP: binarios nativos, apps Electron/JavaScript, ensamblados .NET, APK, firmware y webs. El análisis se ejecuta en local y puede reutilizar una instalación de Ghidra, Hopper o IDA. Se registra en Claude Code, Codex y Cursor."
-      }
+      },
+      "id": "rea"
     }
   ],
   "auto": [
