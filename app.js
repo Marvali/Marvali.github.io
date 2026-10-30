@@ -182,12 +182,12 @@ const pad2 = k => String(k).padStart(2, "0");
 const prevH = box => (box.querySelector(".story") && box.querySelector(".story").style.getPropertyValue("--h")) || 6;
 
 let curArt = null;
-let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "cve";
+let NEWS = null, FEEDS = null, curProj = null, opener = null, lastFocus = null, newsSel = "curated";
 // photos for the "Beyond the code" panel (hidden while empty):
 // { src: "assets/photos/mountain.jpg", alt: { en: "…", es: "…" } }
 const PHOTOS = [];
 const FEED_HUE = { curated: 38, cve: 4, cyber: 348, ai: 265, repos: 32, classics: 178 };
-const NEWS_ORDER = ["cve", "ai", "cyber", "repos", "classics", "curated"];
+const NEWS_ORDER = ["curated", "cve", "ai", "cyber", "repos", "classics"];
 const FEED_SRC = {
   cve: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
   ai: "https://huggingface.co/papers",
