@@ -1,193 +1,193 @@
 {
   "cves": [
     {
-      "id": "CVE-2026-114625",
-      "vendor": "Arista",
-      "product": "VeloCloud Orchestrator",
-      "name": "Arista VeloCloud Orchestrator SQL Injection Vulnerability",
-      "desc": "Arista VeloCloud Orchestrator on-prem contains a SQL injection vulnerability that may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise…",
-      "added": "2026-10-23",
+      "id": "CVE-2026-118527",
+      "vendor": "Ivanti",
+      "product": "Connect Secure",
+      "name": "Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability",
+      "desc": "Ivanti Connect Secure contains a generation of predictable numbers or identifiers vulnerability that allows a remote authenticated attacker to upload files with attacker-controlled content to a known location on disk.…",
+      "added": "2026-10-30",
       "ransom": false
     },
     {
-      "id": "CVE-2026-110447",
-      "vendor": "Collabora",
-      "product": "Collabora Online – Built-in CODE Server",
-      "name": "Collabora Online – Built-in CODE Server OS Command Injection Vulnerability",
-      "desc": "Collabora Collabora Online – Built-in CODE Server when used within the NextCloud platform contains an OS command injection vulnerability that allows for remote code execution when the CODE server isn't running.",
-      "added": "2026-10-23",
+      "id": "CVE-2026-111357",
+      "vendor": "Ivanti",
+      "product": "Connect Secure",
+      "name": "Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability",
+      "desc": "Ivanti Connect Secure contains a missing authentication for critical function vulnerability that could allow a local authenticated attacker to escalate their privileges. This vulnerability can be chained with…",
+      "added": "2026-10-30",
       "ransom": false
     },
     {
-      "id": "CVE-2026-106931",
-      "vendor": "EG Secure Solutions",
-      "product": "SiteGuard Server Edition",
-      "name": "EG Secure Solutions SiteGuard Server Edition OS Command Injection Vulnerability",
-      "desc": "EG Secure Solutions SiteGuard Server Edition contains an OS command injection vulnerability which may allow an attacker to execute arbitrary OS commands with root or SYSTEM privileges on the system running the affected…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-97229",
+      "vendor": "GitLab",
+      "product": "Community Edition and Enterprise Edition",
+      "name": "GitLab Community Edition and Enterprise Edition Integer Overflow or Wraparound Vulnerability",
+      "desc": "GitLab Community Edition and Enterprise Edition contain a integer overflow or wraparound vulnerability that could allow an unauthenticated user to execute arbitrary code on the GitLab server via a specially crafted…",
+      "added": "2026-10-29",
       "ransom": false
     },
     {
-      "id": "CVE-2026-96656",
-      "vendor": "Plex",
-      "product": "Media Server",
-      "name": "Plex Media Server External Control of File Name or Path Vulnerability",
-      "desc": "Plex Media Server contains an external control of file name or path vulnerability which can allow an admin user to write arbitrary files that may be executed on load. This vulnerability can be chained with…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-76418",
+      "vendor": "Cisco",
+      "product": "Secure Firewall ASA Software and Cisco Secure FTD Software",
+      "name": "Cisco Secure Firewall ASA Software and Cisco Secure FTD Software Unchecked Return Value to NULL Pointer Dereference Vulnerability",
+      "desc": "Cisco Secure Firewall ASA Software and Cisco Secure FTD Software contains an unchecked return value to NULL pointer dereference vulnerability that could allow an unauthenticated, remote attacker to cause the device to…",
+      "added": "2026-10-29",
       "ransom": false
     },
     {
-      "id": "CVE-2026-96655",
-      "vendor": "Plex",
-      "product": "Media Server",
-      "name": "Plex Media Server Server-Side Request Forgery (SSRF) Vulnerability",
-      "desc": "Plex Media Server contains a server-side request forgery (SSRF) vulnerability that could allow an authenticated user to request arbitrary internal or external addresses via the '/video/:/transcode/universal' path…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-41709",
+      "vendor": "Broadcom",
+      "product": "VMware ESX",
+      "name": "Broadcom VMWare ESX Insufficient Logging Vulnerability",
+      "desc": "Broadcom VMWare ESX contains an insufficient logging vulnerability that could allow a malicious actor with admin access to perform certain operations without being logged.",
+      "added": "2026-10-28",
       "ransom": false
     },
     {
-      "id": "CVE-2026-96654",
-      "vendor": "Plex",
-      "product": "Media Server",
-      "name": "Plex Media Server Improper Neutralization of Encoded URI Schemes in a Web Page Vulnerability",
-      "desc": "Plex Media Server contains an improper neutralization of encoded URI schemes in a web page vulnerability that could allow an attacker to call other plugins' functions and supply their own parameters. This vulnerability…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-46300",
+      "vendor": "Linux",
+      "product": "Kernel",
+      "name": "Linux Kernel Missing Initialization of a Variable Vulnerability",
+      "desc": "Linux Kernel contains a missing initialization of a variable vulnerability that could allow for unintended modification of page-cache-backed data via failure to preserve the shared-fragment marker during socket buffer…",
+      "added": "2026-10-28",
       "ransom": false
     },
     {
-      "id": "CVE-2026-96652",
-      "vendor": "Plex",
-      "product": "Media Server",
-      "name": "Plex Media Server Server-Side Request Forgery (SSRF) Vulnerability",
-      "desc": "Plex Media Server contains a server-side request forgery (SSRF) vulnerability which could allow an attacker using any X-Plex-Token value to include a full URL in the 'protocol' parameter and force the Plex server to…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-48356",
+      "vendor": "Adobe",
+      "product": "Commerce and Magento",
+      "name": "Adobe Commerce and Magento Unrestricted Upload of File with Dangerous Type Vulnerability",
+      "desc": "Adobe Commerce and Magento contain an unrestricted upload of file with dangerous type vulnerability that could result in arbitrary code execution in the context of the current user, potentially gaining elevated access…",
+      "added": "2026-10-27",
       "ransom": false
     },
     {
-      "id": "CVE-2026-110936",
-      "vendor": "Siemens",
-      "product": "Software Center",
-      "name": "Siemens Software Center Uncontrolled Search Path Element Vulnerability",
-      "desc": "Siemens Software Center contains an uncontrolled search path element vulnerability that could allow an authenticated local attacker to place a specially crafted DLL in a directory that the application searches, leading…",
-      "added": "2026-10-20",
+      "id": "CVE-2026-111497",
+      "vendor": "Google",
+      "product": "Brotli",
+      "name": "Google Brotli Unchecked Return Value Vulnerability",
+      "desc": "Google Brotli contains an unchecked return value vulnerability that allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or…",
+      "added": "2026-10-27",
       "ransom": false
     }
   ],
   "ai": [
     {
-      "id": "2610.21114",
-      "title": "Spectral-Spatial Interpretation",
-      "upvotes": 750,
-      "summary": "Post-hoc image explanations usually show where a model looks using spatial heatmaps or indicate which channels matter using global channel scores. These separate views are limiting for multispectral data because channel…",
-      "date": "2026-10-22"
+      "id": "2610.37381",
+      "title": "PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations",
+      "upvotes": 155,
+      "summary": "Vision--Language--Action (VLA) models generate robot actions from visual observations and language instructions, but their understanding of physical dynamics remains limited. Video world models can capture scene dynamics, yet…",
+      "date": "2026-10-28"
     },
     {
-      "id": "2610.28402",
-      "title": "StreamEval: Evaluating Interactive Streaming Video Generation Models",
-      "upvotes": 630,
-      "summary": "As streaming video generation advances, enabling real-time interaction with generated video is becoming increasingly important. We introduce StreamEval, a unified benchmark for interactive streaming video generation spanning…",
-      "date": "2026-10-22"
+      "id": "2610.35684",
+      "title": "OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images",
+      "upvotes": 139,
+      "summary": "Generating videos of a specific subject from a few reference images remains challenging when the camera reveals surfaces that are not visible in the input. Early subject-to-video (S2V) methods condition on a single reference…",
+      "date": "2026-10-29"
     },
     {
-      "id": "2610.20424",
-      "title": "BizBench: Unveiling Hidden Challenges in Deploying Long-Horizon Agents for Real-World Business",
-      "upvotes": 496,
-      "summary": "Existing long-horizon agent benchmarks often emphasize final task success while providing limited assessment of intermediate execution validity. Yet real-world business operations require agents to navigate extensive,…",
-      "date": "2026-10-19"
+      "id": "2610.32749",
+      "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
+      "upvotes": 136,
+      "summary": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and…",
+      "date": "2026-10-29"
     },
     {
-      "id": "2610.22471",
-      "title": "Has GPT-6-Astra Achieved Embodied Intelligence?",
-      "upvotes": 481,
-      "summary": "GPT-6-Astra demonstrates a level of competence in robotic manipulation and navigation that challenges the conventional paradigm of building specialized models for individual tasks and embodiments. In this report, we ask not only…",
-      "date": "2026-10-19"
+      "id": "2610.36729",
+      "title": "Hy-Nomas: Towards Free-form Interactive World Generation",
+      "upvotes": 123,
+      "summary": "Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form…",
+      "date": "2026-10-28"
     },
     {
-      "id": "2610.26802",
-      "title": "Scaling Parameter-Efficient Fine-Tuning for Brain Encoding",
-      "upvotes": 247,
-      "summary": "Brain encoding models aim to predict neural responses to stimuli. The most widely used approach fits readouts from frozen pretrained backbones. Using neural data to train large models from scratch or fully fine-tune them after…",
-      "date": "2026-10-20"
+      "id": "2610.35845",
+      "title": "Work Agents: Systems, Capabilities, and Optimization",
+      "upvotes": 116,
+      "summary": "As foundation models evolve from information generation to digital work execution, agents are increasingly capable of completing complex tasks across tools, applications, and workflows. However, existing research lacks a unified…",
+      "date": "2026-10-27"
     },
     {
-      "id": "2610.31329",
-      "title": "WeVisOne-VL: Unified Visual Perception from Objects to Pixels",
-      "upvotes": 244,
-      "summary": "Existing vision-language models (VLMs) remain unreliable for fine-grained visual perception. In this report, we present WeVisOne-VL (WeChat Vision All-in-One), a powerful VLM that unifies object-level and pixel-level perception…",
-      "date": "2026-10-23"
+      "id": "2610.36671",
+      "title": "Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs",
+      "upvotes": 115,
+      "summary": "Diffusion vision-language models (DVLMs) process their entire input at every denoising step. Since visual tokens make up 89-97% of this input on the benchmarks we study, most of the decoding computation is spent repeatedly…",
+      "date": "2026-10-30"
     }
   ],
   "cyber": [
     {
-      "id": "2610.32531",
-      "title": "On Task, Off Track: Benchmarking LLM and Agent Robustness to Near-Target Prompt Injection",
-      "authors": "Yuyang Gong, Zihao Wang, Jiawei Liu et al.",
-      "published": "2026-10-23",
-      "summary": "Prompt injection benchmarks assess whether large language models (LLMs) and agents resist malicious instructions embedded in external content. However, a system could perform well by rejecting attacks that obviously abandon the…"
+      "id": "2610.36711",
+      "title": "PrivacyEvalClaw: A Tool-Augmented Deliberative Agent for Auditing Privacy Leakage in LLM Jailbreak Responses",
+      "authors": "Krishna Kanth Nakka, Yujun Wang, Shijie Zhou et al.",
+      "published": "2026-10-27",
+      "summary": "Reliable evaluation is a critical bottleneck in privacy red-teaming of large language models (LLMs): determining whether a jailbreak response actually reveals personal information can be difficult when disclosures are indirect,…"
     },
     {
-      "id": "2610.28364",
-      "title": "Context-Aware Prompt Injection Detection via Small Language Models in RAG Pipelines: nokast-secureRAG",
-      "authors": "Abhishek Rai",
-      "published": "2026-10-20",
-      "summary": "Local Retrieval-Augmented Generation (RAG) systems are vulnerable to indirect prompt injection and retrieval poisoning, where malicious instructions in retrieved content are mistaken for trusted input. We present…"
+      "id": "2610.41401",
+      "title": "When Safety Checks Become Privacy Risks: A Privacy-Preserving Paradigm for LLM Agent Safety Auditing",
+      "authors": "Yixiang Luo, Ziheng Ma, Ke Chang et al.",
+      "published": "2026-10-30",
+      "summary": "Large language model agents interact with online services through tool calls that may access private data or perform sensitive actions. Specialized providers can supply and maintain pre-execution safety auditing capabilities for…"
     },
     {
-      "id": "2610.28315",
-      "title": "Disclosure Begets Disclosure: A Self-Reinforcing Privacy Loop in LLM Agents with Persistent Memory",
-      "authors": "Masahiro Kaneko, Hiromi Arai, Timothy Baldwin",
-      "published": "2026-10-20",
-      "summary": "Large language model (LLM) agents increasingly use persistent memory to personalize responses, and personal attributes in this memory pose a privacy risk if exposed. We ask how consulting memory during dialogue changes what…"
+      "id": "2610.39509",
+      "title": "Systematic Evaluation of Adversarial Jailbreaking Attacks and Defenses Across Seven Large Language Models",
+      "authors": "Md. Robiul Islam Niloy, Abu Sayed Md. Mostafizur Rahaman",
+      "published": "2026-10-29",
+      "summary": "Large language models (LLMs) deployed in safety-critical settings must resist adversarial inputs designed to elicit harmful outputs. We present a systematic empirical evaluation of five adversarial jailbreaking attack…"
     },
     {
-      "id": "2610.29747",
-      "title": "Prompt Injection Through Forensic Evidence: A Taxonomy and Proof of Concept of Anti-Forensic Attacks on LLM-Assisted Digital Investigations",
-      "authors": "Frank Breitinger, Jan Gruber, Christopher Hargreaves et al.",
-      "published": "2026-10-21",
-      "summary": "Large language models (LLMs) are entering digital forensics as examination assistants and autonomous agents. Digital forensics inverts the usual setting for indirect prompt injection: the evidence under analysis is…"
+      "id": "2610.41998",
+      "title": "SecPO: Principled Adversarial Training for Prompt Injection Security",
+      "authors": "Sizhe Chen, Yibo Peng, Jaewon Chang et al.",
+      "published": "2026-10-30",
+      "summary": "Recognized as a top threat to AI agents, prompt injection allows instructions from untrusted data (email, documents, websites) to manipulate the agent's operation. The existing best-defended LLM, Meta-SecAlign, is trained with…"
     },
     {
-      "id": "2610.28810",
-      "title": "Combining Long-Term Memory and LLMs Comes at a High Cost: From Prompt Injection to Persistent Compromise",
-      "authors": "Pedro H. Barcha Correia, Matheus Azevedo de Sá, Paulo H. Gomes de Senna et al.",
-      "published": "2026-10-20",
-      "summary": "The widespread adoption of generative artificial intelligence in recent years has brought a parallel rise in prompt injection and jailbreak attacks. By embedding malicious instructions, these exploits manipulate language models…"
+      "id": "2610.39155",
+      "title": "REALM: Identifying Minimal Task Assets for LLM Agents",
+      "authors": "Zihou Ren, Byungchul Tak, Long Wang",
+      "published": "2026-10-29",
+      "summary": "Large language model (LLM) agents often receive access to more files, accounts, and services than a task requires. Prompt injection turns this excess access into an opportunity to redirect execution toward unrelated resources.…"
     },
     {
-      "id": "2610.32876",
-      "title": "Trusting the Tool: Asymmetric Deference of LLM Vulnerability Auditors to Static-Analysis Evidence",
-      "authors": "ZhiHong Liu, Shuyao Gao",
-      "published": "2026-10-23",
-      "summary": "Pipelines that combine large language models (LLMs) with static analysis let the model consume the analyser's output as evidence, but whether the model distinguishes true from false evidence, and whether its scrutiny depends on…"
+      "id": "2610.38091",
+      "title": "Jailbreak Connectivity: Towards Diverse, Transferable, and Universal Multimodal Large Language Model Jailbreak",
+      "authors": "Xu Zhang, Ziqing Hu, Shuo Han et al.",
+      "published": "2026-10-28",
+      "summary": "Multimodal large language models (MLLMs) are vulnerable to visual jailbreak attacks that bypass safety safeguards. Existing methods typically optimize isolated adversarial examples, limiting attack diversity, transferability,…"
     }
   ],
   "classics": [
     {
-      "id": "2307.15043",
-      "title": "Universal and Transferable Adversarial Attacks on Aligned Language Models",
-      "authors": "Andy Zou, Zifan Wang, Nicholas Carlini et al.",
-      "published": "2023-07-27",
-      "summary": "Because \"out-of-the-box\" large language models are capable of generating a great deal of objectionable content, recent work has focused on aligning these models in an attempt to prevent undesirable generation. While there has…",
+      "id": "1609.02943",
+      "title": "Stealing Machine Learning Models via Prediction APIs",
+      "authors": "Florian Tramèr, Fan Zhang, Ari Juels et al.",
+      "published": "2016-09-09",
+      "summary": "Machine learning (ML) models may be deemed confidential due to their sensitive training data, commercial value, or use in security applications. Increasingly often, confidential ML models are being deployed with publicly…",
       "domain": "cyber",
-      "year": "2023",
+      "year": "2016",
       "why": {
-        "en": "Automatically generated suffixes that jailbreak aligned language models.",
-        "es": "Sufijos generados automáticamente que hacen jailbreak a modelos de lenguaje alineados."
+        "en": "Stealing a model by querying its prediction API.",
+        "es": "Robar un modelo consultando su API de predicción."
       }
     },
     {
-      "id": "2203.02155",
-      "title": "Training language models to follow instructions with human feedback",
-      "authors": "Long Ouyang, Jeff Wu, Xu Jiang et al.",
-      "published": "2022-03-04",
-      "summary": "Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other…",
+      "id": "2210.03629",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": "Shunyu Yao, Jeffrey Zhao, Dian Yu et al.",
+      "published": "2022-10-06",
+      "summary": "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting…",
       "domain": "ai",
       "year": "2022",
       "why": {
-        "en": "InstructGPT: training models to follow instructions with human feedback.",
-        "es": "InstructGPT: entrenar modelos para seguir instrucciones con feedback humano."
+        "en": "ReAct: interleaving reasoning and tool use, the basis of many agents.",
+        "es": "ReAct: combinar razonamiento y uso de herramientas, base de muchos agentes."
       }
     }
   ],
-  "updated": "2026-10-26"
+  "updated": "2026-11-02"
 }

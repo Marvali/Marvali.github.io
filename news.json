@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-11-02",
   "curated": [
     {
       "id": "vulnerable-week-2026",
@@ -181,85 +181,85 @@
   ],
   "auto": [
     {
-      "name": "JMS1717/ming-voice",
-      "url": "https://github.com/JMS1717/ming-voice",
-      "desc": "Low-latency local speech-to-speech voice assistant with Ming-3.0-audio-tiny on AMD and Nvidia GPUs. Easy setup on Windows and Linux",
-      "stars": 305,
+      "name": "phishdestroy/TgWitness",
+      "url": "https://github.com/phishdestroy/TgWitness",
+      "desc": "Open-source Telegram chat exporter, deleted & edited message logger, and OSINT forensics archiver. Save chat history, capture deleted messages, compare edit versions, and export signed HTML/JSON/CSV e",
+      "stars": 207,
+      "lang": "Python",
+      "topic": "OSINT",
+      "created": "2026-10-29"
+    },
+    {
+      "name": "daniel-madrid-07/weeping-of-the-empire",
+      "url": "https://github.com/daniel-madrid-07/weeping-of-the-empire",
+      "desc": "Zelda: Tears of the Kingdom (TotK) 1.0.0 recompiled to native Windows and Vulkan. Frame cap up to 240, DLSS option, mouse and keyboard. Open source, mostly written by AI agents. You build it from your",
+      "stars": 173,
+      "lang": "C",
+      "topic": "Reverse engineering",
+      "created": "2026-10-30"
+    },
+    {
+      "name": "Blazenumenhir/scam-story-checker",
+      "url": "https://github.com/Blazenumenhir/scam-story-checker",
+      "desc": "Does their story hold up? Paste what a seller, recruiter or landlord told you and check it against public records in thirty seconds, with proof saved for every reason.",
+      "stars": 170,
+      "lang": "JavaScript",
+      "topic": "OSINT",
+      "created": "2026-10-30"
+    },
+    {
+      "name": "Signcluengine/onchain-money-trail-analyzer",
+      "url": "https://github.com/Signcluengine/onchain-money-trail-analyzer",
+      "desc": "Follow stolen crypto hop by hop across Bitcoin, Ethereum, TRON, BNB Chain and Solana. Labels where the money landed, keeps proof for every clue, writes the report for the police.",
+      "stars": 164,
+      "lang": "JavaScript",
+      "topic": "OSINT",
+      "created": "2026-10-30"
+    },
+    {
+      "name": "glincker/awesome-selfhosted-ai",
+      "url": "https://github.com/glincker/awesome-selfhosted-ai",
+      "desc": "Curated list of self-hosted open-source AI: local LLMs, chat UIs, agents, MCP servers, RAG, speech and image generation. Health-checked weekly, dead projects removed automatically.",
+      "stars": 81,
+      "lang": "JavaScript",
+      "topic": "Local LLM",
+      "created": "2026-10-31"
+    },
+    {
+      "name": "dougchansan/ns2-savekit",
+      "url": "https://github.com/dougchansan/ns2-savekit",
+      "desc": "read/write switch2 save data through a ns2jb session. run lua inside lullaby without a switch 1.",
+      "stars": 60,
+      "lang": "JavaScript",
+      "topic": "Reverse engineering",
+      "created": "2026-10-27"
+    },
+    {
+      "name": "Jumbomuffin777/Frontier-UI",
+      "url": "https://github.com/Jumbomuffin777/Frontier-UI",
+      "desc": "ChatGPT-style generative UI for Open WebUI: photo galleries, live maps with real routes, multi-day trips, budgets, calculators, live weather & stocks, link previews, and one-click Word/Excel/PowerPoin",
+      "stars": 47,
       "lang": "Python",
       "topic": "Local LLM",
-      "created": "2026-10-21"
+      "created": "2026-11-01"
     },
     {
-      "name": "hevnsnt/CVEngine",
-      "url": "https://github.com/hevnsnt/CVEngine",
-      "desc": "AI-first external attack surface assessment with continuous discovery, evidence-based vulnerability validation, and developer-agent MCP integration.",
-      "stars": 293,
-      "lang": "Python",
-      "topic": "Cybersecurity",
-      "created": "2026-10-24"
+      "name": "MacHatter1/ContainerDesk",
+      "url": "https://github.com/MacHatter1/ContainerDesk",
+      "desc": "Native macOS workspace for Apple's container runtime. Browse, run, build and clean up Linux containers with live resource gauges, a built-in terminal and a local MLX chat playground.",
+      "stars": 36,
+      "lang": "Swift",
+      "topic": "Local LLM",
+      "created": "2026-10-29"
     },
     {
-      "name": "h9-tec/ai-roadmap-2026",
-      "url": "https://github.com/h9-tec/ai-roadmap-2026",
-      "desc": "AI Roadmap 2026: a beginner's path through Foundations, LLM Engineering, Agents, Evaluation, and Production, with verified free resources and a mini-project per layer",
-      "stars": 167,
-      "lang": "",
-      "topic": "RAG",
-      "created": "2026-10-21"
-    },
-    {
-      "name": "yuatemycat/SuperGhidra",
-      "url": "https://github.com/yuatemycat/SuperGhidra",
-      "desc": "SuperGhidra: Autonomous Agent Reverse Engineering, Lock-Free Ghidra Daemon & C++ Recovery Suite",
-      "stars": 141,
-      "lang": "Python",
+      "name": "kralonur/samsung-washer-monitor-esphome",
+      "url": "https://github.com/kralonur/samsung-washer-monitor-esphome",
+      "desc": "Local, receive-only Samsung washing machine monitoring with ESPHome and Home Assistant.",
+      "stars": 33,
+      "lang": "C++",
       "topic": "Reverse engineering",
-      "created": "2026-10-20"
-    },
-    {
-      "name": "voidfnc/mw4-texture-streaming-research",
-      "url": "https://github.com/voidfnc/mw4-texture-streaming-research",
-      "desc": "Research tooling for MW4 on-demand texture streaming: loopback proxy, hosts manager, resumable mirror, control GUI. Code and notes only - no game files.",
-      "stars": 124,
-      "lang": "Python",
-      "topic": "Reverse engineering",
-      "created": "2026-10-20"
-    },
-    {
-      "name": "Jakeschincariol/console-skill",
-      "url": "https://github.com/Jakeschincariol/console-skill",
-      "desc": "11 Claude skills that port PlayStation 2 games you own to PC: reverse engineer the code, rebuild the graphics and backend, any controller, play it anywhere, then mod it however you want.",
-      "stars": 119,
-      "lang": "Python",
-      "topic": "Reverse engineering",
-      "created": "2026-10-22"
-    },
-    {
-      "name": "syhunt/php2shell-protection",
-      "url": "https://github.com/syhunt/php2shell-protection",
-      "desc": "Defensive mitigation and testing toolkit for PHP security vulnerabilities (CVE-2026-109618, CVE-2026-109619, CVE-2026-115560), including Apache protections and PHP hardening guidance",
-      "stars": 115,
-      "lang": "PHP",
-      "topic": "Cybersecurity",
-      "created": "2026-10-21"
-    },
-    {
-      "name": "YOLOW92/pagesift",
-      "url": "https://github.com/YOLOW92/pagesift",
-      "desc": "High-performance, memory-efficient Rust web crawler & content extraction engine for AI agents and RAG. Adaptive crawling, clean Markdown, structured data, PDF/RSS parsing, browser rendering, Firecrawl",
-      "stars": 95,
-      "lang": "Rust",
-      "topic": "RAG",
-      "created": "2026-10-20"
-    },
-    {
-      "name": "thomasunise/argus",
-      "url": "https://github.com/thomasunise/argus",
-      "desc": "Open-source agentic security operations platform:",
-      "stars": 93,
-      "lang": "Python",
-      "topic": "Cybersecurity",
-      "created": "2026-10-24"
+      "created": "2026-11-01"
     }
   ]
 }
