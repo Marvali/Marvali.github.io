@@ -1,193 +1,148 @@
 {
   "cves": [
     {
-      "id": "CVE-2026-118527",
-      "vendor": "Ivanti",
-      "product": "Connect Secure",
-      "name": "Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability",
-      "desc": "Ivanti Connect Secure contains a generation of predictable numbers or identifiers vulnerability that allows a remote authenticated attacker to upload files with attacker-controlled content to a known location on disk.…",
-      "added": "2026-10-30",
+      "id": "CVE-2026-19868",
+      "vendor": "SonicWall",
+      "product": "SonicOS SSLVPN",
+      "name": "SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
+      "desc": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls.…",
+      "added": "2026-11-06",
       "ransom": false
     },
     {
-      "id": "CVE-2026-111357",
-      "vendor": "Ivanti",
-      "product": "Connect Secure",
-      "name": "Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability",
-      "desc": "Ivanti Connect Secure contains a missing authentication for critical function vulnerability that could allow a local authenticated attacker to escalate their privileges. This vulnerability can be chained with…",
-      "added": "2026-10-30",
+      "id": "CVE-2024-27834",
+      "vendor": "Apple",
+      "product": "Multiple Products",
+      "name": "Apple Multiple Products Improper Authentication Vulnerability",
+      "desc": "Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.",
+      "added": "2026-11-04",
       "ransom": false
     },
     {
-      "id": "CVE-2026-97229",
-      "vendor": "GitLab",
-      "product": "Community Edition and Enterprise Edition",
-      "name": "GitLab Community Edition and Enterprise Edition Integer Overflow or Wraparound Vulnerability",
-      "desc": "GitLab Community Edition and Enterprise Edition contain a integer overflow or wraparound vulnerability that could allow an unauthenticated user to execute arbitrary code on the GitLab server via a specially crafted…",
-      "added": "2026-10-29",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-76418",
-      "vendor": "Cisco",
-      "product": "Secure Firewall ASA Software and Cisco Secure FTD Software",
-      "name": "Cisco Secure Firewall ASA Software and Cisco Secure FTD Software Unchecked Return Value to NULL Pointer Dereference Vulnerability",
-      "desc": "Cisco Secure Firewall ASA Software and Cisco Secure FTD Software contains an unchecked return value to NULL pointer dereference vulnerability that could allow an unauthenticated, remote attacker to cause the device to…",
-      "added": "2026-10-29",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-41709",
-      "vendor": "Broadcom",
-      "product": "VMware ESX",
-      "name": "Broadcom VMWare ESX Insufficient Logging Vulnerability",
-      "desc": "Broadcom VMWare ESX contains an insufficient logging vulnerability that could allow a malicious actor with admin access to perform certain operations without being logged.",
-      "added": "2026-10-28",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-46300",
-      "vendor": "Linux",
-      "product": "Kernel",
-      "name": "Linux Kernel Missing Initialization of a Variable Vulnerability",
-      "desc": "Linux Kernel contains a missing initialization of a variable vulnerability that could allow for unintended modification of page-cache-backed data via failure to preserve the shared-fragment marker during socket buffer…",
-      "added": "2026-10-28",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-48356",
-      "vendor": "Adobe",
-      "product": "Commerce and Magento",
-      "name": "Adobe Commerce and Magento Unrestricted Upload of File with Dangerous Type Vulnerability",
-      "desc": "Adobe Commerce and Magento contain an unrestricted upload of file with dangerous type vulnerability that could result in arbitrary code execution in the context of the current user, potentially gaining elevated access…",
-      "added": "2026-10-27",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-111497",
-      "vendor": "Google",
-      "product": "Brotli",
-      "name": "Google Brotli Unchecked Return Value Vulnerability",
-      "desc": "Google Brotli contains an unchecked return value vulnerability that allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or…",
-      "added": "2026-10-27",
+      "id": "CVE-2026-119977",
+      "vendor": "WordPress",
+      "product": "WordPress Core",
+      "name": "WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability",
+      "desc": "WordPress WordPress Core contains a time-of-check time-of-use (TOCTOU) race condition vulnerability that could allow unauthenticated attackers to execute code on the server during the upgrade window. This is due to…",
+      "added": "2026-11-03",
       "ransom": false
     }
   ],
   "ai": [
     {
-      "id": "2610.37381",
-      "title": "PDRVLA: A Vision-Language-Action Model with Physical Dynamics Representations",
-      "upvotes": 155,
-      "summary": "Vision--Language--Action (VLA) models generate robot actions from visual observations and language instructions, but their understanding of physical dynamics remains limited. Video world models can capture scene dynamics, yet…",
-      "date": "2026-10-28"
+      "id": "2611.01860",
+      "title": "Advances in Agentic Computer Graphics",
+      "upvotes": 145,
+      "summary": "Computer graphics is built on code. Large language model (LLM) agents can now generate graphics code and iteratively refine it through various feedback. This capability opens the door to a potentially new paradigm of computer…",
+      "date": "2026-11-03"
     },
     {
-      "id": "2610.35684",
-      "title": "OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images",
-      "upvotes": 139,
-      "summary": "Generating videos of a specific subject from a few reference images remains challenging when the camera reveals surfaces that are not visible in the input. Early subject-to-video (S2V) methods condition on a single reference…",
-      "date": "2026-10-29"
+      "id": "2611.00859",
+      "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
+      "upvotes": 127,
+      "summary": "Real-time long-video generation requires continuous output with consistent appearance and natural motion. Existing chunk-wise autoregressive methods face challenges in both generation efficiency and long-video quality:…",
+      "date": "2026-11-03"
     },
     {
-      "id": "2610.32749",
-      "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
-      "upvotes": 136,
-      "summary": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and…",
-      "date": "2026-10-29"
+      "id": "2611.05376",
+      "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
+      "upvotes": 120,
+      "summary": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet…",
+      "date": "2026-11-06"
     },
     {
-      "id": "2610.36729",
-      "title": "Hy-Nomas: Towards Free-form Interactive World Generation",
-      "upvotes": 123,
-      "summary": "Interactive world generation requires models to follow successive commands while preserving relevant history and action consequences. We present Hy-Nomas, a video world model with an 8B diffusion backbone that supports free-form…",
-      "date": "2026-10-28"
+      "id": "2611.08449",
+      "title": "VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding",
+      "upvotes": 109,
+      "summary": "Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion.…",
+      "date": "2026-11-06"
     },
     {
-      "id": "2610.35845",
-      "title": "Work Agents: Systems, Capabilities, and Optimization",
-      "upvotes": 116,
-      "summary": "As foundation models evolve from information generation to digital work execution, agents are increasingly capable of completing complex tasks across tools, applications, and workflows. However, existing research lacks a unified…",
-      "date": "2026-10-27"
+      "id": "2611.03178",
+      "title": "CoworkOS:Scaling Agent Coworkers for Real-world Automation",
+      "upvotes": 100,
+      "summary": "Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex…",
+      "date": "2026-11-03"
     },
     {
-      "id": "2610.36671",
-      "title": "Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs",
-      "upvotes": 115,
-      "summary": "Diffusion vision-language models (DVLMs) process their entire input at every denoising step. Since visual tokens make up 89-97% of this input on the benchmarks we study, most of the decoding computation is spent repeatedly…",
-      "date": "2026-10-30"
+      "id": "2611.08373",
+      "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
+      "upvotes": 96,
+      "summary": "Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language…",
+      "date": "2026-11-06"
     }
   ],
   "cyber": [
     {
-      "id": "2610.36711",
-      "title": "PrivacyEvalClaw: A Tool-Augmented Deliberative Agent for Auditing Privacy Leakage in LLM Jailbreak Responses",
-      "authors": "Krishna Kanth Nakka, Yujun Wang, Shijie Zhou et al.",
-      "published": "2026-10-27",
-      "summary": "Reliable evaluation is a critical bottleneck in privacy red-teaming of large language models (LLMs): determining whether a jailbreak response actually reveals personal information can be difficult when disclosures are indirect,…"
+      "id": "2611.06257",
+      "title": "Analysis of Local Open-Weight LLM Agents on Vulnerability-Reproduction Tasks",
+      "authors": "Jorge García-Carrasco, Javier Sanchis, Álvaro Navarro et al.",
+      "published": "2026-11-04",
+      "summary": "Open-weight language models that fit on a single consumer GPU are becoming capable on a growing range of tasks, and they matter because they can run locally without sending the code to a hosted service. Vulnerability…"
     },
     {
-      "id": "2610.41401",
-      "title": "When Safety Checks Become Privacy Risks: A Privacy-Preserving Paradigm for LLM Agent Safety Auditing",
-      "authors": "Yixiang Luo, Ziheng Ma, Ke Chang et al.",
-      "published": "2026-10-30",
-      "summary": "Large language model agents interact with online services through tool calls that may access private data or perform sensitive actions. Specialized providers can supply and maintain pre-execution safety auditing capabilities for…"
+      "id": "2611.09734",
+      "title": "GuardrailAgent: An Agentic Framework for Jailbreak Defense",
+      "authors": "Tianze Chang, Junjie Chu, Yixin Wu et al.",
+      "published": "2026-11-06",
+      "summary": "Despite undergoing safety training to align with human values, large language models (LLMs) remain vulnerable to jailbreak attacks that circumvent built-in safeguards and elicit malicious behaviors given by the adversary.…"
     },
     {
-      "id": "2610.39509",
-      "title": "Systematic Evaluation of Adversarial Jailbreaking Attacks and Defenses Across Seven Large Language Models",
-      "authors": "Md. Robiul Islam Niloy, Abu Sayed Md. Mostafizur Rahaman",
-      "published": "2026-10-29",
-      "summary": "Large language models (LLMs) deployed in safety-critical settings must resist adversarial inputs designed to elicit harmful outputs. We present a systematic empirical evaluation of five adversarial jailbreaking attack…"
+      "id": "2611.07530",
+      "title": "JailBound: FOL-Guided Jailbreak Evaluation for Exploring LLM Behavioral Boundaries",
+      "authors": "Fazong Wu, Xin Wang, Ming Yang et al.",
+      "published": "2026-11-05",
+      "summary": "As large language models (LLMs) are increasingly deployed as general-purpose conversational assistants, they must handle diverse user requests while reliably refusing harmful ones. Jailbreak attacks craft adversarial…"
     },
     {
-      "id": "2610.41998",
-      "title": "SecPO: Principled Adversarial Training for Prompt Injection Security",
-      "authors": "Sizhe Chen, Yibo Peng, Jaewon Chang et al.",
-      "published": "2026-10-30",
-      "summary": "Recognized as a top threat to AI agents, prompt injection allows instructions from untrusted data (email, documents, websites) to manipulate the agent's operation. The existing best-defended LLM, Meta-SecAlign, is trained with…"
+      "id": "2611.06553",
+      "title": "Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in Large Language Models",
+      "authors": "Hamid Dashtbani, Alexandra Dmitrienko",
+      "published": "2026-11-04",
+      "summary": "Large language models (LLMs) undergo safety alignment to prevent harmful generations, yet they remain vulnerable to jailbreak attacks. Recent work reveals a deeper structural weakness: safety alignment can be highly sparse, such…"
     },
     {
-      "id": "2610.39155",
-      "title": "REALM: Identifying Minimal Task Assets for LLM Agents",
-      "authors": "Zihou Ren, Byungchul Tak, Long Wang",
-      "published": "2026-10-29",
-      "summary": "Large language model (LLM) agents often receive access to more files, accounts, and services than a task requires. Prompt injection turns this excess access into an opportunity to redirect execution toward unrelated resources.…"
+      "id": "2611.04717",
+      "title": "BrainwashedLLM: Jailbreaking via Automated Adversarial Chain of Thoughts Discovery",
+      "authors": "Masoud Poorghaffar Aghdam, Göktuğ Serdar Yıldırım, Sinem Sav",
+      "published": "2026-11-03",
+      "summary": "Large Reasoning Models (LRMs) achieve strong performance on complex tasks by generating explicit Chain-of-Thought (CoT) reasoning, but the safety implications of this intermediate reasoning surface remain underexplored. We…"
     },
     {
-      "id": "2610.38091",
-      "title": "Jailbreak Connectivity: Towards Diverse, Transferable, and Universal Multimodal Large Language Model Jailbreak",
-      "authors": "Xu Zhang, Ziqing Hu, Shuo Han et al.",
-      "published": "2026-10-28",
-      "summary": "Multimodal large language models (MLLMs) are vulnerable to visual jailbreak attacks that bypass safety safeguards. Existing methods typically optimize isolated adversarial examples, limiting attack diversity, transferability,…"
+      "id": "2611.03431",
+      "title": "IAMRAGBENCH: Benchmarking Authorization Expansions in LLM-Generated AWS IAM Policies under RAG Poisoning",
+      "authors": "Hasan Kaplan, Indika Kumara, Willem-Jan van den Heuvel et al.",
+      "published": "2026-11-02",
+      "summary": "Large language models (LLMs) using retrieval-augmented generation (RAG) can synthesize Amazon Web Services (AWS) Identity and Access Management (IAM) policies from tasks and operational documents. Attacker-controlled context may…"
     }
   ],
   "classics": [
     {
-      "id": "1609.02943",
-      "title": "Stealing Machine Learning Models via Prediction APIs",
-      "authors": "Florian Tramèr, Fan Zhang, Ari Juels et al.",
-      "published": "2016-09-09",
-      "summary": "Machine learning (ML) models may be deemed confidential due to their sensitive training data, commercial value, or use in security applications. Increasingly often, confidential ML models are being deployed with publicly…",
+      "id": "1708.06733",
+      "title": "BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain",
+      "authors": "Tianyu Gu, Brendan Dolan-Gavitt, Siddharth Garg",
+      "published": "2017-08-22",
+      "summary": "Deep learning-based techniques have achieved state-of-the-art performance on a wide variety of recognition and classification tasks. However, these networks are typically computationally expensive to train, requiring weeks of…",
       "domain": "cyber",
-      "year": "2016",
+      "year": "2017",
       "why": {
-        "en": "Stealing a model by querying its prediction API.",
-        "es": "Robar un modelo consultando su API de predicción."
+        "en": "BadNets: planting backdoors in neural networks through training.",
+        "es": "BadNets: implantar puertas traseras en redes neuronales durante el entrenamiento."
       }
     },
     {
-      "id": "2210.03629",
-      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
-      "authors": "Shunyu Yao, Jeffrey Zhao, Dian Yu et al.",
-      "published": "2022-10-06",
-      "summary": "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting…",
+      "id": "2106.09685",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": "Edward J. Hu, Yelong Shen, Phillip Wallis et al.",
+      "published": "2021-06-17",
+      "summary": "An important paradigm of natural language processing consists of large-scale pre-training on general domain data and adaptation to particular tasks or domains. As we pre-train larger models, full fine-tuning, which retrains all…",
       "domain": "ai",
-      "year": "2022",
+      "year": "2021",
       "why": {
-        "en": "ReAct: interleaving reasoning and tool use, the basis of many agents.",
-        "es": "ReAct: combinar razonamiento y uso de herramientas, base de muchos agentes."
+        "en": "LoRA: cheap fine-tuning of large models with low-rank adapters.",
+        "es": "LoRA: ajuste fino barato de modelos grandes con adaptadores de bajo rango."
       }
     }
   ],
-  "updated": "2026-11-02"
+  "updated": "2026-11-09"
 }

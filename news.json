@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-09",
   "curated": [
     {
       "id": "vulnerable-week-2026",
@@ -181,85 +181,85 @@
   ],
   "auto": [
     {
-      "name": "phishdestroy/TgWitness",
-      "url": "https://github.com/phishdestroy/TgWitness",
-      "desc": "Open-source Telegram chat exporter, deleted & edited message logger, and OSINT forensics archiver. Save chat history, capture deleted messages, compare edit versions, and export signed HTML/JSON/CSV e",
-      "stars": 207,
+      "name": "1337isnot1337/DOPPLERGEIST",
+      "url": "https://github.com/1337isnot1337/DOPPLERGEIST",
+      "desc": "Python tool for aircraft Doppler audio geolocation using historical ADS-B flight data (Source-available)",
+      "stars": 514,
       "lang": "Python",
       "topic": "OSINT",
-      "created": "2026-10-29"
+      "created": "2026-11-02"
     },
     {
-      "name": "daniel-madrid-07/weeping-of-the-empire",
-      "url": "https://github.com/daniel-madrid-07/weeping-of-the-empire",
-      "desc": "Zelda: Tears of the Kingdom (TotK) 1.0.0 recompiled to native Windows and Vulkan. Frame cap up to 240, DLSS option, mouse and keyboard. Open source, mostly written by AI agents. You build it from your",
-      "stars": 173,
-      "lang": "C",
-      "topic": "Reverse engineering",
-      "created": "2026-10-30"
-    },
-    {
-      "name": "Blazenumenhir/scam-story-checker",
-      "url": "https://github.com/Blazenumenhir/scam-story-checker",
-      "desc": "Does their story hold up? Paste what a seller, recruiter or landlord told you and check it against public records in thirty seconds, with proof saved for every reason.",
-      "stars": 170,
+      "name": "PatchBuilderAmplify/stolen-crypto-tracer",
+      "url": "https://github.com/PatchBuilderAmplify/stolen-crypto-tracer",
+      "desc": "Paste a wallet or a transaction hash and follow stolen crypto to the exchange that can freeze it. Works across Bitcoin, Ethereum, TRON, BNB Chain and Solana. One-click report.",
+      "stars": 390,
       "lang": "JavaScript",
       "topic": "OSINT",
-      "created": "2026-10-30"
+      "created": "2026-11-03"
     },
     {
-      "name": "Signcluengine/onchain-money-trail-analyzer",
-      "url": "https://github.com/Signcluengine/onchain-money-trail-analyzer",
-      "desc": "Follow stolen crypto hop by hop across Bitcoin, Ethereum, TRON, BNB Chain and Solana. Labels where the money landed, keeps proof for every clue, writes the report for the police.",
-      "stars": 164,
-      "lang": "JavaScript",
+      "name": "Tropicaldrescoop/discord-id-osint-checker",
+      "url": "https://github.com/Tropicaldrescoop/discord-id-osint-checker",
+      "desc": "Free OSINT app for Discord IDs: paste a user, server or invite and see when it was made and who it copies.",
+      "stars": 381,
+      "lang": "HTML",
       "topic": "OSINT",
-      "created": "2026-10-30"
+      "created": "2026-11-06"
     },
     {
-      "name": "glincker/awesome-selfhosted-ai",
-      "url": "https://github.com/glincker/awesome-selfhosted-ai",
-      "desc": "Curated list of self-hosted open-source AI: local LLMs, chat UIs, agents, MCP servers, RAG, speech and image generation. Health-checked weekly, dead projects removed automatically.",
-      "stars": 81,
-      "lang": "JavaScript",
-      "topic": "Local LLM",
-      "created": "2026-10-31"
-    },
-    {
-      "name": "dougchansan/ns2-savekit",
-      "url": "https://github.com/dougchansan/ns2-savekit",
-      "desc": "read/write switch2 save data through a ns2jb session. run lua inside lullaby without a switch 1.",
-      "stars": 60,
-      "lang": "JavaScript",
-      "topic": "Reverse engineering",
-      "created": "2026-10-27"
-    },
-    {
-      "name": "Jumbomuffin777/Frontier-UI",
-      "url": "https://github.com/Jumbomuffin777/Frontier-UI",
-      "desc": "ChatGPT-style generative UI for Open WebUI: photo galleries, live maps with real routes, multi-day trips, budgets, calculators, live weather & stocks, link previews, and one-click Word/Excel/PowerPoin",
-      "stars": 47,
+      "name": "maluramichael/awesome-reverse-engineer-anything",
+      "url": "https://github.com/maluramichael/awesome-reverse-engineer-anything",
+      "desc": "Trending open projects that reverse engineered apps, games, consoles, protocols and devices, plus the tools they used. Star trends refreshed daily.",
+      "stars": 334,
       "lang": "Python",
-      "topic": "Local LLM",
-      "created": "2026-11-01"
-    },
-    {
-      "name": "MacHatter1/ContainerDesk",
-      "url": "https://github.com/MacHatter1/ContainerDesk",
-      "desc": "Native macOS workspace for Apple's container runtime. Browse, run, build and clean up Linux containers with live resource gauges, a built-in terminal and a local MLX chat playground.",
-      "stars": 36,
-      "lang": "Swift",
-      "topic": "Local LLM",
-      "created": "2026-10-29"
-    },
-    {
-      "name": "kralonur/samsung-washer-monitor-esphome",
-      "url": "https://github.com/kralonur/samsung-washer-monitor-esphome",
-      "desc": "Local, receive-only Samsung washing machine monitoring with ESPHome and Home Assistant.",
-      "stars": 33,
-      "lang": "C++",
       "topic": "Reverse engineering",
-      "created": "2026-11-01"
+      "created": "2026-11-02"
+    },
+    {
+      "name": "starman-tech/mousepods",
+      "url": "https://github.com/starman-tech/mousepods",
+      "desc": "Your AirPods are a mouse: AirPods 3 head tracking on Linux, and the first public documentation of Apple RemoteHID (HID over AACP)",
+      "stars": 320,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-11-04"
+    },
+    {
+      "name": "TIGER-AI-Lab/WebsiteBench",
+      "url": "https://github.com/TIGER-AI-Lab/WebsiteBench",
+      "desc": "Can AI agents rebuild websites through browser exploration?",
+      "stars": 154,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-11-04"
+    },
+    {
+      "name": "yorkeccak/globalhackmap",
+      "url": "https://github.com/yorkeccak/globalhackmap",
+      "desc": "Every hack, exploit and breach, live: new vulnerabilities, active exploits and breaches on one globe, with sources and one-click fixes.",
+      "stars": 139,
+      "lang": "TypeScript",
+      "topic": "Cybersecurity",
+      "created": "2026-11-02"
+    },
+    {
+      "name": "MotherSphere/NIKKE-Launcher-Check",
+      "url": "https://github.com/MotherSphere/NIKKE-Launcher-Check",
+      "desc": "Read-only check for traces of the November 2026 NIKKE PC launcher compromise. Windows, Linux (Proton, Steam Deck) and macOS.",
+      "stars": 102,
+      "lang": "Rust",
+      "topic": "Malware analysis",
+      "created": "2026-11-03"
+    },
+    {
+      "name": "AzozzALFiras/iOS-Research",
+      "url": "https://github.com/AzozzALFiras/iOS-Research",
+      "desc": "Static reverse-engineering notes, patch-diffs, and trust-boundary analysis of modern iOS",
+      "stars": 94,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-11-04"
     }
   ]
 }
