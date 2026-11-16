@@ -1,148 +1,193 @@
 {
   "cves": [
     {
-      "id": "CVE-2026-19868",
-      "vendor": "SonicWall",
-      "product": "SonicOS SSLVPN",
-      "name": "SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
-      "desc": "SonicWall SonicOS SSLVPN contains a use of single-factor authentication vulnerability that may allow a user with valid credentials for an alternate authentication method to bypass SAML authentication controls.…",
-      "added": "2026-11-06",
+      "id": "CVE-2026-114713",
+      "vendor": "UnrealIRCd",
+      "product": "UnrealIRCd",
+      "name": "UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
+      "desc": "UnrealIRCd UnrealIRCd contains an improper neutralization of delimiters vulnerability that allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server…",
+      "added": "2026-11-13",
       "ransom": false
     },
     {
-      "id": "CVE-2024-27834",
-      "vendor": "Apple",
+      "id": "CVE-2026-123039",
+      "vendor": "Check Point",
       "product": "Multiple Products",
-      "name": "Apple Multiple Products Improper Authentication Vulnerability",
-      "desc": "Apple iOS, iPadOS, macOS, Safari, tvOS and watchOS 10.5 contain an improper authentication vulnerability which could allow an attacker with arbitrary read and write capability to bypass pointer authentication.",
-      "added": "2026-11-04",
+      "name": "Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
+      "desc": "Check Point Firewall, Multi-Domain Security Management Server, Scalable Platforms, Security Gateway, and Security Management Server contain an incorrect permissions assignment for critical resources vulnerability when…",
+      "added": "2026-11-13",
       "ransom": false
     },
     {
-      "id": "CVE-2026-119977",
-      "vendor": "WordPress",
-      "product": "WordPress Core",
-      "name": "WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability",
-      "desc": "WordPress WordPress Core contains a time-of-check time-of-use (TOCTOU) race condition vulnerability that could allow unauthenticated attackers to execute code on the server during the upgrade window. This is due to…",
-      "added": "2026-11-03",
+      "id": "CVE-2026-124194",
+      "vendor": "Microsoft",
+      "product": "Office",
+      "name": "Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability",
+      "desc": "Microsoft Office Outlook contains a missing user interaction for potentially unsafe action vulnerability that allows an unauthorized attacker to perform spoofing over a network.",
+      "added": "2026-11-10",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-111793",
+      "vendor": "Openwave Messaging Limited",
+      "product": "Webtop Media Transcoder",
+      "name": "Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability",
+      "desc": "Openwave Messaging Limited Webtop Media Transcoder contains an incorrect resource transfer between spheres vulnerability that may allow an authenticated user to process and convert unintended document types if…",
+      "added": "2026-11-10",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-20320",
+      "vendor": "Cisco",
+      "product": "BroadWorks",
+      "name": "Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability",
+      "desc": "Cisco BroadWorks contains an improper restriction of XML external entity reference vulnerability that could allow an unauthenticated, remote attacker to read sensitive configuration information on an affected system.",
+      "added": "2026-11-10",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-111560",
+      "vendor": "Barracuda Networks",
+      "product": "Multiple Products",
+      "name": "Barracuda Networks Multiple Products OS Command Injection Vulnerability",
+      "desc": "Barracuda Networks Email Security Gateway (ESG), Load Balancer, Application Delivery Controller (ADC), Message Archiver (BMA), WAF Control Center (WCC), Web Application Firewall (WAF), and Web Security Gateway (WSG)…",
+      "added": "2026-11-10",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-116606",
+      "vendor": "Barracuda Networks",
+      "product": "Barracuda Email Security Gateway (ESG)",
+      "name": "Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "desc": "Barracuda Networks Email Security Gateway (ESG) contains an authentication bypass using an alternate path or channel that could allow an unauthenticated remote attacker to invoke a configuration-import function and…",
+      "added": "2026-11-10",
+      "ransom": false
+    },
+    {
+      "id": "CVE-2026-125350",
+      "vendor": "Google",
+      "product": "Chromium",
+      "name": "Google Chromium Use-After-Free Vulnerability",
+      "desc": "Google Chromium contains a use-after-free vulnerability in the XML component that could allow a remote attacker to execute arbitrary code inside the sandbox via a specially crafted webpage. This vulnerability could…",
+      "added": "2026-11-10",
       "ransom": false
     }
   ],
   "ai": [
     {
-      "id": "2611.01860",
-      "title": "Advances in Agentic Computer Graphics",
-      "upvotes": 145,
-      "summary": "Computer graphics is built on code. Large language model (LLM) agents can now generate graphics code and iteratively refine it through various feedback. This capability opens the door to a potentially new paradigm of computer…",
-      "date": "2026-11-03"
+      "id": "2611.12806",
+      "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+      "upvotes": 105,
+      "summary": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a…",
+      "date": "2026-11-10"
     },
     {
-      "id": "2611.00859",
-      "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
-      "upvotes": 127,
-      "summary": "Real-time long-video generation requires continuous output with consistent appearance and natural motion. Existing chunk-wise autoregressive methods face challenges in both generation efficiency and long-video quality:…",
-      "date": "2026-11-03"
+      "id": "2611.18359",
+      "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
+      "upvotes": 103,
+      "summary": "The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic harnesses matched or exceeded task-specific policies on many embodied benchmarks. Instead…",
+      "date": "2026-11-16"
     },
     {
-      "id": "2611.05376",
-      "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
-      "upvotes": 120,
-      "summary": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet…",
-      "date": "2026-11-06"
+      "id": "2611.14033",
+      "title": "Few-Step Streaming Video Generation via Condition Shifting",
+      "upvotes": 88,
+      "summary": "Few-step sampling reduces the cost of streaming video generation. Distribution Matching Distillation (DMD) supervises few-step generators with a separate fake-score network, which adds training memory and computation and must…",
+      "date": "2026-11-11"
     },
     {
-      "id": "2611.08449",
-      "title": "VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding",
-      "upvotes": 109,
-      "summary": "Models for physical AI tasks, such as robotics and autonomous driving, need not reason solely in language. They can use visual plans--points, bounding boxes, and trajectories--to represent spatial goals and anticipate motion.…",
-      "date": "2026-11-06"
+      "id": "2611.15777",
+      "title": "SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models",
+      "upvotes": 85,
+      "summary": "System One models promise fast, general-purpose decision-making without lengthy token generation. However, understanding their capability spectrum and decision reliability requires more than aggregate performance on current…",
+      "date": "2026-11-13"
     },
     {
-      "id": "2611.03178",
-      "title": "CoworkOS:Scaling Agent Coworkers for Real-world Automation",
-      "upvotes": 100,
-      "summary": "Rapid advances in cowork agents are shifting human-AI collaboration toward real-world automation, delivering software, designs, and other artifacts. However, such productivity work demands both high-quality delivery on complex…",
-      "date": "2026-11-03"
+      "id": "2611.15789",
+      "title": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender",
+      "upvotes": 81,
+      "summary": "Controllable real-world video generation models can condition on a rendered graybox proxy video, which fixes layout, motion and camera. Coding agents can build such videos by reconstructing a 4D scene in Blender, yet no…",
+      "date": "2026-11-16"
     },
     {
-      "id": "2611.08373",
-      "title": "SLA: Scaling Spatial-Language-Action Model via Continual Pre-training",
-      "upvotes": 96,
-      "summary": "Reliable robotic manipulation requires both semantic understanding and precise control in three-dimensional space. However, vision-language-action (VLA) foundations largely inherit visual representations from 2D vision-language…",
-      "date": "2026-11-06"
+      "id": "2611.06043",
+      "title": "Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription",
+      "upvotes": 76,
+      "summary": "Streaming speech recognition is increasingly consumed by machines, such as translators and voice agents, that act on each token as it appears. A token that is later revised costs wasted work or a wrong action. In this work, we…",
+      "date": "2026-11-09"
     }
   ],
   "cyber": [
     {
-      "id": "2611.06257",
-      "title": "Analysis of Local Open-Weight LLM Agents on Vulnerability-Reproduction Tasks",
-      "authors": "Jorge García-Carrasco, Javier Sanchis, Álvaro Navarro et al.",
-      "published": "2026-11-04",
-      "summary": "Open-weight language models that fit on a single consumer GPU are becoming capable on a growing range of tasks, and they matter because they can run locally without sending the code to a hosted service. Vulnerability…"
+      "id": "2611.18133",
+      "title": "Forget the Lineage: Forward-Secure, Lineage-Complete Cryptographic Erasure for LLM-Agent Memory",
+      "authors": "Yulliwas Ameur, Billal Mokhtari, Samia Bouzefrane",
+      "published": "2026-11-13",
+      "summary": "Large language model (LLM) agents keep a long-term memory that the model itself writes: summaries, extracted facts and embeddings derived from what users said. Deleting a message is therefore not enough: its derivatives, storage…"
     },
     {
-      "id": "2611.09734",
-      "title": "GuardrailAgent: An Agentic Framework for Jailbreak Defense",
-      "authors": "Tianze Chang, Junjie Chu, Yixin Wu et al.",
-      "published": "2026-11-06",
-      "summary": "Despite undergoing safety training to align with human values, large language models (LLMs) remain vulnerable to jailbreak attacks that circumvent built-in safeguards and elicit malicious behaviors given by the adversary.…"
+      "id": "2611.17115",
+      "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
+      "authors": "Zimo Xu, Wenzhuo Liu, Hideki Nakayama",
+      "published": "2026-11-12",
+      "summary": "Enforcement defenses against prompt injection, such as CaMeL, Progent, IPIGuard and DRIFT, ask the agent's own model to write a security artifact (a program, a privilege policy, a dependency graph or a constraint list) that code…"
     },
     {
-      "id": "2611.07530",
-      "title": "JailBound: FOL-Guided Jailbreak Evaluation for Exploring LLM Behavioral Boundaries",
-      "authors": "Fazong Wu, Xin Wang, Ming Yang et al.",
-      "published": "2026-11-05",
-      "summary": "As large language models (LLMs) are increasingly deployed as general-purpose conversational assistants, they must handle diverse user requests while reliably refusing harmful ones. Jailbreak attacks craft adversarial…"
+      "id": "2611.17395",
+      "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
+      "authors": "Zhaojia Wang, Jiucui Lu, Zheng Li",
+      "published": "2026-11-12",
+      "summary": "Recent advances in weight-space programming (WSP) have demonstrated that large language models (LLMs) can directly inspect and modify neural network weights without conventional gradient-based training. While this capability…"
     },
     {
-      "id": "2611.06553",
-      "title": "Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in Large Language Models",
-      "authors": "Hamid Dashtbani, Alexandra Dmitrienko",
-      "published": "2026-11-04",
-      "summary": "Large language models (LLMs) undergo safety alignment to prevent harmful generations, yet they remain vulnerable to jailbreak attacks. Recent work reveals a deeper structural weakness: safety alignment can be highly sparse, such…"
+      "id": "2611.14581",
+      "title": "When Evaluators of AI Agents Disagree: An Empirical Study of Native Scoring, LLM Judges, and Commit-Boundary Checks on tau2-bench",
+      "authors": "Sungbin Im",
+      "published": "2026-11-10",
+      "summary": "Agentic workflows, in which a large language model (LLM) calls tools to read and write data, are evaluated in two ways. Benchmarks compare the final state against a gold answer. Deployed services have none; an LLM judge reads…"
     },
     {
-      "id": "2611.04717",
-      "title": "BrainwashedLLM: Jailbreaking via Automated Adversarial Chain of Thoughts Discovery",
-      "authors": "Masoud Poorghaffar Aghdam, Göktuğ Serdar Yıldırım, Sinem Sav",
-      "published": "2026-11-03",
-      "summary": "Large Reasoning Models (LRMs) achieve strong performance on complex tasks by generating explicit Chain-of-Thought (CoT) reasoning, but the safety implications of this intermediate reasoning surface remain underexplored. We…"
+      "id": "2611.13577",
+      "title": "TERM: Target-Free Jailbreak Defense via Entropy-Guided Residual Modulation",
+      "authors": "Yunkai Dang, Wanyu Zhang, Meiyi Zhu et al.",
+      "published": "2026-11-10",
+      "summary": "Large language models (LLMs) have shown strong capabilities across diverse applications, making both safety and utility essential for reliable deployment. Jailbreak attacks use diverse forms of adversarial prompting to bypass…"
     },
     {
-      "id": "2611.03431",
-      "title": "IAMRAGBENCH: Benchmarking Authorization Expansions in LLM-Generated AWS IAM Policies under RAG Poisoning",
-      "authors": "Hasan Kaplan, Indika Kumara, Willem-Jan van den Heuvel et al.",
-      "published": "2026-11-02",
-      "summary": "Large language models (LLMs) using retrieval-augmented generation (RAG) can synthesize Amazon Web Services (AWS) Identity and Access Management (IAM) policies from tasks and operational documents. Attacker-controlled context may…"
+      "id": "2611.17818",
+      "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
+      "authors": "Wenzhuo Xu, Zonghao Ying, Deyue Zhang et al.",
+      "published": "2026-11-13",
+      "summary": "Jailbreak attacks can circumvent the safety mechanisms of Large Language Models (LLMs) and lead to the generation of harmful or policy-violating content. We first examine eight jailbreak methods against an LLM-based filter and…"
     }
   ],
   "classics": [
     {
-      "id": "1708.06733",
-      "title": "BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain",
-      "authors": "Tianyu Gu, Brendan Dolan-Gavitt, Siddharth Garg",
-      "published": "2017-08-22",
-      "summary": "Deep learning-based techniques have achieved state-of-the-art performance on a wide variety of recognition and classification tasks. However, these networks are typically computationally expensive to train, requiring weeks of…",
+      "id": "2302.10149",
+      "title": "Poisoning Web-Scale Training Datasets is Practical",
+      "authors": "Nicholas Carlini, Matthew Jagielski, Christopher A. Choquette-Choo et al.",
+      "published": "2023-02-20",
+      "summary": "Deep learning models are often trained on distributed, web-scale datasets crawled from the internet. In this paper, we introduce two new dataset poisoning attacks that intentionally introduce malicious examples to a model's…",
       "domain": "cyber",
-      "year": "2017",
+      "year": "2023",
       "why": {
-        "en": "BadNets: planting backdoors in neural networks through training.",
-        "es": "BadNets: implantar puertas traseras en redes neuronales durante el entrenamiento."
+        "en": "Poisoning web-scale training datasets is practical, not just theoretical.",
+        "es": "Envenenar datasets de entrenamiento a escala web es práctico, no solo teórico."
       }
     },
     {
-      "id": "2106.09685",
-      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
-      "authors": "Edward J. Hu, Yelong Shen, Phillip Wallis et al.",
-      "published": "2021-06-17",
-      "summary": "An important paradigm of natural language processing consists of large-scale pre-training on general domain data and adaptation to particular tasks or domains. As we pre-train larger models, full fine-tuning, which retrains all…",
+      "id": "2004.10934",
+      "title": "YOLOv4: Optimal Speed and Accuracy of Object Detection",
+      "authors": "Alexey Bochkovskiy, Chien-Yao Wang, Hong-Yuan Mark Liao",
+      "published": "2020-04-23",
+      "summary": "There are a huge number of features which are said to improve Convolutional Neural Network (CNN) accuracy. Practical testing of combinations of such features on large datasets, and theoretical justification of the result, is…",
       "domain": "ai",
-      "year": "2021",
+      "year": "2020",
       "why": {
-        "en": "LoRA: cheap fine-tuning of large models with low-rank adapters.",
-        "es": "LoRA: ajuste fino barato de modelos grandes con adaptadores de bajo rango."
+        "en": "YOLOv4, the detector used in my computer-vision project.",
+        "es": "YOLOv4, el detector usado en mi proyecto de visión artificial."
       }
     }
   ],
-  "updated": "2026-11-09"
+  "updated": "2026-11-16"
 }
