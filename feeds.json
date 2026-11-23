@@ -1,193 +1,193 @@
 {
   "cves": [
     {
-      "id": "CVE-2026-114713",
-      "vendor": "UnrealIRCd",
-      "product": "UnrealIRCd",
-      "name": "UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
-      "desc": "UnrealIRCd UnrealIRCd contains an improper neutralization of delimiters vulnerability that allows any user on a network with two or more linked servers to inject server-to-server commands that are executed with server…",
-      "added": "2026-11-13",
+      "id": "CVE-2026-129448",
+      "vendor": "Apache",
+      "product": "Roller",
+      "name": "Apache Roller Deserialization of Untrusted Data Vulnerability",
+      "desc": "Apache Roller contains a deserialization of untrusted data vulnerability that allows an unauthenticated remote attacker to execute arbitrary code via the XML-RPC endpoint, which accepts and deserializes vendor…",
+      "added": "2026-11-20",
       "ransom": false
     },
     {
-      "id": "CVE-2026-123039",
-      "vendor": "Check Point",
-      "product": "Multiple Products",
-      "name": "Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
-      "desc": "Check Point Firewall, Multi-Domain Security Management Server, Scalable Platforms, Security Gateway, and Security Management Server contain an incorrect permissions assignment for critical resources vulnerability when…",
-      "added": "2026-11-13",
+      "id": "CVE-2026-123890",
+      "vendor": "Broadcom",
+      "product": "VMware vCenter",
+      "name": "VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "desc": "Broadcom VMware vCenter contains an authentication bypass using an alternate path or channel vulnerability in the VMware Directory Service that allows an unauthenticated attacker with network access to vCenter to…",
+      "added": "2026-11-20",
       "ransom": false
     },
     {
-      "id": "CVE-2026-124194",
-      "vendor": "Microsoft",
-      "product": "Office",
-      "name": "Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability",
-      "desc": "Microsoft Office Outlook contains a missing user interaction for potentially unsafe action vulnerability that allows an unauthorized attacker to perform spoofing over a network.",
-      "added": "2026-11-10",
+      "id": "CVE-2025-42884",
+      "vendor": "SAP",
+      "product": "NetWeaver",
+      "name": "SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
+      "desc": "SAP NetWeaver Enterprise Portal contains an improper neutralization of special elements in data query logic vulnerability that allows an unauthenticated attacker to disclose or modify server information via injected…",
+      "added": "2026-11-20",
       "ransom": false
     },
     {
-      "id": "CVE-2026-111793",
-      "vendor": "Openwave Messaging Limited",
-      "product": "Webtop Media Transcoder",
-      "name": "Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability",
-      "desc": "Openwave Messaging Limited Webtop Media Transcoder contains an incorrect resource transfer between spheres vulnerability that may allow an authenticated user to process and convert unintended document types if…",
-      "added": "2026-11-10",
-      "ransom": false
-    },
-    {
-      "id": "CVE-2026-20320",
+      "id": "CVE-2026-76466",
       "vendor": "Cisco",
-      "product": "BroadWorks",
-      "name": "Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability",
-      "desc": "Cisco BroadWorks contains an improper restriction of XML external entity reference vulnerability that could allow an unauthenticated, remote attacker to read sensitive configuration information on an affected system.",
-      "added": "2026-11-10",
+      "product": "Expressway Series",
+      "name": "Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
+      "desc": "Cisco Expressway Series contains a use of hard-coded credentials vulnerability that allows an unauthenticated, remote attacker with persistent cookies and network access to execute commands as root on a clustered…",
+      "added": "2026-11-20",
       "ransom": false
     },
     {
-      "id": "CVE-2026-111560",
-      "vendor": "Barracuda Networks",
-      "product": "Multiple Products",
-      "name": "Barracuda Networks Multiple Products OS Command Injection Vulnerability",
-      "desc": "Barracuda Networks Email Security Gateway (ESG), Load Balancer, Application Delivery Controller (ADC), Message Archiver (BMA), WAF Control Center (WCC), Web Application Firewall (WAF), and Web Security Gateway (WSG)…",
-      "added": "2026-11-10",
+      "id": "CVE-2024-10441",
+      "vendor": "Synology",
+      "product": "DiskStation Manager (DSM)",
+      "name": "Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+      "desc": "Synology DSM contains an improper encoding or escaping of output vulnerability in the system plugin daemon in Synology BeeStation OS (BSM) that could allow a remote attacker to execute arbitrary code via unspecified…",
+      "added": "2026-11-18",
+      "ransom": true
+    },
+    {
+      "id": "CVE-2026-40217",
+      "vendor": "BerriAI",
+      "product": "LiteLLM",
+      "name": "BerriAI LiteLLM Unprotected Alternate Channel Vulnerability",
+      "desc": "BerriAI LiteLLM contains an unprotected alternate channel vulnerability that could allow remote attackers to execute arbitrary code via bytecode rewriting at the /guardrails/test_custom_code URI.",
+      "added": "2026-11-18",
       "ransom": false
     },
     {
-      "id": "CVE-2026-116606",
-      "vendor": "Barracuda Networks",
-      "product": "Barracuda Email Security Gateway (ESG)",
-      "name": "Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability",
-      "desc": "Barracuda Networks Email Security Gateway (ESG) contains an authentication bypass using an alternate path or channel that could allow an unauthenticated remote attacker to invoke a configuration-import function and…",
-      "added": "2026-11-10",
+      "id": "CVE-2026-90817",
+      "vendor": "Vanderbilt University",
+      "product": "Research Electronic Data Capture (REDCap)",
+      "name": "Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
+      "desc": "Vanderbilt University Research Electronic Data Capture (REDCap) contains a code injection vulnerability which could allow an unauthenticated attacker to execute arbitrary code on the server. An attacker could exploit…",
+      "added": "2026-11-18",
       "ransom": false
     },
     {
-      "id": "CVE-2026-125350",
-      "vendor": "Google",
-      "product": "Chromium",
-      "name": "Google Chromium Use-After-Free Vulnerability",
-      "desc": "Google Chromium contains a use-after-free vulnerability in the XML component that could allow a remote attacker to execute arbitrary code inside the sandbox via a specially crafted webpage. This vulnerability could…",
-      "added": "2026-11-10",
+      "id": "CVE-2026-90436",
+      "vendor": "Apache",
+      "product": "Axis",
+      "name": "Apache Axis Unsafe Reflection Vulnerability",
+      "desc": "Apache Axis contains an unsafe reflection vulnerability that could allow an unauthenticated remote attacker to execute arbitrary code via a crafted SOAP fault message that causes Axis to load and instantiate an…",
+      "added": "2026-11-18",
       "ransom": false
     }
   ],
   "ai": [
     {
-      "id": "2611.12806",
-      "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
-      "upvotes": 105,
-      "summary": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a…",
-      "date": "2026-11-10"
+      "id": "2611.22115",
+      "title": "TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks",
+      "upvotes": 166,
+      "summary": "We present Xing 4, a series of large language models that extends the TeleChat lineage through coordinated advances in model architecture and training infrastructure on Ascend. This report describes the design principles and…",
+      "date": "2026-11-18"
+    },
+    {
+      "id": "2611.18397",
+      "title": "Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent",
+      "upvotes": 156,
+      "summary": "We introduce Gamer, a generalist agent framework built for long-horizon tasks in complex interactive environments. Its end-to-end architecture combines perception, memory management, and multi-step reasoning. A shared training…",
+      "date": "2026-11-16"
+    },
+    {
+      "id": "2611.24738",
+      "title": "Jeveration: System One Models Now Generate",
+      "upvotes": 150,
+      "summary": "System One models such as Jev return decisions through fast, parallel prediction. In this paper, we introduce Jeveration, showing that the same decision paradigm can also generate high-quality images in a single forward pass.…",
+      "date": "2026-11-19"
     },
     {
       "id": "2611.18359",
       "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
-      "upvotes": 103,
+      "upvotes": 141,
       "summary": "The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic harnesses matched or exceeded task-specific policies on many embodied benchmarks. Instead…",
       "date": "2026-11-16"
     },
     {
-      "id": "2611.14033",
-      "title": "Few-Step Streaming Video Generation via Condition Shifting",
-      "upvotes": 88,
-      "summary": "Few-step sampling reduces the cost of streaming video generation. Distribution Matching Distillation (DMD) supervises few-step generators with a separate fake-score network, which adds training memory and computation and must…",
-      "date": "2026-11-11"
+      "id": "2611.21218",
+      "title": "InclusionMed: Benchmarking AI for Inclusive Healthcare",
+      "upvotes": 104,
+      "summary": "Advancing medical AI for inclusive healthcare requires evaluation across diverse healthcare roles, tasks, and care settings, but benchmark coverage remains uneven. We introduce InclusionMed, an open medical AI evaluation…",
+      "date": "2026-11-17"
     },
     {
-      "id": "2611.15777",
-      "title": "SO-Arena: Benchmarking the Capability Spectrum and Reliability of System One Models",
-      "upvotes": 85,
-      "summary": "System One models promise fast, general-purpose decision-making without lengthy token generation. However, understanding their capability spectrum and decision reliability requires more than aggregate performance on current…",
-      "date": "2026-11-13"
-    },
-    {
-      "id": "2611.15789",
-      "title": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender",
-      "upvotes": 81,
-      "summary": "Controllable real-world video generation models can condition on a rendered graybox proxy video, which fixes layout, motion and camera. Coding agents can build such videos by reconstructing a 4D scene in Blender, yet no…",
-      "date": "2026-11-16"
-    },
-    {
-      "id": "2611.06043",
-      "title": "Confucius4-R2T2: A Stable-Prefix Streaming ASR Model for Real Real-Time Transcription",
-      "upvotes": 76,
-      "summary": "Streaming speech recognition is increasingly consumed by machines, such as translators and voice agents, that act on each token as it appears. A token that is later revised costs wasted work or a wrong action. In this work, we…",
-      "date": "2026-11-09"
+      "id": "2611.21072",
+      "title": "Sage S2.1 Flash Technical Report",
+      "upvotes": 102,
+      "summary": "We introduce Sage S2.1 Flash, a 320-billion-parameter general-purpose mixture-of-experts model designed to reason over scientific evidence and act in interactive environments. Sage Sci-Perception uses dedicated encoders for…",
+      "date": "2026-11-17"
     }
   ],
   "cyber": [
     {
-      "id": "2611.18133",
-      "title": "Forget the Lineage: Forward-Secure, Lineage-Complete Cryptographic Erasure for LLM-Agent Memory",
-      "authors": "Yulliwas Ameur, Billal Mokhtari, Samia Bouzefrane",
-      "published": "2026-11-13",
-      "summary": "Large language model (LLM) agents keep a long-term memory that the model itself writes: summaries, extracted facts and embeddings derived from what users said. Deleting a message is therefore not enough: its derivatives, storage…"
+      "id": "2611.26936",
+      "title": "SecretAgent: A Multi-Agent Framework for Privacy Protection against Vision Language Models",
+      "authors": "Minda Zhao, Yue Zhang, Mengyu Wang",
+      "published": "2026-11-20",
+      "summary": "Vision-language models (VLMs) can infer private information from shared images, including locations, personally identifiable information (PII), and personal attributes such as age and sex, even from medical images. Adversarial…"
     },
     {
-      "id": "2611.17115",
-      "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
-      "authors": "Zimo Xu, Wenzhuo Liu, Hideki Nakayama",
-      "published": "2026-11-12",
-      "summary": "Enforcement defenses against prompt injection, such as CaMeL, Progent, IPIGuard and DRIFT, ask the agent's own model to write a security artifact (a program, a privilege policy, a dependency graph or a constraint list) that code…"
+      "id": "2611.25470",
+      "title": "ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents",
+      "authors": "Zihao Dan, Jinyu Zhang, Jinzhao Lian et al.",
+      "published": "2026-11-19",
+      "summary": "Large language models (LLMs) are increasingly deployed as agents that translate user requests into sequences of local tool invocations. While prior cache-based side-channel attacks target the locally deployed models, they…"
     },
     {
-      "id": "2611.17395",
-      "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
-      "authors": "Zhaojia Wang, Jiucui Lu, Zheng Li",
-      "published": "2026-11-12",
-      "summary": "Recent advances in weight-space programming (WSP) have demonstrated that large language models (LLMs) can directly inspect and modify neural network weights without conventional gradient-based training. While this capability…"
+      "id": "2611.24362",
+      "title": "PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
+      "authors": "Lipeng He, Yihan Wang, Jiawen Zhang et al.",
+      "published": "2026-11-18",
+      "summary": "Large language model (LLM) agents routinely interact with untrusted external data, exposing them to indirect prompt injection (IPI) attacks that hijack agents into executing attacker-chosen tasks. To uncover these…"
     },
     {
-      "id": "2611.14581",
-      "title": "When Evaluators of AI Agents Disagree: An Empirical Study of Native Scoring, LLM Judges, and Commit-Boundary Checks on tau2-bench",
-      "authors": "Sungbin Im",
-      "published": "2026-11-10",
-      "summary": "Agentic workflows, in which a large language model (LLM) calls tools to read and write data, are evaluated in two ways. Benchmarks compare the final state against a gold answer. Deployed services have none; an LLM judge reads…"
+      "id": "2611.27920",
+      "title": "Autonomous Parameter Surgery: How LLMs Implant Selective Backdoors into Language Models",
+      "authors": "Xuyang Liu, Zhiwei Xu, Zirui Li et al.",
+      "published": "2026-11-20",
+      "summary": "Neural network weights are usually treated as opaque artifacts of gradient descent. Recent work on weight space programming, however, suggests that large language models can inspect and rewrite another network's parameters…"
     },
     {
-      "id": "2611.13577",
-      "title": "TERM: Target-Free Jailbreak Defense via Entropy-Guided Residual Modulation",
-      "authors": "Yunkai Dang, Wanyu Zhang, Meiyi Zhu et al.",
-      "published": "2026-11-10",
-      "summary": "Large language models (LLMs) have shown strong capabilities across diverse applications, making both safety and utility essential for reliable deployment. Jailbreak attacks use diverse forms of adversarial prompting to bypass…"
+      "id": "2611.25339",
+      "title": "From FIPS to FPGA with LLM Agents: Measuring What Tests and Reviews Miss in Post-Quantum Cryptographic Hardware",
+      "authors": "Jungmin Park, Eunha Kim, Wooseop Kim et al.",
+      "published": "2026-11-19",
+      "summary": "As LLM agents increasingly generate RTL alongside the tests and reviews that validate it, self-generated evidence is a weak foundation for trustworthy hardware. We present our seven-stage verification-gated workflow, evolved…"
     },
     {
-      "id": "2611.17818",
-      "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
-      "authors": "Wenzhuo Xu, Zonghao Ying, Deyue Zhang et al.",
-      "published": "2026-11-13",
-      "summary": "Jailbreak attacks can circumvent the safety mechanisms of Large Language Models (LLMs) and lead to the generation of harmful or policy-violating content. We first examine eight jailbreak methods against an LLM-based filter and…"
+      "id": "2611.24313",
+      "title": "AutoPI: Taxonomy-Guided Adaptive Red Teaming for Prompt Injection in LLM Agents",
+      "authors": "Stavros Damianakis, Konstantinos Psounis",
+      "published": "2026-11-18",
+      "summary": "Prompt injection is the dominant unsolved security risk for LLM agents, and the community now agrees that robustness must be measured against adaptive attackers rather than fixed benchmark injections. Many adaptive red teamers…"
     }
   ],
   "classics": [
     {
-      "id": "2302.10149",
-      "title": "Poisoning Web-Scale Training Datasets is Practical",
-      "authors": "Nicholas Carlini, Matthew Jagielski, Christopher A. Choquette-Choo et al.",
-      "published": "2023-02-20",
-      "summary": "Deep learning models are often trained on distributed, web-scale datasets crawled from the internet. In this paper, we introduce two new dataset poisoning attacks that intentionally introduce malicious examples to a model's…",
+      "id": "1801.01203",
+      "title": "Spectre Attacks: Exploiting Speculative Execution",
+      "authors": "Paul Kocher, Daniel Genkin, Daniel Gruss et al.",
+      "published": "2018-01-03",
+      "summary": "Modern processors use branch prediction and speculative execution to maximize performance. For example, if the destination of a branch depends on a memory value that is in the process of being read, CPUs will try guess the…",
       "domain": "cyber",
-      "year": "2023",
+      "year": "2018",
       "why": {
-        "en": "Poisoning web-scale training datasets is practical, not just theoretical.",
-        "es": "Envenenar datasets de entrenamiento a escala web es práctico, no solo teórico."
+        "en": "Speculative execution turned into a practical way to read memory across security boundaries.",
+        "es": "La ejecución especulativa convertida en una forma práctica de leer memoria saltándose los límites de seguridad."
       }
     },
     {
-      "id": "2004.10934",
-      "title": "YOLOv4: Optimal Speed and Accuracy of Object Detection",
-      "authors": "Alexey Bochkovskiy, Chien-Yao Wang, Hong-Yuan Mark Liao",
-      "published": "2020-04-23",
-      "summary": "There are a huge number of features which are said to improve Convolutional Neural Network (CNN) accuracy. Practical testing of combinations of such features on large datasets, and theoretical justification of the result, is…",
+      "id": "1706.03762",
+      "title": "Attention Is All You Need",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar et al.",
+      "published": "2017-06-12",
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention…",
       "domain": "ai",
-      "year": "2020",
+      "year": "2017",
       "why": {
-        "en": "YOLOv4, the detector used in my computer-vision project.",
-        "es": "YOLOv4, el detector usado en mi proyecto de visión artificial."
+        "en": "The Transformer: the architecture behind today's language models.",
+        "es": "El Transformer: la arquitectura detrás de los modelos de lenguaje actuales."
       }
     }
   ],
-  "updated": "2026-11-16"
+  "updated": "2026-11-23"
 }

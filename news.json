@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "curated": [
     {
       "id": "vulnerable-week-2026",
@@ -181,85 +181,85 @@
   ],
   "auto": [
     {
-      "name": "simplexai-labs/linger",
-      "url": "https://github.com/simplexai-labs/linger",
-      "desc": "Linger is An Open-Source Personal Agent That Runs Fully on Your PC.  We aim to break Big Tech’s grip on AI by bringing powerful local AI to everyday computers through efficient model–harness co-design",
-      "stars": 381,
-      "lang": "TypeScript",
+      "name": "iamajmeena/neonclipping",
+      "url": "https://github.com/iamajmeena/neonclipping",
+      "desc": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
+      "stars": 2278,
+      "lang": "Python",
       "topic": "Local LLM",
-      "created": "2026-11-10"
+      "created": "2026-11-19"
     },
     {
-      "name": "StormBrawlerSack/legwork-osint-ai-investigator",
-      "url": "https://github.com/StormBrawlerSack/legwork-osint-ai-investigator",
-      "desc": "AI OSINT investigator for Windows: ask a question in plain words and get an answer built from public sources, with a source on every sentence.",
-      "stars": 335,
-      "lang": "JavaScript",
-      "topic": "OSINT",
-      "created": "2026-11-13"
-    },
-    {
-      "name": "abedegno/borland-reborn",
-      "url": "https://github.com/abedegno/borland-reborn",
-      "desc": "Borland's DOS compilers, recovered as source that rebuilds the original binaries byte for byte. First up: Borland C++ 2.0's BCC.EXE.",
-      "stars": 215,
-      "lang": "C",
-      "topic": "Reverse engineering",
-      "created": "2026-11-12"
-    },
-    {
-      "name": "memoryswordsmanlaud/fieldkit-awesome-osint-list",
-      "url": "https://github.com/memoryswordsmanlaud/fieldkit-awesome-osint-list",
-      "desc": "A curated list of 22 OSINT tools for Windows — one for every kind of clue: nickname, photo, domain, wallet, company.",
-      "stars": 206,
-      "lang": "",
-      "topic": "OSINT",
-      "created": "2026-11-13"
-    },
-    {
-      "name": "solderpupabridge/mutuals-osint-social-connections",
-      "url": "https://github.com/solderpupabridge/mutuals-osint-social-connections",
-      "desc": "OSINT tool for Windows: enter two public accounts and see everyone who links them.",
-      "stars": 186,
-      "lang": "JavaScript",
-      "topic": "OSINT",
-      "created": "2026-11-13"
-    },
-    {
-      "name": "pktq/lasik",
-      "url": "https://github.com/pktq/lasik",
-      "desc": "BLA blinds your agent. LASIK gives it its sight back. Static de-blinding CLI + MCP server that undoes BLA (Blind LLM Agents) hardening so coding agents and REA can read the real code again. Never exec",
-      "stars": 133,
-      "lang": "TypeScript",
-      "topic": "Reverse engineering",
-      "created": "2026-11-09"
-    },
-    {
-      "name": "Timaga/noda-local-ai-notes",
-      "url": "https://github.com/Timaga/noda-local-ai-notes",
-      "desc": "Local-first AI note-taking app for Windows: Markdown notes, a personal knowledge base, knowledge graph, semantic search and chat with cited sources.",
-      "stars": 104,
-      "lang": "JavaScript",
-      "topic": "RAG",
-      "created": "2026-11-13"
-    },
-    {
-      "name": "Manzur4536/kaspersky-total-security-desktop",
-      "url": "https://github.com/Manzur4536/kaspersky-total-security-desktop",
-      "desc": "Kaspersky Total Security: Comprehensive Antivirus and Device Protection for Windows",
-      "stars": 102,
+      "name": "Ahmet-Dedeler/awesome-gta6-reverse-engineering",
+      "url": "https://github.com/Ahmet-Dedeler/awesome-gta6-reverse-engineering",
+      "desc": "Curated list of open-source GTA VI (GTA 6) reverse engineering tools, RAGE 9 / RPF9 archive explorers, TTPF texture & ADAT/AWC audio decoders, format docs, and Xbox Series / PS5 translation layers.",
+      "stars": 334,
       "lang": "HTML",
-      "topic": "Malware analysis",
-      "created": "2026-11-10"
+      "topic": "Reverse engineering",
+      "created": "2026-11-21"
     },
     {
-      "name": "manuelgscom/inside-llm",
-      "url": "https://github.com/manuelgscom/inside-llm",
-      "desc": "See inside any GGUF: where two quantizations part ways, token by token, and what each sampler cuts. Live in your browser, powered by llama.cpp (CUDA or Vulkan).",
-      "stars": 73,
-      "lang": "TypeScript",
+      "name": "sous-labs/songe",
+      "url": "https://github.com/sous-labs/songe",
+      "desc": "A training engine for your local model, using your idle compute",
+      "stars": 288,
+      "lang": "Python",
       "topic": "Local LLM",
-      "created": "2026-11-15"
+      "created": "2026-11-20"
+    },
+    {
+      "name": "thejarasal780-ship-it/ollama-local-ai-offline",
+      "url": "https://github.com/thejarasal780-ship-it/ollama-local-ai-offline",
+      "desc": "Ollama Local AI Offline: Run Local LLMs Fully Offline on Desktop",
+      "stars": 144,
+      "lang": "Python",
+      "topic": "Local LLM",
+      "created": "2026-11-17"
+    },
+    {
+      "name": "kenzz-devv/open-webui-talora-ai-workspace",
+      "url": "https://github.com/kenzz-devv/open-webui-talora-ai-workspace",
+      "desc": "Streamlined workspace for organizing and running AI workflows in one place.",
+      "stars": 143,
+      "lang": "TypeScript",
+      "topic": "RAG",
+      "created": "2026-11-18"
+    },
+    {
+      "name": "memoryswordsmanlaud/watson-username-footprint-finder",
+      "url": "https://github.com/memoryswordsmanlaud/watson-username-footprint-finder",
+      "desc": "Type one nickname, see every public trace it left: forums, repos, boards, archives. Free, from watsonfind.icu.",
+      "stars": 117,
+      "lang": "TypeScript",
+      "topic": "OSINT",
+      "created": "2026-11-16"
+    },
+    {
+      "name": "duwqijlk/browser-capture",
+      "url": "https://github.com/duwqijlk/browser-capture",
+      "desc": "Zero-dependency browser CDP + stealth Hook capture & reverse-engineering AI Skill / CLI for BitBrowser, AdsPower, and Chrome/VisibleV8",
+      "stars": 111,
+      "lang": "JavaScript",
+      "topic": "Reverse engineering",
+      "created": "2026-11-23"
+    },
+    {
+      "name": "yzsind/mydb",
+      "url": "https://github.com/yzsind/mydb",
+      "desc": "A high-performance MySQL-compatible database for HTAP and AI agents  Mixed transactional and analytical workloads, with native AI retrieval.",
+      "stars": 99,
+      "lang": "Rust",
+      "topic": "RAG",
+      "created": "2026-11-16"
+    },
+    {
+      "name": "benjiyaya/ComfyUI-ReaVideoBreakdown",
+      "url": "https://github.com/benjiyaya/ComfyUI-ReaVideoBreakdown",
+      "desc": "Shot-by-shot video reverse engineering for ComfyUI — rea-video style breakdowns (VIDEO.md) using the native VLM text encoder",
+      "stars": 98,
+      "lang": "Python",
+      "topic": "Reverse engineering",
+      "created": "2026-11-22"
     }
   ]
 }
